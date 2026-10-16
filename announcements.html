@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construction Announcements | MutiaraConnect</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="MutiaraConnect home">
+      <span class="brand-mark">MC</span>
+      <span><strong>MutiaraConnect</strong><small>LRT Construction Information &amp; Community Feedback Portal</small></span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="index.html">Home</a><a class="active" href="announcements.html">Announcements</a><a href="map.html">Impact Map</a><a href="feedback.html">Submit Feedback</a><a href="tracking.html">Track Feedback</a><a href="admin.html">Admin</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-heading">
+      <p class="eyebrow">PUBLIC INFORMATION</p>
+      <h1>Construction announcements</h1>
+      <p>Review sample notices about construction activities, road access and possible community impacts.</p>
+      <div class="demo-banner"><span>ⓘ</span><div><strong>Demonstration content</strong><p>The notices below are fictional examples created for the CMT322 prototype. They are not official Penang LRT announcements.</p></div></div>
+    </section>
+
+    <section class="filter-panel" aria-label="Filter announcements">
+      <div class="filter-title"><div><h2>Find an announcement</h2><p>Search by keyword, area or notice type.</p></div><button class="button button-quiet" id="reset-filters" type="button">Reset filters</button></div>
+      <div class="filter-controls">
+        <label class="field search-field"><span>Search</span><input type="search" id="search-input" placeholder="e.g. road access, pedestrian..." /></label>
+        <label class="field"><span>Area</span><select id="area-filter"><option value="">All areas</option><option value="george-town">George Town (sample)</option><option value="gelugor">Gelugor (sample)</option><option value="bayan-lepas">Bayan Lepas (sample)</option></select></label>
+        <label class="field"><span>Notice type</span><select id="type-filter"><option value="">All types</option><option value="Road access">Road access</option><option value="Pedestrian access">Pedestrian access</option><option value="Construction schedule">Construction schedule</option><option value="General update">General update</option></select></label>
+      </div>
+      <p class="results-count" id="results-count" aria-live="polite"></p>
+    </section>
+
+    <section class="announcement-list" id="announcement-list" aria-live="polite"></section>
+    <div class="empty-state hidden" id="empty-state"><span>⌕</span><h2>No announcements found</h2><p>Try changing your search terms or filters.</p></div>
+    <div class="back-row"><a class="text-link" href="index.html">← Back to home</a></div>
+  </main>
+
+  <footer class="site-footer"><a class="footer-brand" href="index.html">MutiaraConnect</a><span>Part A front-end simulation · Sample data for academic demonstration</span></footer>
+</body>
+</html>
