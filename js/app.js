@@ -61,6 +61,9 @@ const announcements = [
   }
 ];
 
+// Shared announcement records used by both the public information pages and map.
+window.MutiaraConnectData = Object.freeze({ announcements });
+
 function escapeHTML(value) {
   return String(value).replace(/[&<>"']/g, char => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
@@ -127,6 +130,8 @@ function setupAnnouncementDetail() {
   if (!target) return;
   const params = new URLSearchParams(window.location.search);
   const item = announcements.find(entry => entry.id === params.get("id")) || announcements[0];
+  const mapLink = document.getElementById("view-impact-map");
+  if (mapLink) mapLink.href = `map.html?notice=${encodeURIComponent(item.id)}`;
   target.innerHTML = `
     <article class="detail-article">
       <div class="notice-meta">
