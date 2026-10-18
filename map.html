@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore sample construction locations and linked announcements in the MutiaraConnect coursework prototype.">
+  <title>Construction Impact Map | MutiaraConnect</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="css/map.css">
+  <script src="js/app.js" defer></script>
+  <script src="assets/vendor/leaflet/leaflet.js" defer></script>
+  <script src="js/map-data.js" defer></script>
+  <script src="js/map.js" defer></script>
+</head>
+<body>
+  <a class="mc-map-skip" href="#main">Skip to map content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="MutiaraConnect home">
+      <span class="brand-mark">MC</span>
+      <span><strong>MutiaraConnect</strong><small>LRT Construction Information &amp; Community Feedback Portal</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">☰</button>
+    <nav class="nav-links" id="primary-navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a><a href="announcements.html">Announcements</a><a class="active" href="map.html" aria-current="page">Impact Map</a><a href="feedback.html">Submit Feedback</a><a href="tracking.html">Track Feedback</a><a href="admin.html">Admin</a>
+    </nav>
+  </header>
+  <main class="page-main mc-map-page" id="main">
+    <section class="page-heading mc-map-heading">
+      <p class="eyebrow">PUBLIC INFORMATION · CONSTRUCTION LOCATIONS</p>
+      <h1>Construction impact map</h1>
+      <p>Find a sample work area, explore its potential impact, and read the related construction announcement.</p>
+      <div class="demo-banner"><span aria-hidden="true">ⓘ</span><div><strong>Demonstration content</strong><p>Locations and notices are fictional examples. Points are illustrative, and the schematic is not an official LRT route map.</p></div></div>
+    </section>
+    <section class="mc-map-workspace" aria-label="Construction impact explorer">
+      <aside class="mc-map-sidebar" aria-label="Location search and results">
+        <div class="mc-map-filter-panel">
+          <div class="mc-map-section-title"><h2>Find a work area</h2><button class="button button-quiet" id="map-reset-filters" type="button">Reset</button></div>
+          <label class="field"><span>Search locations or notices</span><input type="search" id="map-search" placeholder="e.g. Gelugor, MC-DEMO-002" autocomplete="off"></label>
+          <div class="mc-map-selects">
+            <label class="field"><span>Area</span><select id="map-area"><option value="">All areas</option></select></label>
+            <label class="field"><span>Notice type</span><select id="map-type"><option value="">All types</option></select></label>
+          </div>
+          <p class="mc-map-result-count" id="map-result-count" role="status" aria-live="polite"></p>
+        </div>
+        <div class="mc-map-results" id="map-results" aria-label="Matching sample work areas"></div>
+        <p class="mc-map-sidebar-hint">Select a location or numbered marker to see its linked notices.</p>
+      </aside>
+      <div class="mc-map-frame">
+        <div id="construction-map" role="region" aria-label="Interactive map of illustrative construction locations"></div>
+        <div class="mc-map-basemaps" role="group" aria-label="Choose basemap"><button type="button" id="map-schematic" aria-pressed="true">Schematic</button><button type="button" id="map-street" aria-pressed="false">Street map ↗</button></div>
+        <button type="button" id="map-fit" class="mc-map-fit" aria-label="Fit all matching locations" title="Fit all matching locations">⛶</button>
+        <p class="mc-map-status" id="map-status" role="status">Schematic view · illustrative positions</p>
+        <section class="mc-map-detail" id="map-detail" aria-label="Selected location details" aria-live="polite" hidden></section>
+        <div class="mc-map-legend" aria-label="Map legend"><span><i class="mc-map-dot" style="background:#b66a1c"></i>Road access</span><span><i class="mc-map-dot" style="background:#116b70"></i>Pedestrian access</span><span><i class="mc-map-dot" style="background:#7460a5"></i>Schedule / update</span></div>
+      </div>
+    </section>
+    <div class="mc-map-bottom"><p>Prefer a list? <a class="text-link" href="announcements.html">Browse all sample announcements →</a></p><button class="mc-map-help-link" type="button" id="map-help-open">How to use the map</button></div>
+    <p class="mc-map-message" id="map-message" role="status" hidden></p>
+    <noscript><p class="demo-banner">Enable JavaScript to use the interactive map. You can still return to the homepage using the navigation.</p></noscript>
+  </main>
+  <footer class="site-footer"><a class="footer-brand" href="index.html">MutiaraConnect</a><span>Part A front-end simulation · Sample data for academic demonstration</span></footer>
+  <dialog class="mc-map-dialog" id="map-help" aria-labelledby="map-help-title"><button type="button" class="mc-map-dialog-close" id="map-help-close" aria-label="Close map help">×</button><p class="eyebrow">MAP GUIDE</p><h2 id="map-help-title">Explore a sample work area</h2><ol><li>Search by place name, notice reference or keyword.</li><li>Choose an area or notice type to narrow the results.</li><li>Select a card or marker to view its impact and access information.</li><li>Follow Read full announcement to open the matching notice.</li><li>Use + / − to zoom, drag to pan, and ⛶ to fit the matching locations.</li></ol><p>The schematic works offline. Street map view loads online OpenStreetMap tiles and returns to the schematic if they cannot be loaded.</p><button type="button" class="button button-primary" id="map-help-done">Got it</button></dialog>
+</body>
+</html>
