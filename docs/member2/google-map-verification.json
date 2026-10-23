@@ -1,0 +1,79 @@
+{
+  "testedAt": "2026-10-23T13:27:51.104Z",
+  "mode": "Simulated Google Maps API contract checks; no real Google account or tiles tested",
+  "checks": [
+    {
+      "label": "Missing key keeps the offline map and gives an explicit message",
+      "result": "PASS"
+    },
+    {
+      "label": "Google script loading failure restores the offline map",
+      "result": "PASS"
+    },
+    {
+      "label": "Configured Google map is embedded and receives three shared locations",
+      "result": "PASS"
+    },
+    {
+      "label": "Google marker opens the existing announcement details",
+      "result": "PASS"
+    },
+    {
+      "label": "Switching shared notices on Google preserves the real announcement link",
+      "result": "PASS"
+    },
+    {
+      "label": "Google fit clears the detail and positions all three points",
+      "result": "PASS"
+    },
+    {
+      "label": "Google markers and result cards share area filtering",
+      "result": "PASS"
+    },
+    {
+      "label": "Result card selection focuses the same Google location",
+      "result": "PASS"
+    },
+    {
+      "label": "Google zoom controls call the embedded map",
+      "result": "PASS"
+    },
+    {
+      "label": "Empty results clear Google markers and the notice",
+      "result": "PASS"
+    },
+    {
+      "label": "Manual schematic switch hides Google and restores three local markers",
+      "result": "PASS"
+    },
+    {
+      "label": "A loaded Google view can be selected again",
+      "result": "PASS"
+    },
+    {
+      "label": "Three basemap controls fit on a phone without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "Mobile Google selector does not overlap the fit control",
+      "result": "PASS"
+    },
+    {
+      "label": "Going offline restores the schematic and retains the selected notice",
+      "result": "PASS"
+    },
+    {
+      "label": "A delayed Google response cannot override a newer schematic selection",
+      "result": "PASS"
+    },
+    {
+      "label": "Google authentication failure restores the offline map",
+      "result": "PASS"
+    },
+    {
+      "label": "Contract scenarios have no uncaught JavaScript errors",
+      "result": "PASS"
+    }
+  ],
+  "errors": []
+}

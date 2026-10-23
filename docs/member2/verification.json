@@ -1,0 +1,194 @@
+{
+  "testedAt": "2026-10-23T13:19:01.258Z",
+  "browser": "Microsoft Edge",
+  "checks": [
+    {
+      "label": "Existing home page still renders its three announcement cards",
+      "result": "PASS"
+    },
+    {
+      "label": "Existing homepage feature opens the integrated MutiaraConnect map",
+      "result": "PASS"
+    },
+    {
+      "label": "Four shared notices map to three distinct sample locations",
+      "result": "PASS"
+    },
+    {
+      "label": "Local schematic image loads without remote assets",
+      "result": "PASS"
+    },
+    {
+      "label": "Area filtering retains both notices for the George Town point",
+      "result": "PASS"
+    },
+    {
+      "label": "Combined area and type filtering selects the matching general notice",
+      "result": "PASS"
+    },
+    {
+      "label": "Empty search clears stale cards, markers and detail",
+      "result": "PASS"
+    },
+    {
+      "label": "Empty-state reset restores all locations and keyboard input focus",
+      "result": "PASS"
+    },
+    {
+      "label": "Search accepts notice references regardless of case or padding",
+      "result": "PASS"
+    },
+    {
+      "label": "Keyboard card selection preserves card focus",
+      "result": "PASS"
+    },
+    {
+      "label": "Selected marker remains visible above the desktop detail panel",
+      "result": "PASS"
+    },
+    {
+      "label": "Switching linked notices preserves keyboard focus and changes the real detail link",
+      "result": "PASS"
+    },
+    {
+      "label": "Closing details restores focus to the selected location card",
+      "result": "PASS"
+    },
+    {
+      "label": "Keyboard marker selection preserves focus and opens the matching announcement",
+      "result": "PASS"
+    },
+    {
+      "label": "Map zoom control updates the map transformation",
+      "result": "PASS"
+    },
+    {
+      "label": "Help opens a named dialog",
+      "result": "PASS"
+    },
+    {
+      "label": "Help closes with Escape",
+      "result": "PASS"
+    },
+    {
+      "label": "MC-DEMO-001: original detail page now links to its map selection",
+      "result": "PASS"
+    },
+    {
+      "label": "MC-DEMO-001: map reuses the exact shared title, date, impact and access text",
+      "result": "PASS"
+    },
+    {
+      "label": "MC-DEMO-001: map returns to the matching existing announcement",
+      "result": "PASS"
+    },
+    {
+      "label": "MC-DEMO-002: original detail page now links to its map selection",
+      "result": "PASS"
+    },
+    {
+      "label": "MC-DEMO-002: map reuses the exact shared title, date, impact and access text",
+      "result": "PASS"
+    },
+    {
+      "label": "MC-DEMO-002: map returns to the matching existing announcement",
+      "result": "PASS"
+    },
+    {
+      "label": "MC-DEMO-003: original detail page now links to its map selection",
+      "result": "PASS"
+    },
+    {
+      "label": "MC-DEMO-003: map reuses the exact shared title, date, impact and access text",
+      "result": "PASS"
+    },
+    {
+      "label": "MC-DEMO-003: map returns to the matching existing announcement",
+      "result": "PASS"
+    },
+    {
+      "label": "MC-DEMO-004: original detail page now links to its map selection",
+      "result": "PASS"
+    },
+    {
+      "label": "MC-DEMO-004: map reuses the exact shared title, date, impact and access text",
+      "result": "PASS"
+    },
+    {
+      "label": "MC-DEMO-004: map returns to the matching existing announcement",
+      "result": "PASS"
+    },
+    {
+      "label": "Existing announcement list still renders all four records",
+      "result": "PASS"
+    },
+    {
+      "label": "Existing announcement area filtering still works",
+      "result": "PASS"
+    },
+    {
+      "label": "Existing announcement reset still restores all notices",
+      "result": "PASS"
+    },
+    {
+      "label": "Unknown map reference gives a clear message without selecting a wrong notice",
+      "result": "PASS"
+    },
+    {
+      "label": "Online street map actually loads tiles",
+      "result": "PASS"
+    },
+    {
+      "label": "A later network outage after successful street tiles restores the schematic",
+      "result": "PASS"
+    },
+    {
+      "label": "Desktop pages have no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "Blocking all external traffic leaves the schematic and three markers usable",
+      "result": "PASS"
+    },
+    {
+      "label": "An initial street-map network failure also restores the schematic",
+      "result": "PASS"
+    },
+    {
+      "label": "Mobile layout fits 390 pixels without horizontal page overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "Mobile notice details do not cover the selected construction marker",
+      "result": "PASS"
+    },
+    {
+      "label": "Existing mobile navigation opens and exposes the current Impact Map link",
+      "result": "PASS"
+    },
+    {
+      "label": "Mobile select filtering keeps markers and cards in sync",
+      "result": "PASS"
+    },
+    {
+      "label": "Direct file opening loads shared records and a notice-specific map selection",
+      "result": "PASS"
+    },
+    {
+      "label": "Direct file opening supports map filters",
+      "result": "PASS"
+    },
+    {
+      "label": "Implemented pages have no JavaScript exceptions or missing local assets",
+      "result": "PASS"
+    }
+  ],
+  "errors": [],
+  "missingLocalAssets": [],
+  "existingTeamPlaceholders": [
+    "feedback.html",
+    "tracking.html",
+    "admin.html"
+  ],
+  "scope": "Member 1 pages plus the integrated Member 2 map; other members’ absent modules are not implemented here."
+}

@@ -12,10 +12,12 @@
   const types = { 'Road access':'#b66a1c', 'Pedestrian access':'#116b70', 'Construction schedule':'#7460a5', 'General update':'#7460a5' };
   const safe = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
   const sites = registry.map(site => ({...site, notices:sharedNotices.filter(notice => site.announcementIds.includes(notice.id))})).filter(site => site.notices.length);
-  const state = { keyword:'', area:'', type:'', siteId:null, noticeId:null, street:false };
+  const state = { keyword:'', area:'', type:'', siteId:null, noticeId:null, street:false, google:false };
+  let googleView;
+  let googleRequest=0;
   const siteMarkers = new Map();
   const allBounds = L.latLngBounds([[5.255,100.19],[5.46,100.435]]);
-  const map = L.map(mapElement,{zoomControl:false,minZoom:10,maxZoom:18,scrollWheelZoom:false}).setView([5.36,100.31],12);
+  const map = L.map(mapElement,{zoomControl:false,minZoom:10,maxZoom:18,zoomSnap:.25,scrollWheelZoom:false,maxBounds:allBounds,maxBoundsViscosity:1}).setView([5.36,100.31],12);
   L.control.zoom({position:'topright'}).addTo(map);
   map.attributionControl.setPrefix(false);
   const schematic = L.imageOverlay('assets/map/penang-schematic.svg',allBounds,{attribution:'Self-authored schematic · not to scale'}).addTo(map);
@@ -37,8 +39,11 @@
   }
   function fitVisible(){
     const visible=visibleSites();if(!visible.length)return;
-    const bottom=$('map-detail').hidden?45:Math.min($('map-detail').offsetHeight+85,map.getSize().y*.64);
-    map.fitBounds(L.latLngBounds(visible.map(site=>[site.latitude,site.longitude])),{paddingTopLeft:[48,120],paddingBottomRight:[48,bottom],maxZoom:visible.length===1?13:12,animate:false});
+    const overlay=!$('map-detail').hidden&&getComputedStyle($('map-detail')).position==='absolute';
+    const bottom=overlay?Math.min($('map-detail').offsetHeight+85,map.getSize().y*.64):55;
+    if(state.google&&googleView){googleView.fit(visible,{top:125,right:48,bottom,left:48});return;}
+    map.fitBounds(L.latLngBounds(visible.map(site=>[site.latitude,site.longitude])),{paddingTopLeft:[48,125],paddingBottomRight:[48,bottom],maxZoom:13,animate:false});
+    map.panInsideBounds(allBounds,{animate:false});
   }
   function focusSelected(){
     const {site}=current();if(!site)return;
@@ -46,6 +51,7 @@
     const overlay=getComputedStyle($('map-detail')).position==='absolute';
     const detailTop=$('map-detail').offsetTop;
     const targetY=overlay?Math.max(130,Math.min(map.getSize().y*.4,(105+detailTop-14)/2)):map.getSize().y*.53;
+    if(state.google&&googleView){googleView.focus(site,targetY);return;}
     const offset=map.getSize().y/2-targetY;
     const point=map.project([site.latitude,site.longitude],zoom).add([0,offset]);
     map.setView(map.unproject(point,zoom),zoom,{animate:false});
@@ -87,13 +93,21 @@
     $('map-detail').innerHTML=`<div class="mc-map-detail-top"><span class="tag ${notice.typeClass||''}">${safe(notice.type)} · ${safe(notice.id)}</span><button type="button" id="map-close-detail" class="mc-map-detail-close" aria-label="Close location details">×</button></div><h2>${safe(notice.title)}</h2><p class="mc-map-detail-summary">${safe(notice.location)} · illustrative point</p>${related}<dl class="mc-map-info"><div><dt>Example date</dt><dd>${safe(notice.dateLabel)}</dd></div><div><dt>Illustrative period</dt><dd>${safe(notice.period)}</dd></div></dl><p class="mc-map-impact-text"><strong>Potential impact:</strong> ${safe(notice.impact)}</p><p class="mc-map-impact-text"><strong>Access information:</strong> ${safe(notice.access)}</p><div class="mc-map-detail-actions"><a class="button button-primary" id="map-read-notice" href="announcement-detail.html?id=${encodeURIComponent(notice.id)}">Read full announcement →</a><a class="text-link" href="announcements.html">All announcements</a></div>`;
     $('map-close-detail').addEventListener('click',()=>{const previous=state.siteId;state.siteId=null;state.noticeId=null;renderAll();fitVisible();document.querySelector(`[data-site="${previous}"]`)?.focus({preventScroll:true});});
   }
-  function renderAll(){renderDetail();renderResults();renderMarkers();}
+  function syncGoogleMarkers(){
+    if(!state.google||!googleView)return;
+    googleView.render(visibleSites().map(site=>{
+      const notice=site.siteId===state.siteId?current().notice:site.notices[0];
+      return {...site,number:sites.findIndex(item=>item.siteId===site.siteId)+1,color:types[notice?.type]||'#116b70'};
+    }),state.siteId);
+  }
+  function renderAll(){renderDetail();renderResults();renderMarkers();syncGoogleMarkers();}
   function selectSite(siteId,noticeId){
-    const active=document.activeElement;const fromMarker=active?.classList.contains('mc-map-pin');const fromCard=active?.matches('[data-site]');const fromNotice=active?.hasAttribute('data-map-notice');
+    const active=document.activeElement;const fromMarker=active?.classList.contains('mc-map-pin');const fromGoogle=state.google&&active?.tagName==='GMP-ADVANCED-MARKER';const fromCard=active?.matches('[data-site]');const fromNotice=active?.hasAttribute('data-map-notice');
     const site=visibleSites().find(item=>item.siteId===siteId);if(!site)return;
     state.siteId=siteId;state.noticeId=noticeId||site.notices[0].id;
     renderAll();focusSelected();
     if(fromMarker)siteMarkers.get(siteId)?.getElement().focus({preventScroll:true});
+    if(fromGoogle)googleView.focusMarker(siteId);
     if(fromCard)document.querySelector(`[data-site="${siteId}"]`)?.focus({preventScroll:true});
     if(fromNotice)document.querySelector(`[data-map-notice="${state.noticeId}"]`)?.focus({preventScroll:true});
   }
@@ -111,14 +125,49 @@
   $('map-reset-filters').addEventListener('click',resetFilters);
   $('map-results').addEventListener('click',event=>{const card=event.target.closest('[data-site]');if(card)selectSite(card.dataset.site);if(event.target.closest('[data-map-reset]')){resetFilters();$('map-search').focus();}});
   $('map-detail').addEventListener('click',event=>{const notice=event.target.closest('[data-map-notice]');if(notice)selectSite(state.siteId,notice.dataset.mapNotice);});
-  $('map-fit').addEventListener('click',fitVisible);
+  $('map-fit').addEventListener('click',()=>{state.siteId=null;state.noticeId=null;renderAll();fitVisible();});
   function useSchematic(message=''){
+    googleRequest++;state.google=false;googleView?.hide();$('google-map-zoom').hidden=true;mapElement.style.visibility='';$('map-google').setAttribute('aria-pressed','false');
     state.street=false;clearTimeout(streetTimeout);if(map.hasLayer(streetLayer))map.removeLayer(streetLayer);if(!map.hasLayer(schematic))schematic.addTo(map);
     $('map-schematic').setAttribute('aria-pressed','true');$('map-street').setAttribute('aria-pressed','false');
     $('map-status').textContent=message||'Schematic view · illustrative positions';$('map-status').classList.toggle('network-error',Boolean(message));
+    state.siteId?focusSelected():fitVisible();
   }
   $('map-schematic').addEventListener('click',()=>useSchematic());
+  async function useGoogle(){
+    if(state.google)return;
+    const config=window.MutiaraConnectGoogleMapConfig;
+    if(!config?.apiKey?.trim()){
+      useSchematic('Google Maps is not configured · using the offline schematic');
+      return;
+    }
+    const request=++googleRequest;
+    state.street=false;clearTimeout(streetTimeout);if(map.hasLayer(streetLayer))map.removeLayer(streetLayer);if(!map.hasLayer(schematic))schematic.addTo(map);
+    $('map-google').disabled=true;$('map-google').setAttribute('aria-busy','true');
+    $('map-street').setAttribute('aria-pressed','false');
+    $('map-status').textContent='Loading Google Maps · schematic available';
+    try{
+      if(!googleView){
+        const view=await window.MutiaraConnectGoogleMaps.create({element:$('google-construction-map'),config,onSelect:selectSite,onUnavailable:()=>{
+          if(state.google){googleView?.destroy();googleView=null;useSchematic('Google Maps unavailable · offline schematic restored');}
+        }});
+        if(request!==googleRequest){view.destroy();return;}
+        googleView=view;
+      }
+      if(request!==googleRequest)return;
+      state.google=true;googleView.show();mapElement.style.visibility='hidden';$('google-map-zoom').hidden=false;
+      $('map-google').setAttribute('aria-pressed','true');$('map-schematic').setAttribute('aria-pressed','false');
+      $('map-status').textContent='Google Maps · illustrative construction points';$('map-status').classList.remove('network-error');
+      syncGoogleMarkers();state.siteId?focusSelected():fitVisible();
+    }catch(error){
+      if(request===googleRequest){googleView=null;useSchematic('Google Maps unavailable · offline schematic restored');}
+    }finally{$('map-google').disabled=false;$('map-google').removeAttribute('aria-busy');}
+  }
+  $('map-google').addEventListener('click',useGoogle);
+  $('google-map-zoom-in').addEventListener('click',()=>googleView?.zoom(1));
+  $('google-map-zoom-out').addEventListener('click',()=>googleView?.zoom(-1));
   $('map-street').addEventListener('click',()=>{
+    useSchematic();
     if(state.street)return;state.street=true;tileErrors=0;tileSuccesses=0;clearTimeout(streetTimeout);
     map.removeLayer(schematic);streetLayer.addTo(map);$('map-street').setAttribute('aria-pressed','true');$('map-schematic').setAttribute('aria-pressed','false');
     $('map-status').textContent='Online street map · illustrative construction points';$('map-status').classList.remove('network-error');
@@ -142,6 +191,15 @@
     if(requestedSite){state.siteId=requestedSite.siteId;state.noticeId=requestedNotice;}
     else{$('map-message').hidden=false;$('map-message').textContent='The requested notice was not found. Showing all sample locations.';}
   }
-  renderAll();fitVisible();if(state.siteId)focusSelected();
-  new ResizeObserver(()=>{map.invalidateSize({pan:false});state.siteId?focusSelected():fitVisible();}).observe(mapElement);
+  function refreshViewport(){
+    map.invalidateSize({pan:false});
+    // Prevent zooming the finite local basemap down to a postage stamp. Recompute
+    // the limit for the actual container, including mobile and browser resizing.
+    map.setMinZoom(map.getBoundsZoom(allBounds));
+    state.siteId?focusSelected():fitVisible();
+    map.panInsideBounds(allBounds,{animate:false});
+  }
+  renderAll();refreshViewport();
+  new ResizeObserver(refreshViewport).observe(mapElement);
+  if(window.MutiaraConnectGoogleMapConfig?.apiKey?.trim()&&window.MutiaraConnectGoogleMapConfig.preferGoogle!==false)useGoogle();
 })();
