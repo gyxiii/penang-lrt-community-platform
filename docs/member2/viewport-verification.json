@@ -1,0 +1,697 @@
+{
+  "testedAt": "2026-10-23T13:19:00.581Z",
+  "checks": [
+    {
+      "label": "Initial screenshot-sized viewport contains every construction marker",
+      "result": "PASS",
+      "details": {
+        "width": 1046,
+        "height": 698,
+        "pins": [
+          {
+            "name": "View George Town construction details",
+            "left": 574,
+            "top": 119,
+            "right": 609,
+            "bottom": 154,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Gelugor construction details",
+            "left": 467,
+            "top": 363,
+            "right": 502,
+            "bottom": 398,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Bayan Lepas construction details",
+            "left": 393,
+            "top": 578,
+            "right": 428,
+            "bottom": 613,
+            "width": 35,
+            "height": 35
+          }
+        ],
+        "image": {
+          "left": 18,
+          "top": -33,
+          "right": 1028,
+          "bottom": 815,
+          "width": 1010,
+          "height": 848
+        },
+        "detail": null,
+        "overflow": false
+      }
+    },
+    {
+      "label": "All markers remain visible after resize to 1100x900",
+      "result": "PASS",
+      "details": {
+        "width": 746,
+        "height": 718,
+        "pins": [
+          {
+            "name": "View George Town construction details",
+            "left": 447,
+            "top": 129,
+            "right": 482,
+            "bottom": 164,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Gelugor construction details",
+            "left": 340,
+            "top": 373,
+            "right": 375,
+            "bottom": 408,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Bayan Lepas construction details",
+            "left": 266,
+            "top": 588,
+            "right": 301,
+            "bottom": 623,
+            "width": 35,
+            "height": 35
+          }
+        ],
+        "image": {
+          "left": -109,
+          "top": -23,
+          "right": 901,
+          "bottom": 825,
+          "width": 1010,
+          "height": 848
+        },
+        "detail": null,
+        "overflow": false
+      }
+    },
+    {
+      "label": "All markers remain visible after resize to 1931x1052",
+      "result": "PASS",
+      "details": {
+        "width": 1046,
+        "height": 698,
+        "pins": [
+          {
+            "name": "View George Town construction details",
+            "left": 574,
+            "top": 119,
+            "right": 609,
+            "bottom": 154,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Gelugor construction details",
+            "left": 467,
+            "top": 363,
+            "right": 502,
+            "bottom": 398,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Bayan Lepas construction details",
+            "left": 393,
+            "top": 578,
+            "right": 428,
+            "bottom": 613,
+            "width": 35,
+            "height": 35
+          }
+        ],
+        "image": {
+          "left": 18,
+          "top": -33,
+          "right": 1028,
+          "bottom": 815,
+          "width": 1010,
+          "height": 848
+        },
+        "detail": null,
+        "overflow": false
+      }
+    },
+    {
+      "label": "All markers remain visible after resize to 1280x900",
+      "result": "PASS",
+      "details": {
+        "width": 886,
+        "height": 698,
+        "pins": [
+          {
+            "name": "View George Town construction details",
+            "left": 517,
+            "top": 119,
+            "right": 552,
+            "bottom": 154,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Gelugor construction details",
+            "left": 410,
+            "top": 363,
+            "right": 445,
+            "bottom": 398,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Bayan Lepas construction details",
+            "left": 336,
+            "top": 578,
+            "right": 371,
+            "bottom": 613,
+            "width": 35,
+            "height": 35
+          }
+        ],
+        "image": {
+          "left": -39,
+          "top": -33,
+          "right": 971,
+          "bottom": 815,
+          "width": 1010,
+          "height": 848
+        },
+        "detail": null,
+        "overflow": false
+      }
+    },
+    {
+      "label": "All markers remain visible after resize to 390x844",
+      "result": "PASS",
+      "details": {
+        "width": 352,
+        "height": 430,
+        "pins": [
+          {
+            "name": "View George Town construction details",
+            "left": 223,
+            "top": 53,
+            "right": 258,
+            "bottom": 88,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Gelugor construction details",
+            "left": 148,
+            "top": 225,
+            "right": 183,
+            "bottom": 260,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Bayan Lepas construction details",
+            "left": 95,
+            "top": 377,
+            "right": 130,
+            "bottom": 412,
+            "width": 35,
+            "height": 35
+          }
+        ],
+        "image": {
+          "left": -164,
+          "top": -45,
+          "right": 549,
+          "bottom": 555,
+          "width": 713,
+          "height": 600
+        },
+        "detail": null,
+        "overflow": false
+      }
+    },
+    {
+      "label": "All markers remain visible after resize to 1440x1100",
+      "result": "PASS",
+      "details": {
+        "width": 1046,
+        "height": 698,
+        "pins": [
+          {
+            "name": "View George Town construction details",
+            "left": 574,
+            "top": 119,
+            "right": 609,
+            "bottom": 154,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Gelugor construction details",
+            "left": 467,
+            "top": 363,
+            "right": 502,
+            "bottom": 398,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Bayan Lepas construction details",
+            "left": 393,
+            "top": 578,
+            "right": 428,
+            "bottom": 613,
+            "width": 35,
+            "height": 35
+          }
+        ],
+        "image": {
+          "left": 18,
+          "top": -33,
+          "right": 1028,
+          "bottom": 815,
+          "width": 1010,
+          "height": 848
+        },
+        "detail": null,
+        "overflow": false
+      }
+    },
+    {
+      "label": "Zoom out stops before the local map becomes a tiny image",
+      "result": "PASS",
+      "details": {
+        "width": 1046,
+        "height": 698,
+        "pins": [
+          {
+            "name": "View George Town construction details",
+            "left": 554,
+            "top": 146,
+            "right": 589,
+            "bottom": 181,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Gelugor construction details",
+            "left": 479,
+            "top": 318,
+            "right": 514,
+            "bottom": 353,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Bayan Lepas construction details",
+            "left": 426,
+            "top": 470,
+            "right": 461,
+            "bottom": 505,
+            "width": 35,
+            "height": 35
+          }
+        ],
+        "image": {
+          "left": 167,
+          "top": 48,
+          "right": 880,
+          "bottom": 648,
+          "width": 713,
+          "height": 600
+        },
+        "detail": null,
+        "overflow": false
+      }
+    },
+    {
+      "label": "A large drag keeps at least one complete construction marker in view",
+      "result": "PASS",
+      "details": {
+        "width": 1046,
+        "height": 698,
+        "pins": [
+          {
+            "name": "View George Town construction details",
+            "left": 574,
+            "top": 2,
+            "right": 609,
+            "bottom": 37,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Gelugor construction details",
+            "left": 467,
+            "top": 246,
+            "right": 502,
+            "bottom": 281,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Bayan Lepas construction details",
+            "left": 393,
+            "top": 461,
+            "right": 428,
+            "bottom": 496,
+            "width": 35,
+            "height": 35
+          }
+        ],
+        "image": {
+          "left": 18,
+          "top": -150,
+          "right": 1028,
+          "bottom": 698,
+          "width": 1010,
+          "height": 848
+        },
+        "detail": null,
+        "overflow": false
+      }
+    },
+    {
+      "label": "Fit restores every construction marker",
+      "result": "PASS",
+      "details": {
+        "width": 1046,
+        "height": 698,
+        "pins": [
+          {
+            "name": "View George Town construction details",
+            "left": 574,
+            "top": 119,
+            "right": 609,
+            "bottom": 154,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Gelugor construction details",
+            "left": 467,
+            "top": 363,
+            "right": 502,
+            "bottom": 398,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Bayan Lepas construction details",
+            "left": 393,
+            "top": 578,
+            "right": 428,
+            "bottom": 613,
+            "width": 35,
+            "height": 35
+          }
+        ],
+        "image": {
+          "left": 18,
+          "top": -33,
+          "right": 1028,
+          "bottom": 815,
+          "width": 1010,
+          "height": 848
+        },
+        "detail": null,
+        "overflow": false
+      }
+    },
+    {
+      "label": "Selected marker stays visible above its notice after resize to 1931x1052",
+      "result": "PASS",
+      "details": {
+        "width": 1046,
+        "height": 698,
+        "pins": [
+          {
+            "name": "View George Town construction details",
+            "left": 574,
+            "top": 147,
+            "right": 609,
+            "bottom": 182,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Gelugor construction details",
+            "left": 467,
+            "top": 391,
+            "right": 502,
+            "bottom": 426,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Bayan Lepas construction details",
+            "left": 393,
+            "top": 606,
+            "right": 428,
+            "bottom": 641,
+            "width": 35,
+            "height": 35
+          }
+        ],
+        "image": {
+          "left": 18,
+          "top": -5,
+          "right": 1028,
+          "bottom": 843,
+          "width": 1010,
+          "height": 848
+        },
+        "detail": {
+          "left": 18,
+          "top": 273.6875,
+          "right": 1028,
+          "bottom": 636,
+          "width": 1010,
+          "height": 362.3125
+        },
+        "overflow": false
+      }
+    },
+    {
+      "label": "Selected marker stays visible above its notice after resize to 1100x900",
+      "result": "PASS",
+      "details": {
+        "width": 746,
+        "height": 718,
+        "pins": [
+          {
+            "name": "View George Town construction details",
+            "left": 356,
+            "top": 151,
+            "right": 391,
+            "bottom": 186,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Gelugor construction details",
+            "left": 249,
+            "top": 395,
+            "right": 284,
+            "bottom": 430,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Bayan Lepas construction details",
+            "left": 175,
+            "top": 610,
+            "right": 210,
+            "bottom": 645,
+            "width": 35,
+            "height": 35
+          }
+        ],
+        "image": {
+          "left": -200,
+          "top": -1,
+          "right": 810,
+          "bottom": 847,
+          "width": 1010,
+          "height": 848
+        },
+        "detail": {
+          "left": 12,
+          "top": 305.8125,
+          "right": 734,
+          "bottom": 656,
+          "width": 722,
+          "height": 350.1875
+        },
+        "overflow": false
+      }
+    },
+    {
+      "label": "Selected marker stays visible above its notice after resize to 390x844",
+      "result": "PASS",
+      "details": {
+        "width": 352,
+        "height": 430,
+        "pins": [
+          {
+            "name": "View George Town construction details",
+            "left": 159,
+            "top": 152,
+            "right": 194,
+            "bottom": 187,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Gelugor construction details",
+            "left": 52,
+            "top": 396,
+            "right": 87,
+            "bottom": 431,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Bayan Lepas construction details",
+            "left": -22,
+            "top": 611,
+            "right": 13,
+            "bottom": 646,
+            "width": 35,
+            "height": 35
+          }
+        ],
+        "image": {
+          "left": -397,
+          "top": 0,
+          "right": 613,
+          "bottom": 848,
+          "width": 1010,
+          "height": 848
+        },
+        "detail": {
+          "left": 10,
+          "top": 442,
+          "right": 342,
+          "bottom": 928.390625,
+          "width": 332,
+          "height": 486.390625
+        },
+        "overflow": false
+      }
+    },
+    {
+      "label": "Selected marker stays visible above its notice after resize to 1440x1100",
+      "result": "PASS",
+      "details": {
+        "width": 1046,
+        "height": 698,
+        "pins": [
+          {
+            "name": "View George Town construction details",
+            "left": 574,
+            "top": 147,
+            "right": 609,
+            "bottom": 182,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Gelugor construction details",
+            "left": 467,
+            "top": 391,
+            "right": 502,
+            "bottom": 426,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Bayan Lepas construction details",
+            "left": 393,
+            "top": 606,
+            "right": 428,
+            "bottom": 641,
+            "width": 35,
+            "height": 35
+          }
+        ],
+        "image": {
+          "left": 18,
+          "top": -5,
+          "right": 1028,
+          "bottom": 843,
+          "width": 1010,
+          "height": 848
+        },
+        "detail": {
+          "left": 18,
+          "top": 273.6875,
+          "right": 1028,
+          "bottom": 636,
+          "width": 1010,
+          "height": 362.3125
+        },
+        "overflow": false
+      }
+    },
+    {
+      "label": "Show all locations closes the notice and restores all three markers",
+      "result": "PASS",
+      "details": {
+        "width": 1046,
+        "height": 698,
+        "pins": [
+          {
+            "name": "View George Town construction details",
+            "left": 574,
+            "top": 119,
+            "right": 609,
+            "bottom": 154,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Gelugor construction details",
+            "left": 467,
+            "top": 363,
+            "right": 502,
+            "bottom": 398,
+            "width": 35,
+            "height": 35
+          },
+          {
+            "name": "View Bayan Lepas construction details",
+            "left": 393,
+            "top": 578,
+            "right": 428,
+            "bottom": 613,
+            "width": 35,
+            "height": 35
+          }
+        ],
+        "image": {
+          "left": 18,
+          "top": -33,
+          "right": 1028,
+          "bottom": 815,
+          "width": 1010,
+          "height": 848
+        },
+        "detail": null,
+        "overflow": false
+      }
+    },
+    {
+      "label": "No JavaScript exceptions in map layout scenarios",
+      "result": "PASS",
+      "details": []
+    }
+  ],
+  "errors": []
+}

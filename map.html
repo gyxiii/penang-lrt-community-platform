@@ -11,6 +11,8 @@
   <script src="js/app.js" defer></script>
   <script src="assets/vendor/leaflet/leaflet.js" defer></script>
   <script src="js/map-data.js" defer></script>
+  <script src="js/google-map-config.js" defer></script>
+  <script src="js/google-map.js" defer></script>
   <script src="js/map.js" defer></script>
 </head>
 <body>
@@ -48,8 +50,10 @@
       </aside>
       <div class="mc-map-frame">
         <div id="construction-map" role="region" aria-label="Interactive map of illustrative construction locations"></div>
-        <div class="mc-map-basemaps" role="group" aria-label="Choose basemap"><button type="button" id="map-schematic" aria-pressed="true">Schematic</button><button type="button" id="map-street" aria-pressed="false">Street map ↗</button></div>
-        <button type="button" id="map-fit" class="mc-map-fit" aria-label="Fit all matching locations" title="Fit all matching locations">⛶</button>
+        <div id="google-construction-map" role="region" aria-label="Google map of illustrative construction locations" hidden></div>
+        <div class="mc-map-basemaps" role="group" aria-label="Choose basemap"><button type="button" id="map-google" aria-pressed="false">Google Maps</button><button type="button" id="map-schematic" aria-pressed="true">Schematic</button><button type="button" id="map-street" aria-pressed="false">Street map ↗</button></div>
+        <div class="mc-map-google-zoom" id="google-map-zoom" role="group" aria-label="Google map zoom" hidden><button type="button" id="google-map-zoom-in" aria-label="Google map zoom in">+</button><button type="button" id="google-map-zoom-out" aria-label="Google map zoom out">−</button></div>
+        <button type="button" id="map-fit" class="mc-map-fit" aria-label="Fit all matching locations" title="Show all matching locations"><span aria-hidden="true">⛶</span><span class="mc-map-fit-label">Show all locations</span></button>
         <p class="mc-map-status" id="map-status" role="status">Schematic view · illustrative positions</p>
         <section class="mc-map-detail" id="map-detail" aria-label="Selected location details" aria-live="polite" hidden></section>
         <div class="mc-map-legend" aria-label="Map legend"><span><i class="mc-map-dot" style="background:#b66a1c"></i>Road access</span><span><i class="mc-map-dot" style="background:#116b70"></i>Pedestrian access</span><span><i class="mc-map-dot" style="background:#7460a5"></i>Schedule / update</span></div>
@@ -60,6 +64,6 @@
     <noscript><p class="demo-banner">Enable JavaScript to use the interactive map. You can still return to the homepage using the navigation.</p></noscript>
   </main>
   <footer class="site-footer"><a class="footer-brand" href="index.html">MutiaraConnect</a><span>Part A front-end simulation · Sample data for academic demonstration</span></footer>
-  <dialog class="mc-map-dialog" id="map-help" aria-labelledby="map-help-title"><button type="button" class="mc-map-dialog-close" id="map-help-close" aria-label="Close map help">×</button><p class="eyebrow">MAP GUIDE</p><h2 id="map-help-title">Explore a sample work area</h2><ol><li>Search by place name, notice reference or keyword.</li><li>Choose an area or notice type to narrow the results.</li><li>Select a card or marker to view its impact and access information.</li><li>Follow Read full announcement to open the matching notice.</li><li>Use + / − to zoom, drag to pan, and ⛶ to fit the matching locations.</li></ol><p>The schematic works offline. Street map view loads online OpenStreetMap tiles and returns to the schematic if they cannot be loaded.</p><button type="button" class="button button-primary" id="map-help-done">Got it</button></dialog>
+  <dialog class="mc-map-dialog" id="map-help" aria-labelledby="map-help-title"><button type="button" class="mc-map-dialog-close" id="map-help-close" aria-label="Close map help">×</button><p class="eyebrow">MAP GUIDE</p><h2 id="map-help-title">Explore a sample work area</h2><ol><li>Search by place name, notice reference or keyword.</li><li>Choose an area or notice type to narrow the results.</li><li>Select a card or marker to view its impact and access information.</li><li>Follow Read full announcement to open the matching notice.</li><li>Use + / − to zoom, drag to pan, and Show all locations to restore the matching locations.</li></ol><p>Google Maps and Street map need an internet connection. If an online map is unavailable, use the offline schematic. All construction points and notices remain illustrative examples.</p><button type="button" class="button button-primary" id="map-help-done">Got it</button></dialog>
 </body>
 </html>

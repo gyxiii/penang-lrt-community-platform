@@ -1,0 +1,58 @@
+{
+  "testedAt": "2026-10-23T13:27:16.396Z",
+  "mode": "Real Google Maps API and real map tiles; no API simulation",
+  "configured": true,
+  "status": "Google Maps · illustrative construction points",
+  "checks": [
+    {
+      "label": "Actual Google Maps API and initial tiles load",
+      "result": "PASS"
+    },
+    {
+      "label": "Three real Google advanced markers display",
+      "result": "PASS"
+    },
+    {
+      "label": "All three real Google markers are fully inside the initial viewport",
+      "result": "PASS"
+    },
+    {
+      "label": "Real Google map and cards share filtering",
+      "result": "PASS"
+    },
+    {
+      "label": "Real Google marker opens shared announcement details",
+      "result": "PASS"
+    },
+    {
+      "label": "Real Google selection links to the original notice",
+      "result": "PASS"
+    },
+    {
+      "label": "Real Google reset restores all three locations",
+      "result": "PASS"
+    },
+    {
+      "label": "Selected real Google marker is fully visible on a phone",
+      "result": "PASS"
+    },
+    {
+      "label": "Real Google mobile page has no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "Real Google view switches to offline schematic",
+      "result": "PASS"
+    },
+    {
+      "label": "Real Google view can be restored",
+      "result": "PASS"
+    },
+    {
+      "label": "Actual Google map scenarios have no uncaught errors",
+      "result": "PASS"
+    }
+  ],
+  "errors": [],
+  "googleCodes": []
+}
