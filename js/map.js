@@ -13,6 +13,7 @@
   const safe = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
   const sites = registry.map(site => ({...site, notices:sharedNotices.filter(notice => site.announcementIds.includes(notice.id))})).filter(site => site.notices.length);
   const state = { keyword:'', area:'', type:'', siteId:null, noticeId:null, street:false, google:false };
+  const streetControl=window.MutiaraConnectStreetMapAccess.configure($('map-street'));
   let googleView;
   let googleRequest=0;
   const siteMarkers = new Map();
@@ -100,7 +101,7 @@
       return {...site,number:sites.findIndex(item=>item.siteId===site.siteId)+1,color:types[notice?.type]||'#116b70'};
     }),state.siteId);
   }
-  function renderAll(){renderDetail();renderResults();renderMarkers();syncGoogleMarkers();}
+  function renderAll(){renderDetail();renderResults();renderMarkers();syncGoogleMarkers();streetControl.update(current().site);}
   function selectSite(siteId,noticeId){
     const active=document.activeElement;const fromMarker=active?.classList.contains('mc-map-pin');const fromGoogle=state.google&&active?.tagName==='GMP-ADVANCED-MARKER';const fromCard=active?.matches('[data-site]');const fromNotice=active?.hasAttribute('data-map-notice');
     const site=visibleSites().find(item=>item.siteId===siteId);if(!site)return;
@@ -129,7 +130,7 @@
   function useSchematic(message=''){
     googleRequest++;state.google=false;googleView?.hide();$('google-map-zoom').hidden=true;mapElement.style.visibility='';$('map-google').setAttribute('aria-pressed','false');
     state.street=false;clearTimeout(streetTimeout);if(map.hasLayer(streetLayer))map.removeLayer(streetLayer);if(!map.hasLayer(schematic))schematic.addTo(map);
-    $('map-schematic').setAttribute('aria-pressed','true');$('map-street').setAttribute('aria-pressed','false');
+    $('map-schematic').setAttribute('aria-pressed','true');if(streetControl.embedded)$('map-street').setAttribute('aria-pressed','false');
     $('map-status').textContent=message||'Schematic view · illustrative positions';$('map-status').classList.toggle('network-error',Boolean(message));
     state.siteId?focusSelected():fitVisible();
   }
@@ -148,7 +149,7 @@
     const request=++googleRequest;
     state.street=false;clearTimeout(streetTimeout);if(map.hasLayer(streetLayer))map.removeLayer(streetLayer);if(!map.hasLayer(schematic))schematic.addTo(map);
     $('map-google').disabled=true;$('map-google').setAttribute('aria-busy','true');
-    $('map-street').setAttribute('aria-pressed','false');
+    if(streetControl.embedded)$('map-street').setAttribute('aria-pressed','false');
     $('map-status').textContent='Loading Google Maps · schematic available';
     try{
       if(!googleView){
@@ -177,7 +178,7 @@
   $('map-google').addEventListener('click',useGoogle);
   $('google-map-zoom-in').addEventListener('click',()=>googleView?.zoom(1));
   $('google-map-zoom-out').addEventListener('click',()=>googleView?.zoom(-1));
-  $('map-street').addEventListener('click',()=>{
+  if(streetControl.embedded)$('map-street').addEventListener('click',()=>{
     useSchematic();
     if(state.street)return;state.street=true;tileErrors=0;tileSuccesses=0;clearTimeout(streetTimeout);
     map.removeLayer(schematic);streetLayer.addTo(map);$('map-street').setAttribute('aria-pressed','true');$('map-schematic').setAttribute('aria-pressed','false');
