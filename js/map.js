@@ -135,6 +135,10 @@
   }
   $('map-schematic').addEventListener('click',()=>useSchematic());
   async function useGoogle(){
+    if(navigator.onLine===false){
+      useSchematic('Google Maps unavailable while offline · using the schematic');
+      return;
+    }
     if(state.google)return;
     const config=window.MutiaraConnectGoogleMapConfig;
     if(!config?.apiKey?.trim()){
@@ -149,12 +153,19 @@
     try{
       if(!googleView){
         const view=await window.MutiaraConnectGoogleMaps.create({element:$('google-construction-map'),config,onSelect:selectSite,onUnavailable:()=>{
-          if(state.google){googleView?.destroy();googleView=null;useSchematic('Google Maps unavailable · offline schematic restored');}
+          const wasGoogle=state.google;
+          googleView?.destroy();googleView=null;
+          if(wasGoogle)useSchematic('Google Maps unavailable · offline schematic restored');
         }});
         if(request!==googleRequest){view.destroy();return;}
         googleView=view;
       }
       if(request!==googleRequest)return;
+      if(navigator.onLine===false){
+        googleView?.destroy();googleView=null;
+        useSchematic('Google Maps unavailable while offline · using the schematic');
+        return;
+      }
       state.google=true;googleView.show();mapElement.style.visibility='hidden';$('google-map-zoom').hidden=false;
       $('map-google').setAttribute('aria-pressed','true');$('map-schematic').setAttribute('aria-pressed','false');
       $('map-status').textContent='Google Maps · illustrative construction points';$('map-status').classList.remove('network-error');

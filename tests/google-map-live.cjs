@@ -50,6 +50,11 @@ function check(label,result){checks.push({label,result:result?'PASS':'FAIL'});if
   await page.locator('.mc-map-workspace').screenshot({path:path.join(output,'screenshots/map-google-live-mobile.png')});
   await page.locator('#map-schematic').click();check('Real Google view switches to offline schematic',await page.locator('#construction-map').isVisible());
   await page.locator('#map-google').click();check('Real Google view can be restored',await page.locator('#google-construction-map').isVisible());
+  await page.locator('#map-schematic').click();await context.setOffline(true);
+  await page.locator('#map-google').click();
+  check('A previously loaded real Google map stays on the schematic when selected offline',await page.locator('#map-schematic').getAttribute('aria-pressed')==='true'&&await page.locator('#google-construction-map').isHidden()&&(await page.locator('#map-status').innerText()).includes('offline'));
+  check('Offline selection preserves the current announcement',(await page.locator('#map-detail').innerText()).includes('MC-DEMO-001'));
+  await context.setOffline(false);
   check('Actual Google map scenarios have no uncaught errors',errors.length===0&&googleCodes.length===0);
  }catch(error){failure=sanitize(error.message);failureGeometry=await page.evaluate(()=>{const rect=e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height};};return {map:rect(document.querySelector('#google-construction-map')),markers:[...document.querySelectorAll('gmp-advanced-marker')].map(e=>({site:e.dataset.site,host:rect(e),child:e.firstElementChild?rect(e.firstElementChild):null}))};}).catch(()=>null);await page.screenshot({path:path.join(output,'screenshots/map-google-live-status.png'),fullPage:true}).catch(()=>{});process.exitCode=1;}
  finally{

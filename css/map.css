@@ -6,7 +6,7 @@
 /* Keep the recovery action legible without covering the map's other controls. */
 .mc-map-fit{width:auto;min-width:39px;display:flex;gap:7px;padding:0 10px}
 .mc-map-fit-label{font-size:.71rem;font-weight:750;line-height:1.2}
-@media(max-width:760px){.mc-map-fit{width:39px;padding:0;justify-content:center}.mc-map-fit-label{display:none}}
+@media(max-width:900px){.mc-map-fit{width:39px;padding:0;justify-content:center}.mc-map-fit-label{display:none}}
 /* On narrow screens, keep the map and selected notice in separate vertical
    areas so a long announcement cannot cover its own construction marker. */
 @media(max-width:760px){.mc-map-frame{height:auto;min-height:430px}#construction-map{height:430px}.mc-map-detail{position:relative;left:auto;right:auto;bottom:auto;max-height:none;overflow:visible;margin:12px 10px 16px}.mc-map-legend{top:380px;bottom:auto}.mc-map-detail[hidden]{display:none}}

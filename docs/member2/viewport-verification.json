@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-10-23T13:19:00.581Z",
+  "testedAt": "2026-10-25T15:41:25.524Z",
   "checks": [
     {
       "label": "Initial screenshot-sized viewport contains every construction marker",
@@ -284,6 +284,204 @@
       }
     },
     {
+      "label": "Basemap buttons do not overlap Show all locations at 320px",
+      "result": "PASS",
+      "details": [
+        {
+          "id": "map-google",
+          "overlap": false
+        },
+        {
+          "id": "map-schematic",
+          "overlap": false
+        },
+        {
+          "id": "map-street",
+          "overlap": false
+        }
+      ]
+    },
+    {
+      "label": "Basemap buttons do not overlap Show all locations at 390px",
+      "result": "PASS",
+      "details": [
+        {
+          "id": "map-google",
+          "overlap": false
+        },
+        {
+          "id": "map-schematic",
+          "overlap": false
+        },
+        {
+          "id": "map-street",
+          "overlap": false
+        }
+      ]
+    },
+    {
+      "label": "Basemap buttons do not overlap Show all locations at 760px",
+      "result": "PASS",
+      "details": [
+        {
+          "id": "map-google",
+          "overlap": false
+        },
+        {
+          "id": "map-schematic",
+          "overlap": false
+        },
+        {
+          "id": "map-street",
+          "overlap": false
+        }
+      ]
+    },
+    {
+      "label": "Basemap buttons do not overlap Show all locations at 761px",
+      "result": "PASS",
+      "details": [
+        {
+          "id": "map-google",
+          "overlap": false
+        },
+        {
+          "id": "map-schematic",
+          "overlap": false
+        },
+        {
+          "id": "map-street",
+          "overlap": false
+        }
+      ]
+    },
+    {
+      "label": "Basemap buttons do not overlap Show all locations at 768px",
+      "result": "PASS",
+      "details": [
+        {
+          "id": "map-google",
+          "overlap": false
+        },
+        {
+          "id": "map-schematic",
+          "overlap": false
+        },
+        {
+          "id": "map-street",
+          "overlap": false
+        }
+      ]
+    },
+    {
+      "label": "Basemap buttons do not overlap Show all locations at 800px",
+      "result": "PASS",
+      "details": [
+        {
+          "id": "map-google",
+          "overlap": false
+        },
+        {
+          "id": "map-schematic",
+          "overlap": false
+        },
+        {
+          "id": "map-street",
+          "overlap": false
+        }
+      ]
+    },
+    {
+      "label": "Basemap buttons do not overlap Show all locations at 820px",
+      "result": "PASS",
+      "details": [
+        {
+          "id": "map-google",
+          "overlap": false
+        },
+        {
+          "id": "map-schematic",
+          "overlap": false
+        },
+        {
+          "id": "map-street",
+          "overlap": false
+        }
+      ]
+    },
+    {
+      "label": "Basemap buttons do not overlap Show all locations at 900px",
+      "result": "PASS",
+      "details": [
+        {
+          "id": "map-google",
+          "overlap": false
+        },
+        {
+          "id": "map-schematic",
+          "overlap": false
+        },
+        {
+          "id": "map-street",
+          "overlap": false
+        }
+      ]
+    },
+    {
+      "label": "Basemap buttons do not overlap Show all locations at 901px",
+      "result": "PASS",
+      "details": [
+        {
+          "id": "map-google",
+          "overlap": false
+        },
+        {
+          "id": "map-schematic",
+          "overlap": false
+        },
+        {
+          "id": "map-street",
+          "overlap": false
+        }
+      ]
+    },
+    {
+      "label": "Basemap buttons do not overlap Show all locations at 1000px",
+      "result": "PASS",
+      "details": [
+        {
+          "id": "map-google",
+          "overlap": false
+        },
+        {
+          "id": "map-schematic",
+          "overlap": false
+        },
+        {
+          "id": "map-street",
+          "overlap": false
+        }
+      ]
+    },
+    {
+      "label": "Basemap buttons do not overlap Show all locations at 1100px",
+      "result": "PASS",
+      "details": [
+        {
+          "id": "map-google",
+          "overlap": false
+        },
+        {
+          "id": "map-schematic",
+          "overlap": false
+        },
+        {
+          "id": "map-street",
+          "overlap": false
+        }
+      ]
+    },
+    {
       "label": "Zoom out stops before the local map becomes a tiny image",
       "result": "PASS",
       "details": {
@@ -293,36 +491,36 @@
           {
             "name": "View George Town construction details",
             "left": 554,
-            "top": 146,
+            "top": 147,
             "right": 589,
-            "bottom": 181,
+            "bottom": 182,
             "width": 35,
             "height": 35
           },
           {
             "name": "View Gelugor construction details",
             "left": 479,
-            "top": 318,
+            "top": 319,
             "right": 514,
-            "bottom": 353,
+            "bottom": 354,
             "width": 35,
             "height": 35
           },
           {
             "name": "View Bayan Lepas construction details",
             "left": 426,
-            "top": 470,
+            "top": 471,
             "right": 461,
-            "bottom": 505,
+            "bottom": 506,
             "width": 35,
             "height": 35
           }
         ],
         "image": {
           "left": 167,
-          "top": 48,
+          "top": 49,
           "right": 880,
-          "bottom": 648,
+          "bottom": 649,
           "width": 713,
           "height": 600
         },

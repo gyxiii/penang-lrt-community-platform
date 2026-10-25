@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-10-23T13:27:16.396Z",
+  "testedAt": "2026-10-25T15:41:28.521Z",
   "mode": "Real Google Maps API and real map tiles; no API simulation",
   "configured": true,
   "status": "Google Maps · illustrative construction points",
@@ -46,6 +46,14 @@
     },
     {
       "label": "Real Google view can be restored",
+      "result": "PASS"
+    },
+    {
+      "label": "A previously loaded real Google map stays on the schematic when selected offline",
+      "result": "PASS"
+    },
+    {
+      "label": "Offline selection preserves the current announcement",
       "result": "PASS"
     },
     {

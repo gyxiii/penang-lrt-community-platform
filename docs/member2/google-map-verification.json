@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-10-23T13:27:51.104Z",
+  "testedAt": "2026-10-25T15:41:20.976Z",
   "mode": "Simulated Google Maps API contract checks; no real Google account or tiles tested",
   "checks": [
     {
@@ -60,6 +60,22 @@
     },
     {
       "label": "Going offline restores the schematic and retains the selected notice",
+      "result": "PASS"
+    },
+    {
+      "label": "Selecting a previously loaded Google map while offline keeps the schematic",
+      "result": "PASS"
+    },
+    {
+      "label": "Offline Google selection retains all three result cards",
+      "result": "PASS"
+    },
+    {
+      "label": "Google can load again after reconnecting",
+      "result": "PASS"
+    },
+    {
+      "label": "Going offline during Google loading cannot activate its delayed response",
       "result": "PASS"
     },
     {
