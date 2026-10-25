@@ -10,6 +10,8 @@ Windows 首次获取仓库后双击根目录 `打开网站.cmd`。它仅在 `js/
 
 从首页选 Impact Map；也可打开 `announcement-detail.html?id=MC-DEMO-002`，点击 View impact map，再从地图点击 Read full announcement，检查同一公告的往返。
 
+本地 HTML 预览中的 Street map 会另开 OpenStreetMap 官方页面，避免在缺少有效 HTTP 来源时向 OSM 请求瓦片而出现 Access blocked 图片。Google 地图和示意图仍内嵌；通过 HTTP/HTTPS 打开网站时保留内嵌街道图。外部 OSM 链接会随选中的示例地点更新。此前的123项记录针对上一轮修补，不代表本轮重新执行了真实 OSM 服务验收；本轮另有 `street-map-access-verification.json` 的无外部请求单元检查。
+
 ## 报告和模型
 
 - [Member2_Models.docx](Member2_Models.docx)：两页精简模型正文，用于全组十页报告合稿。
