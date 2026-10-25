@@ -1,0 +1,46 @@
+{
+  "testedAt": "2026-10-25T17:08:50.887Z",
+  "mode": "In-memory DOM adapter checks; no browser navigation or external tile requests",
+  "checks": [
+    {
+      "label": "http: preserves the embedded street-map button",
+      "result": "PASS"
+    },
+    {
+      "label": "https: preserves the embedded street-map button",
+      "result": "PASS"
+    },
+    {
+      "label": "Local files use a link instead of enabling embedded OSM tiles",
+      "result": "PASS"
+    },
+    {
+      "label": "The external street link preserves its control id and label",
+      "result": "PASS"
+    },
+    {
+      "label": "The link opens a separate tab with opener access disabled",
+      "result": "PASS"
+    },
+    {
+      "label": "The link announces its separate-tab behavior",
+      "result": "PASS"
+    },
+    {
+      "label": "The default destination is the official OSM website",
+      "result": "PASS"
+    },
+    {
+      "label": "The external view follows the selected illustrative location",
+      "result": "PASS"
+    },
+    {
+      "label": "Clearing the selection restores the regional view",
+      "result": "PASS"
+    },
+    {
+      "label": "External links contain neither local file paths nor Google key parameters",
+      "result": "PASS"
+    }
+  ]
+}
