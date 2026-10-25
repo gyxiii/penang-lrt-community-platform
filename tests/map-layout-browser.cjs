@@ -38,6 +38,7 @@ async function settle(page){await page.waitForTimeout(250);await page.locator('.
   const errors=[];
   try{
     const page=await browser.newPage({viewport:{width:1545,height:1000},deviceScaleFactor:1.25});
+    await page.route('**/js/google-map-config.js',route=>route.fulfill({contentType:'application/javascript',body:"window.MutiaraConnectGoogleMapConfig={apiKey:'',preferGoogle:false};"}));
     page.on('pageerror',e=>errors.push(e.message));
     await page.goto(base+'/map.html');await settle(page);
     let g=await geometry(page);check('Initial screenshot-sized viewport contains every construction marker',allVisible(g),g);
@@ -46,6 +47,16 @@ async function settle(page){await page.waitForTimeout(250);await page.locator('.
       await page.setViewportSize({width,height});await settle(page);g=await geometry(page);
       check(`All markers remain visible after resize to ${width}x${height}`,allVisible(g)&&!g.overflow,g);
     }
+    for(const width of [320,390,760,761,768,800,820,900,901,1000,1100]){
+      await page.setViewportSize({width,height:1000});await settle(page);
+      const controls=await page.evaluate(()=>{
+        const fit=document.querySelector('#map-fit').getBoundingClientRect();
+        return [...document.querySelectorAll('.mc-map-basemaps button')].map(button=>{const r=button.getBoundingClientRect();return {id:button.id,overlap:r.left<fit.right&&r.right>fit.left&&r.top<fit.bottom&&r.bottom>fit.top};});
+      });
+      check(`Basemap buttons do not overlap Show all locations at ${width}px`,controls.every(c=>!c.overlap),controls);
+      if(width===768)await page.locator('.mc-map-workspace').screenshot({path:path.join(out,'tablet-768.png')});
+    }
+    await page.setViewportSize({width:1440,height:1100});await settle(page);
     const zoomOut=page.getByRole('button',{name:'Zoom out',exact:true});
     for(let i=0;i<8&&await zoomOut.isEnabled();i++){await zoomOut.click();await settle(page);}
     await settle(page);g=await geometry(page);

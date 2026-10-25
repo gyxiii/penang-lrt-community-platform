@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1180" viewBox="0 0 1600 1180"><rect width="100%" height="100%" fill="white"/><g font-family="Arial, sans-serif" fill="#111827">
+<rect x="200" y="70" width="1200" height="1000" fill="white" stroke="#334155" stroke-width="2"/>
+<text x="800" y="112" font-size="31" text-anchor="middle" font-weight="bold" fill="#111827">MutiaraConnect Community Portal</text>
+<g stroke="#334155" stroke-width="3" fill="white"><circle cx="80" cy="500" r="18"/><path d="M80 518V576M45 540H115M80 576L48 612M80 576L112 612" fill="none"/></g>
+<text x="80" y="652" font-size="23" text-anchor="middle">Public User</text>
+<g stroke="#334155" stroke-width="3" fill="white"><circle cx="1520" cy="500" r="18"/><path d="M1520 518V576M1485 540H1555M1520 576L1488 612M1520 576L1552 612" fill="none"/></g>
+<text x="1520" y="652" font-size="21" text-anchor="middle">Authorised Staff</text>
+<text x="1520" y="680" font-size="21" text-anchor="middle">Administrator</text>
+<polyline points="115,540 270,380" fill="none" stroke="#334155" stroke-width="2"/>
+<polyline points="115,540 270,560" fill="none" stroke="#334155" stroke-width="2"/>
+<polyline points="115,540 270,740" fill="none" stroke="#334155" stroke-width="2"/>
+<polyline points="115,540 270,920" fill="none" stroke="#334155" stroke-width="2"/>
+<polyline points="115,540 160,540 160,188 560,188" fill="none" stroke="#334155" stroke-width="2"/>
+<polyline points="1485,540 1320,380" fill="none" stroke="#334155" stroke-width="2"/>
+<polyline points="1485,540 1320,560" fill="none" stroke="#334155" stroke-width="2"/>
+<polyline points="1485,540 1320,740" fill="none" stroke="#334155" stroke-width="2"/>
+<polyline points="1485,540 1320,920" fill="none" stroke="#334155" stroke-width="2"/>
+<polyline points="1485,540 1440,540 1440,188 1040,188" fill="none" stroke="#334155" stroke-width="2"/>
+<ellipse cx="800.0" cy="187.5" rx="240.0" ry="57.5" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+<text x="800.0" y="177.5" font-size="26" text-anchor="middle">F1 View Announcements</text>
+<text x="800.0" y="209.5" font-size="26" text-anchor="middle">Browse and Filter Notices</text>
+<ellipse cx="495.0" cy="380.0" rx="225.0" ry="60.0" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+<text x="495.0" y="370.0" font-size="26" text-anchor="middle">F2 Explore Impact Map</text>
+<text x="495.0" y="402.0" font-size="26" text-anchor="middle">Search and Filter Locations</text>
+<ellipse cx="495.0" cy="560.0" rx="225.0" ry="60.0" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+<text x="495.0" y="550.0" font-size="26" text-anchor="middle">F2 View Construction Details</text>
+<text x="495.0" y="582.0" font-size="26" text-anchor="middle">Select a Marker or Result</text>
+<ellipse cx="495.0" cy="740.0" rx="225.0" ry="60.0" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+<text x="495.0" y="730.0" font-size="26" text-anchor="middle">F3 Submit Feedback</text>
+<text x="495.0" y="762.0" font-size="26" text-anchor="middle">Receive a Reference Number</text>
+<ellipse cx="495.0" cy="920.0" rx="225.0" ry="60.0" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+<text x="495.0" y="910.0" font-size="26" text-anchor="middle">F4 Track Feedback</text>
+<text x="495.0" y="942.0" font-size="26" text-anchor="middle">View Status and History</text>
+<ellipse cx="1105.0" cy="380.0" rx="215.0" ry="60.0" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+<text x="1105.0" y="370.0" font-size="26" text-anchor="middle">F5 Access Administrative</text>
+<text x="1105.0" y="402.0" font-size="26" text-anchor="middle">Dashboard</text>
+<ellipse cx="1105.0" cy="560.0" rx="215.0" ry="60.0" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+<text x="1105.0" y="550.0" font-size="26" text-anchor="middle">F1 Manage Announcements</text>
+<text x="1105.0" y="582.0" font-size="26" text-anchor="middle">Publish or Update Notices</text>
+<ellipse cx="1105.0" cy="740.0" rx="215.0" ry="60.0" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+<text x="1105.0" y="730.0" font-size="26" text-anchor="middle">F5 Review and Filter Feedback</text>
+<text x="1105.0" y="762.0" font-size="26" text-anchor="middle">Category or Status</text>
+<ellipse cx="1105.0" cy="920.0" rx="215.0" ry="60.0" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+<text x="1105.0" y="910.0" font-size="26" text-anchor="middle">F5 Update Feedback Status</text>
+<text x="1105.0" y="942.0" font-size="26" text-anchor="middle">Record a Response or Note</text>
+<text x="800" y="1120" font-size="25" text-anchor="middle" font-weight="normal" fill="#111827">Staff sign-in is a planned precondition for dashboard access.</text>
+<text x="800" y="1160" font-size="24" text-anchor="middle" font-weight="normal" fill="#111827">Actors are outside the boundary. Solid lines show participation in a use case.</text>
+</g></svg>

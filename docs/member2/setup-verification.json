@@ -1,0 +1,14 @@
+{
+  "testedAt": "2026-10-25T15:43:15.795Z",
+  "mode": "Windows first-run launcher in isolated temporary directory",
+  "checks": [
+    {
+      "label": "First run prepares a blank local configuration",
+      "result": "PASS"
+    },
+    {
+      "label": "Later runs preserve an existing configured file exactly",
+      "result": "PASS"
+    }
+  ]
+}

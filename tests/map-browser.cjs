@@ -11,6 +11,9 @@ const screenshots=path.join(output,'screenshots');
 const base=(process.env.BASE_URL||'http://127.0.0.1:8332').replace(/\/$/,'');
 const checks=[];
 function check(label,condition){assert.ok(condition,label);checks.push({label,result:'PASS'});}
+async function schematicOnly(context){
+ await context.route('**/js/google-map-config.js',route=>route.fulfill({contentType:'application/javascript',body:"window.MutiaraConnectGoogleMapConfig={apiKey:'',preferGoogle:false};"}));
+}
 const selectedMarkerUncovered=page=>page.evaluate(()=>{
  const marker=document.querySelector('.mc-map-pin.selected');const detail=document.querySelector('#map-detail');
  if(!marker||!detail||detail.hidden)return false;
@@ -23,6 +26,7 @@ const selectedMarkerUncovered=page=>page.evaluate(()=>{
  const errors=[],badLocal=[];
  try{
   const context=await browser.newContext({viewport:{width:1440,height:1150},deviceScaleFactor:1});
+  await schematicOnly(context);
   context.on('page',page=>{page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.url().startsWith(base)&&r.status()>=400)badLocal.push(`${r.status()} ${r.url()}`);});});
   const page=await context.newPage();
   await page.goto(`${base}/index.html`);
@@ -96,12 +100,14 @@ const selectedMarkerUncovered=page=>page.evaluate(()=>{
   await context.close();
   const offline=await browser.newContext({viewport:{width:1280,height:1024}});
   await offline.route(/^https?:\/\/(?!127\.0\.0\.1)/,route=>route.abort('internetdisconnected'));
+  await schematicOnly(offline);
   const op=await offline.newPage();await op.goto(`${base}/map.html`);await op.waitForSelector('.mc-map-pin');
   check('Blocking all external traffic leaves the schematic and three markers usable',await op.locator('.mc-map-pin').count()===3&&await op.locator('.leaflet-image-layer').evaluate(i=>i.complete&&i.naturalWidth>0));
   await op.locator('#map-street').click();await op.waitForFunction(()=>document.querySelector('#map-status').textContent.includes('unavailable'),null,{timeout:13000});
   check('An initial street-map network failure also restores the schematic',await op.locator('#map-schematic').getAttribute('aria-pressed')==='true');
   await offline.close();
   const mobile=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1});
+  await schematicOnly(mobile);
   const mp=await mobile.newPage();await mp.goto(`${base}/map.html?notice=MC-DEMO-001`);await mp.waitForSelector('.mc-map-pin.selected');
   check('Mobile layout fits 390 pixels without horizontal page overflow',await mp.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   check('Mobile notice details do not cover the selected construction marker',await selectedMarkerUncovered(mp));
@@ -111,7 +117,7 @@ const selectedMarkerUncovered=page=>page.evaluate(()=>{
   await mp.locator('.menu-toggle').click();await mp.locator('#map-type').selectOption('Pedestrian access');
   check('Mobile select filtering keeps markers and cards in sync',await mp.locator('.mc-map-card').count()===1&&await mp.locator('.mc-map-pin').count()===1);
   await mobile.close();
-  const direct=await browser.newContext();const fp=await direct.newPage();await fp.goto(`file:///${root.replace(/\\/g,'/')}/map.html?notice=MC-DEMO-003`);await fp.waitForSelector('#map-read-notice');
+  const direct=await browser.newContext();await schematicOnly(direct);const fp=await direct.newPage();await fp.goto(`file:///${root.replace(/\\/g,'/')}/map.html?notice=MC-DEMO-003`);await fp.waitForSelector('#map-read-notice');
   check('Direct file opening loads shared records and a notice-specific map selection',(await fp.locator('#map-detail').innerText()).includes('MC-DEMO-003')&&await fp.locator('.mc-map-pin').count()===3);
   await fp.locator('#map-area').selectOption('george-town');check('Direct file opening supports map filters',await fp.locator('.mc-map-pin').count()===1);
   await direct.close();

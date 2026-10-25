@@ -10,7 +10,7 @@ Files:
 How to run:
 1. Extract the ZIP file.
 2. Keep the folder structure unchanged.
-3. Open index.html in a browser (double-click is enough).
+3. On Windows, run 打开网站.cmd to prepare the blank local map configuration and open the homepage. Existing configured keys are preserved. On other systems, copy js/google-map-config.example.js to js/google-map-config.js once, then open index.html.
 4. Use the navigation to open Announcements and click a notice to view details.
 
 Implemented:
@@ -24,4 +24,5 @@ Implemented:
 
 Important:
 All notices, dates, and locations are fictional demonstration data, not official Penang LRT information.
-Links to map.html, feedback.html, tracking.html, and admin.html are integration placeholders for the other group members' pages. They will work after those files are added to the same project folder.
+The Impact Map is implemented. Google Maps requires a valid local key; the offline schematic works without one. See docs/member2/INTEGRATION_ZH.md for report and diagram handoff.
+Links to feedback.html, tracking.html, and admin.html are integration placeholders for the other group members' pages. They will work after those files are added to the same project folder.

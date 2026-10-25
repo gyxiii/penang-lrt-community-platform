@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1310" viewBox="0 0 1440 1310"><rect width="100%" height="100%" fill="white"/><g font-family="Arial, sans-serif" fill="#111827">
+<text x="720" y="42" font-size="31" text-anchor="middle" font-weight="bold" fill="#111827">MutiaraConnect Domain Model</text>
+<rect x="40" y="80" width="430" height="302" fill="white" stroke="#334155" stroke-width="2"/>
+<rect x="41" y="81" width="428" height="53" fill="#e8edf3"/>
+<text x="255.0" y="116" font-size="27" text-anchor="middle" font-weight="bold" fill="#111827">ConstructionSite</text>
+<polyline points="40,134 470,134" fill="none" stroke="#334155" stroke-width="2"/>
+<text x="55" y="166" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- siteId: String</text>
+<text x="55" y="200" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- name: String</text>
+<text x="55" y="234" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- area: String</text>
+<text x="55" y="268" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- latitude: Decimal</text>
+<text x="55" y="302" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- longitude: Decimal</text>
+<polyline points="40,326 470,326" fill="none" stroke="#334155" stroke-width="2"/>
+<text x="55" y="358" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">+ getDetails(): Object</text>
+<rect x="980" y="80" width="420" height="404" fill="white" stroke="#334155" stroke-width="2"/>
+<rect x="981" y="81" width="418" height="53" fill="#e8edf3"/>
+<text x="1190.0" y="116" font-size="27" text-anchor="middle" font-weight="bold" fill="#111827">Announcement</text>
+<polyline points="980,134 1400,134" fill="none" stroke="#334155" stroke-width="2"/>
+<text x="995" y="166" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- id: String</text>
+<text x="995" y="200" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- title: String</text>
+<text x="995" y="234" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- type: String</text>
+<text x="995" y="268" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- area: String</text>
+<text x="995" y="302" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- date: Date</text>
+<text x="995" y="336" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- period: String</text>
+<text x="995" y="370" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- impact: String</text>
+<text x="995" y="404" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- access: String</text>
+<polyline points="980,428 1400,428" fill="none" stroke="#334155" stroke-width="2"/>
+<text x="995" y="460" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">+ getDetails(): Object</text>
+<rect x="40" y="740" width="450" height="438" fill="white" stroke="#334155" stroke-width="2"/>
+<rect x="41" y="741" width="448" height="53" fill="#e8edf3"/>
+<text x="265.0" y="776" font-size="27" text-anchor="middle" font-weight="bold" fill="#111827">Feedback</text>
+<polyline points="40,794 490,794" fill="none" stroke="#334155" stroke-width="2"/>
+<text x="55" y="826" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- feedbackId: String</text>
+<text x="55" y="860" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- category: String</text>
+<text x="55" y="894" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- location: String</text>
+<text x="55" y="928" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- description: String</text>
+<text x="55" y="962" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- photoRef: String [0..1]</text>
+<text x="55" y="996" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- status: String</text>
+<text x="55" y="1030" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- createdAt: DateTime</text>
+<polyline points="40,1054 490,1054" fill="none" stroke="#334155" stroke-width="2"/>
+<text x="55" y="1086" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">+ submit(): String</text>
+<text x="55" y="1120" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">+ getHistory(): List</text>
+<text x="55" y="1154" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">+ updateStatus(status: String): void</text>
+<rect x="980" y="780" width="420" height="268" fill="white" stroke="#334155" stroke-width="2"/>
+<rect x="981" y="781" width="418" height="53" fill="#e8edf3"/>
+<text x="1190.0" y="816" font-size="27" text-anchor="middle" font-weight="bold" fill="#111827">FeedbackStatusHistory</text>
+<polyline points="980,834 1400,834" fill="none" stroke="#334155" stroke-width="2"/>
+<text x="995" y="866" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- historyId: String</text>
+<text x="995" y="900" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- status: String</text>
+<text x="995" y="934" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- note: String</text>
+<text x="995" y="968" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- updatedAt: DateTime</text>
+<polyline points="980,992 1400,992" fill="none" stroke="#334155" stroke-width="2"/>
+<text x="995" y="1024" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">+ getDetails(): Object</text>
+<rect x="555" y="445" width="380" height="268" fill="white" stroke="#334155" stroke-width="2"/>
+<rect x="556" y="446" width="378" height="53" fill="#e8edf3"/>
+<text x="745.0" y="481" font-size="27" text-anchor="middle" font-weight="bold" fill="#111827">Administrator</text>
+<polyline points="555,499 935,499" fill="none" stroke="#334155" stroke-width="2"/>
+<text x="570" y="531" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- adminId: String</text>
+<text x="570" y="565" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">- name: String</text>
+<polyline points="555,589 935,589" fill="none" stroke="#334155" stroke-width="2"/>
+<text x="570" y="621" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">+ manageNotices(): void</text>
+<text x="570" y="655" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">+ reviewFeedback(): List</text>
+<text x="570" y="689" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">+ updateStatus(): void</text>
+<polyline points="470,220 980,220" fill="none" stroke="#334155" stroke-width="2"/>
+<text x="485" y="207" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">1</text>
+<text x="913" y="207" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">0..*</text>
+<text x="725" y="207" font-size="23" text-anchor="middle" font-weight="normal" fill="#111827">has notices</text>
+<polyline points="250,382 250,740" fill="none" stroke="#334155" stroke-width="2"/>
+<text x="265" y="418" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">0..1</text>
+<text x="265" y="725" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">0..*</text>
+<text x="235" y="570" font-size="23" text-anchor="end" font-weight="normal" fill="#111827">relates to</text>
+<polyline points="745,445 745,360 980,360" fill="none" stroke="#334155" stroke-width="2"/>
+<text x="760" y="430" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">0..*</text>
+<text x="920" y="345" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">0..*</text>
+<text x="815" y="345" font-size="23" text-anchor="middle" font-weight="normal" fill="#111827">manages</text>
+<polyline points="555,565 525,565 525,800 490,800" fill="none" stroke="#334155" stroke-width="2"/>
+<text x="545" y="550" font-size="24" text-anchor="end" font-weight="normal" fill="#111827">0..*</text>
+<text x="510" y="835" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">0..*</text>
+<text x="560" y="738" font-size="23" text-anchor="start" font-weight="normal" fill="#111827">handles</text>
+<polyline points="935,565 955,565 955,840 980,840" fill="none" stroke="#334155" stroke-width="2"/>
+<text x="945" y="550" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">0..1</text>
+<text x="927" y="875" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">0..*</text>
+<text x="935" y="738" font-size="23" text-anchor="end" font-weight="normal" fill="#111827">records</text>
+<polyline points="490,1000 980,1000" fill="none" stroke="#334155" stroke-width="2"/>
+<polygon points="490,1000 504,992 518,1000 504,1008" fill="#334155"/>
+<text x="530" y="1032" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">1</text>
+<text x="920" y="1032" font-size="24" text-anchor="start" font-weight="normal" fill="#111827">1..*</text>
+<text x="735" y="985" font-size="23" text-anchor="middle" font-weight="normal" fill="#111827">has history</text>
+<text x="720" y="1230" font-size="25" text-anchor="middle" font-weight="normal" fill="#111827">Feedback status values  Submitted  |  In Progress  |  Responded</text>
+<text x="720" y="1275" font-size="23" text-anchor="middle" font-weight="normal" fill="#111827">Filled diamond denotes composition. All other links are associations.</text>
+</g></svg>
