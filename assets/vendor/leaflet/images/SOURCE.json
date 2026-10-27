@@ -1,0 +1,49 @@
+{
+  "version": "1.9.4",
+  "restoredOn": "2026-10-28",
+  "upstream": "https://github.com/Leaflet/Leaflet/tree/v1.9.4/dist/images",
+  "license": "../LICENSE.txt",
+  "note": "Unmodified official distribution images restored for the existing vendored Leaflet version.",
+  "files": [
+    {
+      "name": "layers-2x.png",
+      "url": "https://raw.githubusercontent.com/Leaflet/Leaflet/v1.9.4/dist/images/layers-2x.png",
+      "bytes": 1259,
+      "sha256": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "width": 52,
+      "height": 52
+    },
+    {
+      "name": "layers.png",
+      "url": "https://raw.githubusercontent.com/Leaflet/Leaflet/v1.9.4/dist/images/layers.png",
+      "bytes": 696,
+      "sha256": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "width": 26,
+      "height": 26
+    },
+    {
+      "name": "marker-icon-2x.png",
+      "url": "https://raw.githubusercontent.com/Leaflet/Leaflet/v1.9.4/dist/images/marker-icon-2x.png",
+      "bytes": 2464,
+      "sha256": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "width": 50,
+      "height": 82
+    },
+    {
+      "name": "marker-icon.png",
+      "url": "https://raw.githubusercontent.com/Leaflet/Leaflet/v1.9.4/dist/images/marker-icon.png",
+      "bytes": 1466,
+      "sha256": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "width": 25,
+      "height": 41
+    },
+    {
+      "name": "marker-shadow.png",
+      "url": "https://raw.githubusercontent.com/Leaflet/Leaflet/v1.9.4/dist/images/marker-shadow.png",
+      "bytes": 618,
+      "sha256": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "width": 41,
+      "height": 41
+    }
+  ]
+}

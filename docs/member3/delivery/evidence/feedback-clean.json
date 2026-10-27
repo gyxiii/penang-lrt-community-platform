@@ -1,0 +1,256 @@
+{
+  "checkedAt": "2026-10-27T13:38:31.726Z",
+  "browser": "Microsoft Edge / Playwright",
+  "checks": [
+    {
+      "label": "Existing homepage still renders its three notices",
+      "result": "PASS"
+    },
+    {
+      "label": "The existing homepage now opens the feedback form",
+      "result": "PASS"
+    },
+    {
+      "label": "Submission navigation identifies the active page",
+      "result": "PASS"
+    },
+    {
+      "label": "An empty submission stays on the form and identifies five invalid fields",
+      "result": "PASS"
+    },
+    {
+      "label": "The first invalid field receives keyboard focus",
+      "result": "PASS"
+    },
+    {
+      "label": "Whitespace and an incomplete description cannot be submitted",
+      "result": "PASS"
+    },
+    {
+      "label": "The description counter updates while typing",
+      "result": "PASS"
+    },
+    {
+      "label": "A non-image attachment is rejected",
+      "result": "PASS"
+    },
+    {
+      "label": "An invalid optional attachment cannot silently pass submission",
+      "result": "PASS"
+    },
+    {
+      "label": "A file renamed to PNG must actually decode as an image",
+      "result": "PASS"
+    },
+    {
+      "label": "A photo above 2 MB is rejected",
+      "result": "PASS"
+    },
+    {
+      "label": "A valid photo displays its preview and filename",
+      "result": "PASS"
+    },
+    {
+      "label": "Removing a photo clears the preview and file input",
+      "result": "PASS"
+    },
+    {
+      "label": "A valid submission creates a unique reference and a real saved receipt",
+      "result": "PASS"
+    },
+    {
+      "label": "The receipt retains the submitted concern title",
+      "result": "PASS"
+    },
+    {
+      "label": "Only one record is saved for one submission",
+      "result": "PASS"
+    },
+    {
+      "label": "Unavailable clipboard access falls back to selecting the reference",
+      "result": "PASS"
+    },
+    {
+      "label": "Returning to the form from a receipt leaves submission available",
+      "result": "PASS"
+    },
+    {
+      "label": "The receipt opens the matching submitted report",
+      "result": "PASS"
+    },
+    {
+      "label": "Submitted photo survives page navigation",
+      "result": "PASS"
+    },
+    {
+      "label": "The tracking page retains the full submitted description",
+      "result": "PASS"
+    },
+    {
+      "label": "New feedback remains queryable after a page reload",
+      "result": "PASS"
+    },
+    {
+      "label": "Saved feedback is available to another tab on the same site",
+      "result": "PASS"
+    },
+    {
+      "label": "A staff API update refreshes an already open tracking tab",
+      "result": "PASS"
+    },
+    {
+      "label": "User-entered HTML is shown as plain text on a receipt",
+      "result": "PASS"
+    },
+    {
+      "label": "User markup cannot execute on the tracking page",
+      "result": "PASS"
+    },
+    {
+      "label": "Lookup accepts lowercase and surrounding whitespace",
+      "result": "PASS"
+    },
+    {
+      "label": "Sample 001 shows Submitted and the correct timeline",
+      "result": "PASS"
+    },
+    {
+      "label": "Sample 002 shows In Progress and the correct timeline",
+      "result": "PASS"
+    },
+    {
+      "label": "Sample 003 shows Responded and the correct timeline",
+      "result": "PASS"
+    },
+    {
+      "label": "The responded example displays the actual sample team response",
+      "result": "PASS"
+    },
+    {
+      "label": "An unknown valid reference shows no match and removes the earlier result",
+      "result": "PASS"
+    },
+    {
+      "label": "An empty reference gives a focused field error",
+      "result": "PASS"
+    },
+    {
+      "label": "Malformed references are rejected safely",
+      "result": "PASS"
+    },
+    {
+      "label": "An unknown receipt does not claim a successful submission",
+      "result": "PASS"
+    },
+    {
+      "label": "A different browser session cannot falsely retrieve a locally saved report",
+      "result": "PASS"
+    },
+    {
+      "label": "The existing announcement list still renders four shared notices",
+      "result": "PASS"
+    },
+    {
+      "label": "Existing announcement filters still work",
+      "result": "PASS"
+    },
+    {
+      "label": "feedback.html fits 1440px without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "tracking.html fits 1440px without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "feedback-success.html fits 1440px without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "feedback.html fits 1024px without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "tracking.html fits 1024px without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "feedback-success.html fits 1024px without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "feedback.html fits 768px without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "tracking.html fits 768px without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "feedback-success.html fits 768px without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "feedback.html fits 390px without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "tracking.html fits 390px without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "feedback-success.html fits 390px without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "feedback.html fits 320px without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "tracking.html fits 320px without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "feedback-success.html fits 320px without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "The mobile menu exposes the new tracking page",
+      "result": "PASS"
+    },
+    {
+      "label": "Mobile sample lookup opens the report and focuses it",
+      "result": "PASS"
+    },
+    {
+      "label": "Storage failure never redirects to a false success receipt",
+      "result": "PASS"
+    },
+    {
+      "label": "After a save failure, form data remains and submission can be retried",
+      "result": "PASS"
+    },
+    {
+      "label": "Unreadable saved data is not silently overwritten",
+      "result": "PASS"
+    },
+    {
+      "label": "Directly opened local HTML can save and retrieve its receipt",
+      "result": "PASS"
+    },
+    {
+      "label": "Direct-file navigation also retrieves the new feedback",
+      "result": "PASS"
+    },
+    {
+      "label": "No unhandled JavaScript errors occurred in the main browser checks",
+      "result": "PASS"
+    },
+    {
+      "label": "All requested local module resources returned successfully",
+      "result": "PASS"
+    }
+  ],
+  "errors": [],
+  "badLocal": []
+}

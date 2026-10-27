@@ -1,0 +1,95 @@
+{
+  "checkedAt": "2026-10-27T17:12:57.440Z",
+  "checks": [
+    {
+      "label": "Homepage, notice filters and detail navigation preserve the selected notice",
+      "result": "PASS"
+    },
+    {
+      "label": "The detail page opens the correct offline map selection",
+      "result": "PASS"
+    },
+    {
+      "label": "The map returns to the same notice detail",
+      "result": "PASS"
+    },
+    {
+      "label": "A feedback report submitted after browsing notices gets its own saved reference",
+      "result": "PASS"
+    },
+    {
+      "label": "The receipt retrieves that exact report and its initial history",
+      "result": "PASS"
+    },
+    {
+      "label": "The shared staff API updates the displayed status and appends history",
+      "result": "PASS"
+    },
+    {
+      "label": "A second staff API update displays the response without losing earlier history",
+      "result": "PASS"
+    },
+    {
+      "label": "The integrated status and history survive a reload",
+      "result": "PASS"
+    },
+    {
+      "label": "The design-only staff page cannot overwrite an integrated public report",
+      "result": "PASS"
+    },
+    {
+      "label": "The UI catalogue routes administration to the isolated proposal",
+      "result": "PASS"
+    },
+    {
+      "label": "All implemented public navigation destinations exist in the clean review folder",
+      "result": "PASS"
+    },
+    {
+      "label": "The missing formal admin page is recorded as a dependency, not misreported as implemented",
+      "result": "PASS"
+    },
+    {
+      "label": "Existing local Leaflet assets and offline schematic are included",
+      "result": "PASS"
+    },
+    {
+      "label": "Leaflet 1.9.4 image layers.png loads as a valid PNG",
+      "result": "PASS"
+    },
+    {
+      "label": "Leaflet 1.9.4 image layers-2x.png loads as a valid PNG",
+      "result": "PASS"
+    },
+    {
+      "label": "Leaflet 1.9.4 image marker-icon.png loads as a valid PNG",
+      "result": "PASS"
+    },
+    {
+      "label": "Leaflet 1.9.4 image marker-icon-2x.png loads as a valid PNG",
+      "result": "PASS"
+    },
+    {
+      "label": "Leaflet 1.9.4 image marker-shadow.png loads as a valid PNG",
+      "result": "PASS"
+    },
+    {
+      "label": "The report, figure assets and demo materials are included",
+      "result": "PASS"
+    },
+    {
+      "label": "The public cross-module workflow has no unhandled script or local-resource errors",
+      "result": "PASS"
+    }
+  ],
+  "errors": [],
+  "badLocal": [],
+  "knownDependencies": [
+    {
+      "path": "admin.html",
+      "owner": "Administrator module",
+      "status": "Not implemented; shared API tested, isolated UI proposal supplied"
+    }
+  ],
+  "apiSimulation": "Staff updates were exercised through the shared API, not a nonexistent staff page"
+}

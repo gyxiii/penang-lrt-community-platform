@@ -1,0 +1,104 @@
+{
+  "checkedAt": "2026-10-27T17:13:32.140135+00:00",
+  "environment": "Clean copied project without Git metadata or original private map configuration",
+  "baseRevision": "ba524b170181c86623d9d6a9c1a5134c38579fea",
+  "remoteMainAtCheck": "ba524b170181c86623d9d6a9c1a5134c38579fea",
+  "suites": [
+    {
+      "suite": "feedback",
+      "passed": 62,
+      "evidence": "delivery/evidence/feedback-clean.json"
+    },
+    {
+      "suite": "ui",
+      "passed": 58,
+      "evidence": "delivery/evidence/ui-clean.json"
+    },
+    {
+      "suite": "integration",
+      "passed": 20,
+      "evidence": "integration-verification.json"
+    }
+  ],
+  "browserChecksPassed": 140,
+  "scriptErrors": [],
+  "failedModuleRequests": [],
+  "sourceFilesIdenticalToTestedCopy": 47,
+  "htmlPagesAudited": 9,
+  "localReferencesAudited": 132,
+  "unexpectedMissingTargets": [],
+  "restoredLeafletImages": {
+    "version": "1.9.4",
+    "count": 5,
+    "source": "assets/vendor/leaflet/images/SOURCE.json",
+    "hashesVerified": true
+  },
+  "knownMissingTargets": [
+    {
+      "source": "announcement-detail.html",
+      "target": "admin.html"
+    },
+    {
+      "source": "announcements.html",
+      "target": "admin.html"
+    },
+    {
+      "source": "feedback-success.html",
+      "target": "admin.html"
+    },
+    {
+      "source": "feedback.html",
+      "target": "admin.html"
+    },
+    {
+      "source": "index.html",
+      "target": "admin.html"
+    },
+    {
+      "source": "index.html",
+      "target": "admin.html"
+    },
+    {
+      "source": "map.html",
+      "target": "admin.html"
+    },
+    {
+      "source": "tracking.html",
+      "target": "admin.html"
+    }
+  ],
+  "generatedLocalConfiguration": [
+    {
+      "source": "map.html",
+      "target": "js/google-map-config.js"
+    }
+  ],
+  "launcher": "Prepare-only generated a blank map configuration in the clean copy; source private configuration was not copied or changed",
+  "report": {
+    "pages": 2,
+    "figures": 4,
+    "sha256": "0731591eac1934011da166520c42b014794fee8442ddbc4db9e234c605b24115",
+    "changedSinceWordReview": false
+  },
+  "markdownFilesAudited": [
+    "README.md",
+    "docs/member3/DELIVERY_ZH.md",
+    "docs/member3/DEMO_EN.md",
+    "docs/member3/DEMO_ZH.md",
+    "docs/member3/INTEGRATION_ZH.md",
+    "docs/member3/UI_DESIGN_ZH.md",
+    "docs/member3/report/Member3_Prototype_Design.md",
+    "docs/member3/report/REPORT_HANDOFF_ZH.md"
+  ],
+  "limitations": [
+    "Formal admin.html and a staff UI connected to the shared feedback store remain for the administrator module owner",
+    "No real server, database or staff authentication is claimed",
+    "Personal video and group coursework submission remain human/group tasks"
+  ],
+  "git": {
+    "branch": "member3-feedback-ui",
+    "committed": false,
+    "pushed": false,
+    "pullRequestCreated": false
+  }
+}

@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1536" viewBox="0 0 1600 1536" role="img" aria-labelledby="title desc">
+<title id="title">Update progress and track feedback</title>
+<desc id="desc">UML sequence diagram. Time flows downward. Dashed lifelines, solid calls, dashed replies and guarded interaction fragments. Browser storage is localStorage, not a remote database.</desc>
+<defs><marker id="call" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 0 0 L 12 6 L 0 12 Z" fill="#142B39"/></marker><marker id="return" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 0 0 L 12 6 L 0 12" fill="none" stroke="#142B39" stroke-width="1.6"/></marker></defs>
+<g font-family="Arial, sans-serif">
+<rect x="1" y="1" width="1598" height="1534" fill="white" stroke="#CAD4D9" stroke-width="1"/>
+<text x="20" y="32" font-size="30" fill="#142B39" text-anchor="start" font-weight="bold">sd  Update progress and track feedback</text>
+<circle cx="100" cy="76" r="12" fill="white" stroke="#116B70" stroke-width="2"/>
+<polyline points="100,88 100,113" fill="none" stroke="#116B70" stroke-width="2"/>
+<polyline points="81,99 119,99" fill="none" stroke="#116B70" stroke-width="2"/>
+<polyline points="100,113 81,130" fill="none" stroke="#116B70" stroke-width="2"/>
+<polyline points="100,113 119,130" fill="none" stroke="#116B70" stroke-width="2"/>
+<text x="100" y="160" font-size="28" fill="#142B39" text-anchor="middle" font-weight="normal">Public user</text>
+<polyline points="100,169 100,1514" fill="none" stroke="#9BAAB1" stroke-width="1.4" stroke-dasharray="7 6"/>
+<rect x="311" y="65" width="278" height="91" fill="#F1F8F7" stroke="#116B70" stroke-width="1.6"/>
+<text x="450" y="100" font-size="29" fill="#142B39" text-anchor="middle" font-weight="bold">Feedback UI</text>
+<text x="450" y="132" font-size="25" fill="#657782" text-anchor="middle" font-weight="normal">public or staff view</text>
+<polyline points="450,169 450,1514" fill="none" stroke="#9BAAB1" stroke-width="1.4" stroke-dasharray="7 6"/>
+<rect x="661" y="65" width="278" height="91" fill="#F1F8F7" stroke="#116B70" stroke-width="1.6"/>
+<text x="800" y="100" font-size="29" fill="#142B39" text-anchor="middle" font-weight="bold">Feedback model</text>
+<text x="800" y="132" font-size="25" fill="#657782" text-anchor="middle" font-weight="normal">browser JavaScript</text>
+<polyline points="800,169 800,1514" fill="none" stroke="#9BAAB1" stroke-width="1.4" stroke-dasharray="7 6"/>
+<rect x="1011" y="65" width="278" height="91" fill="#F1F8F7" stroke="#116B70" stroke-width="1.6"/>
+<text x="1150" y="100" font-size="29" fill="#142B39" text-anchor="middle" font-weight="bold">Browser storage</text>
+<text x="1150" y="132" font-size="25" fill="#657782" text-anchor="middle" font-weight="normal">localStorage</text>
+<polyline points="1150,169 1150,1514" fill="none" stroke="#9BAAB1" stroke-width="1.4" stroke-dasharray="7 6"/>
+<circle cx="1486" cy="76" r="12" fill="white" stroke="#116B70" stroke-width="2"/>
+<polyline points="1486,88 1486,113" fill="none" stroke="#116B70" stroke-width="2"/>
+<polyline points="1467,99 1505,99" fill="none" stroke="#116B70" stroke-width="2"/>
+<polyline points="1486,113 1467,130" fill="none" stroke="#116B70" stroke-width="2"/>
+<polyline points="1486,113 1505,130" fill="none" stroke="#116B70" stroke-width="2"/>
+<text x="1486" y="160" font-size="28" fill="#142B39" text-anchor="middle" font-weight="normal">Authorised staff</text>
+<polyline points="1486,169 1486,1514" fill="none" stroke="#9BAAB1" stroke-width="1.4" stroke-dasharray="7 6"/>
+<rect x="18" y="182" width="1564" height="687" fill="none" stroke="#8D5A20" stroke-width="1.5"/>
+<rect x="18" y="182" width="93" height="37" fill="#FFF5E9" stroke="#8D5A20" stroke-width="1.6"/>
+<text x="64" y="209" font-size="29" fill="#142B39" text-anchor="middle" font-weight="bold">opt</text>
+<rect x="126" y="183" width="681.0" height="31" fill="white"/>
+<text x="130" y="210" font-size="28" fill="#8D5A20" text-anchor="start" font-weight="normal">[staff review occurs through the proposed dashboard]</text>
+<rect x="32" y="222" width="1536" height="631" fill="none" stroke="#8D5A20" stroke-width="1.5"/>
+<rect x="32" y="222" width="93" height="37" fill="#FFF5E9" stroke="#8D5A20" stroke-width="1.6"/>
+<text x="78" y="249" font-size="29" fill="#142B39" text-anchor="middle" font-weight="bold">loop</text>
+<rect x="140" y="223" width="506.0" height="31" fill="white"/>
+<text x="144" y="250" font-size="28" fill="#8D5A20" text-anchor="start" font-weight="normal">[each valid update to an existing report]</text>
+<rect x="615.5" y="263" width="705.0" height="33" fill="white"/>
+<text x="968.0" y="292" font-size="30" fill="#142B39" text-anchor="middle" font-weight="normal">Choose status and add a progress note or response</text>
+<polyline points="1486,304 450,304" fill="none" stroke="#142B39" stroke-width="2" marker-end="url(#call)"/>
+<rect x="459.0" y="322" width="332.0" height="66" fill="white"/>
+<text x="625.0" y="351" font-size="30" fill="#142B39" text-anchor="middle" font-weight="normal">updateStatus(reference,</text>
+<text x="625.0" y="384" font-size="30" fill="#142B39" text-anchor="middle" font-weight="normal">status, note)</text>
+<polyline points="450,395 800,395" fill="none" stroke="#142B39" stroke-width="2" marker-end="url(#call)"/>
+<rect x="887.5" y="413" width="175.0" height="33" fill="white"/>
+<text x="975.0" y="442" font-size="30" fill="#142B39" text-anchor="middle" font-weight="normal">getItem(key)</text>
+<polyline points="800,454 1150,454" fill="none" stroke="#142B39" stroke-width="2" marker-end="url(#call)"/>
+<rect x="879.5" y="472" width="191.0" height="33" fill="white"/>
+<text x="975.0" y="501" font-size="30" fill="#142B39" text-anchor="middle" font-weight="normal">saved reports</text>
+<polyline points="1150,513 800,513" fill="none" stroke="#142B39" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#return)"/>
+<rect x="818" y="532" width="295.0" height="32" fill="white"/>
+<text x="822" y="560" font-size="29" fill="#142B39" text-anchor="start" font-weight="normal">Set status; add history</text>
+<polyline points="800,574 862,574 862,594 800,594" fill="none" stroke="#142B39" stroke-width="2" marker-end="url(#call)"/>
+<rect x="833.515625" y="610" width="282.96875" height="33" fill="white"/>
+<text x="975.0" y="639" font-size="30" fill="#142B39" text-anchor="middle" font-weight="normal">setItem(key, reports)</text>
+<polyline points="800,651 1150,651" fill="none" stroke="#142B39" stroke-width="2" marker-end="url(#call)"/>
+<rect x="865.0" y="669" width="220.0" height="33" fill="white"/>
+<text x="975.0" y="698" font-size="30" fill="#142B39" text-anchor="middle" font-weight="normal">write completed</text>
+<polyline points="1150,710 800,710" fill="none" stroke="#142B39" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#return)"/>
+<rect x="522.5" y="728" width="205.0" height="33" fill="white"/>
+<text x="625.0" y="757" font-size="30" fill="#142B39" text-anchor="middle" font-weight="normal">updated report</text>
+<polyline points="800,769 450,769" fill="none" stroke="#142B39" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#return)"/>
+<rect x="722.5" y="787" width="491.0" height="33" fill="white"/>
+<text x="968.0" y="816" font-size="30" fill="#142B39" text-anchor="middle" font-weight="normal">Display the saved status and history</text>
+<polyline points="450,828 1486,828" fill="none" stroke="#142B39" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#return)"/>
+<rect x="167.0" y="878" width="216.0" height="33" fill="white"/>
+<text x="275.0" y="907" font-size="30" fill="#142B39" text-anchor="middle" font-weight="normal">Enter reference</text>
+<polyline points="100,919 450,919" fill="none" stroke="#142B39" stroke-width="2" marker-end="url(#call)"/>
+<rect x="18" y="936" width="1564" height="107" fill="none" stroke="#657782" stroke-width="1.5"/>
+<rect x="18" y="936" width="93" height="37" fill="#EFF6F6" stroke="#657782" stroke-width="1.6"/>
+<text x="64" y="963" font-size="29" fill="#142B39" text-anchor="middle" font-weight="bold">break</text>
+<rect x="126" y="937" width="403.0" height="31" fill="white"/>
+<text x="130" y="964" font-size="28" fill="#657782" text-anchor="start" font-weight="normal">[empty or malformed reference]</text>
+<rect x="129.0" y="977" width="292.0" height="33" fill="white"/>
+<text x="275.0" y="1006" font-size="30" fill="#142B39" text-anchor="middle" font-weight="normal">Show reference error</text>
+<polyline points="450,1018 100,1018" fill="none" stroke="#142B39" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#return)"/>
+<rect x="522.5" y="1052" width="205.0" height="33" fill="white"/>
+<text x="625.0" y="1081" font-size="30" fill="#142B39" text-anchor="middle" font-weight="normal">find(reference)</text>
+<polyline points="450,1093 800,1093" fill="none" stroke="#142B39" stroke-width="2" marker-end="url(#call)"/>
+<rect x="887.5" y="1111" width="175.0" height="33" fill="white"/>
+<text x="975.0" y="1140" font-size="30" fill="#142B39" text-anchor="middle" font-weight="normal">getItem(key)</text>
+<polyline points="800,1152 1150,1152" fill="none" stroke="#142B39" stroke-width="2" marker-end="url(#call)"/>
+<rect x="879.5" y="1170" width="191.0" height="33" fill="white"/>
+<text x="975.0" y="1199" font-size="30" fill="#142B39" text-anchor="middle" font-weight="normal">saved reports</text>
+<polyline points="1150,1211 800,1211" fill="none" stroke="#142B39" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#return)"/>
+<rect x="536.0" y="1229" width="178.0" height="33" fill="white"/>
+<text x="625.0" y="1258" font-size="30" fill="#142B39" text-anchor="middle" font-weight="normal">report or null</text>
+<polyline points="800,1270 450,1270" fill="none" stroke="#142B39" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#return)"/>
+<rect x="18" y="1287" width="1564" height="206" fill="none" stroke="#657782" stroke-width="1.5"/>
+<rect x="18" y="1287" width="93" height="37" fill="#EFF6F6" stroke="#657782" stroke-width="1.6"/>
+<text x="64" y="1314" font-size="29" fill="#142B39" text-anchor="middle" font-weight="bold">alt</text>
+<rect x="126" y="1288" width="301.0" height="31" fill="white"/>
+<text x="130" y="1315" font-size="28" fill="#657782" text-anchor="start" font-weight="normal">[matching report found]</text>
+<rect x="123.0" y="1328" width="304.0" height="33" fill="white"/>
+<text x="275.0" y="1357" font-size="30" fill="#142B39" text-anchor="middle" font-weight="normal">Show report and reply</text>
+<polyline points="450,1369 100,1369" fill="none" stroke="#142B39" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#return)"/>
+<polyline points="18,1386 1582,1386" fill="none" stroke="#657782" stroke-width="1.4" stroke-dasharray="7 6"/>
+<rect x="126" y="1390" width="261.0" height="31" fill="white"/>
+<text x="130" y="1417" font-size="28" fill="#657782" text-anchor="start" font-weight="normal">[no matching report]</text>
+<rect x="103.0" y="1427" width="344.0" height="33" fill="white"/>
+<text x="275.0" y="1456" font-size="30" fill="#142B39" text-anchor="middle" font-weight="normal">Show no matching report</text>
+<polyline points="450,1468 100,1468" fill="none" stroke="#142B39" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#return)"/>
+</g></svg>

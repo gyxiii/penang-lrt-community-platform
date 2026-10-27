@@ -1,0 +1,24 @@
+sequenceDiagram
+    actor U as Public user
+    participant UI as Submission UI
+    participant M as Feedback model
+    participant S as Browser storage
+    U->>UI: Submit feedback form
+    UI->>UI: Validate form and photo
+    break invalid fields or photo
+        UI-->>U: Show errors#59; keep input
+    end
+    UI->>M: submit(input)
+    M->>S: getItem(key)
+    S-->>M: saved reports
+    M->>M: ID + Submitted history
+    M->>S: setItem(key, reports)
+    alt storage write fails
+        S-->>M: storage error
+        M-->>UI: save error
+        UI-->>U: Show error#59; keep input
+    else write succeeds
+        S-->>M: write completed
+        M-->>UI: report with reference
+        UI-->>U: Receipt and reference
+    end

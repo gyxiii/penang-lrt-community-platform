@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Look up a sample community feedback reference and view its status, response and history.">
+  <title>Track Feedback | MutiaraConnect</title>
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/feedback.css">
+  <script src="js/app.js" defer></script><script src="js/feedback-store.js" defer></script><script src="js/feedback-pages.js" defer></script>
+</head>
+<body>
+  <a class="mc-skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="MutiaraConnect home"><span class="brand-mark">MC</span><span><strong>MutiaraConnect</strong><small>LRT Construction Information &amp; Community Feedback Portal</small></span></a>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">☰</button>
+    <nav class="nav-links" id="main-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="announcements.html">Announcements</a><a href="map.html">Impact Map</a><a href="feedback.html">Submit Feedback</a><a class="active" aria-current="page" href="tracking.html">Track Feedback</a><a href="admin.html">Admin</a></nav>
+  </header>
+  <main class="page-main mc-feedback-main" id="main-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Track feedback</span></div>
+    <section class="page-heading"><p class="eyebrow">EVERY CONCERN HAS A JOURNEY</p><h1>Stay close to the progress.</h1><p>Use your feedback reference to see the latest status, response and history of your report.</p></section>
+    <section class="mc-feedback-panel mc-tracking-search" aria-labelledby="search-title"><div class="mc-panel-heading"><div><h2 id="search-title">Find your feedback</h2><p>Your reference is shown after you submit a concern.</p></div><span class="tag">FRONT-END PROTOTYPE</span></div>
+      <noscript><p class="mc-message mc-message-error">Enable JavaScript to look up a sample report.</p></noscript>
+      <form id="tracking-form" novalidate><label class="field" for="tracking-reference">Feedback reference</label><div class="mc-search-row"><input id="tracking-reference" name="reference" type="search" required maxlength="50" spellcheck="false" autocapitalize="characters" placeholder="e.g. MC-FB-DEMO-002" aria-describedby="tracking-hint tracking-error"><button class="button button-primary" type="submit">Track feedback <span aria-hidden="true">→</span></button></div><p class="mc-field-hint" id="tracking-hint">Reports you submit are available in the same browser. You can also explore the sample reports below.</p><p class="mc-field-error" id="tracking-error" role="alert" hidden></p></form>
+    </section>
+    <section class="mc-sample-section" aria-labelledby="sample-title"><div class="mc-section-label"><h2 id="sample-title">Just exploring?</h2><span>Try a fictional sample report</span></div><div class="mc-sample-grid"><button class="mc-sample-card" type="button" data-sample-reference="MC-FB-DEMO-001"><span class="mc-status" data-status="Submitted">Submitted</span><strong>Evening construction noise</strong><span class="mc-sample-reference">MC-FB-DEMO-001 <span aria-hidden="true">↗</span></span></button><button class="mc-sample-card" type="button" data-sample-reference="MC-FB-DEMO-002"><span class="mc-status" data-status="In Progress">In Progress</span><strong>Temporary walkway signs</strong><span class="mc-sample-reference">MC-FB-DEMO-002 <span aria-hidden="true">↗</span></span></button><button class="mc-sample-card" type="button" data-sample-reference="MC-FB-DEMO-003"><span class="mc-status" data-status="Responded">Responded</span><strong>Customer access to a shop</strong><span class="mc-sample-reference">MC-FB-DEMO-003 <span aria-hidden="true">↗</span></span></button></div></section>
+    <p id="tracking-announcement" class="mc-sr-only" role="status"></p>
+    <section id="tracking-empty" class="mc-feedback-panel mc-tracking-empty" hidden><span aria-hidden="true">⌕</span><h2>No matching feedback</h2><p>Check the reference and try again. A report submitted on another browser or device won’t appear here.</p><a class="text-link" href="feedback.html">Submit a new concern →</a></section>
+    <section id="tracking-result" class="mc-feedback-panel mc-tracking-result" aria-labelledby="report-title" hidden tabindex="-1">
+      <div class="mc-report-heading"><div><p class="eyebrow" id="report-reference"></p><h2 id="report-title"></h2></div><span class="mc-status" id="report-status"></span></div>
+      <ol id="report-steps" class="mc-status-steps" aria-label="Report progress"></ol>
+      <div class="mc-report-columns"><div class="mc-report-content"><h3>Your concern</h3><p id="report-description" class="mc-report-description"></p><dl class="mc-report-facts"><div><dt>Category</dt><dd id="report-category"></dd></div><div><dt>Area</dt><dd id="report-area"></dd></div><div><dt>Location</dt><dd id="report-location"></dd></div><div><dt>Submitted</dt><dd id="report-date"></dd></div></dl><figure id="report-photo" class="mc-report-photo" hidden><img id="report-photo-image" alt="Supporting photo attached to this sample report"><figcaption id="report-photo-name"></figcaption></figure><div id="report-response" class="mc-team-response" hidden><h3>Latest team response</h3><p id="report-response-text"></p></div></div><div class="mc-history-panel"><h3>Activity timeline</h3><ol id="report-history" class="mc-timeline"></ol></div></div>
+      <p class="mc-local-note"><span aria-hidden="true">ⓘ</span> This is a demonstration record. Reports and responses are sample content, not official project communications.</p>
+    </section>
+    <div class="back-row"><a class="text-link" href="feedback.html">Have another concern? Submit feedback →</a></div>
+  </main>
+  <footer class="site-footer"><a class="footer-brand" href="index.html">MutiaraConnect</a><span>Part A front-end simulation · Sample data for academic demonstration</span></footer>
+</body>
+</html>
