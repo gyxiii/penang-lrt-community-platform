@@ -10,13 +10,13 @@
 | 至少一张准确Sequence Diagram及完整解释 | 文件3 P27分给M3；rubric T31明确要求图及解释 | **已完成正式两图及英文解释，Word实际两页** |
 | Feedback Workflow | 文件3总分工表出现，rubric未单列同名图 | 可并入时序图解释，不默认增加独立流程图 |
 | 本模块原型截图及说明 | rubric P14要求截图，文件3 T39分给全员 | 反馈、回执、跟踪素材已有，可合稿选用 |
-| 个人演示与交接 | 文件3分给各成员；全组视频最多15分钟 | 反馈演示稿已更正，本人录制与GitHub交接待完成 |
+| 个人演示与交接 | 文件3分给各成员；全组视频最多15分钟 | 反馈演示稿已更正，本人录制待完成；GitHub交接已通过[PR #5](https://github.com/gyxiii/penang-lrt-community-platform/pull/5)完成 |
 
 三个页面名、具体字段、状态名称和个人约四分钟是组内安排，不是教师逐项指定。Part A允许样例数据，不要求远程服务器或数据库；现有LocalStorage、照片和共享API可保留。
 
 已制作的八界面UI图库、后台设计稿、导航SVG和两页Prototype Design稿作为额外公共素材保留；用户无需承担全平台UI主责，这些素材也不能替代时序图。正式admin.html由后台成员接入，Use Case、Class与Architecture仍按文件3分工处理。
 
-140项历史浏览器检查验证所列前端功能，不是图表验收。本轮已另行完成正式时序图及英文解释，见[新报告](sequence/Member3_Sequence_Diagrams.docx)及[图件说明](sequence/README_ZH.md)。此前Prototype Design两页稿仍属全平台原型素材，与新时序图报告不同。合稿、本人录制和交接仍待完成。
+140项历史浏览器检查验证所列前端功能，不是图表验收。本轮已另行完成正式时序图及英文解释，见[新报告](sequence/Member3_Sequence_Diagrams.docx)及[图件说明](sequence/README_ZH.md)。此前Prototype Design两页稿仍属全平台原型素材，与新时序图报告不同。GitHub交接已完成；全组合稿与本人录制仍待完成。
 
 工作区原有 `Member3_交付包_2026-10-28.zip` 为更正前历史快照，内部旧职责与完成状态已过时；可以取用代码，不能直接作为当前完整M3提交。原DOCX、TXT、代码、图件和旧包均保留。AI政策继续按用户告知的“所有环节可用、无需标注”执行。
 

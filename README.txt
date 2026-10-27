@@ -2,7 +2,7 @@ MutiaraConnect — Member A Front-End Prototype
 
 Member 3 scope corrected (28 October 2026):
 The drawing-reallocation file does not apply to this assignment. The current Member 3 allocation is feedback submission and tracking, plus at least one accurate sequence diagram with a complete explanation. Two formal diagrams and their English explanations are now complete in docs/member3/sequence/Member3_Sequence_Diagrams.docx, a reviewed two-page Word section. Editable PNG/SVG/draw.io/Mermaid sources and notes are in docs/member3/sequence. See docs/member3/TASK_SCOPE_ZH.md and DELIVERY_ZH.md. The whole-platform UI and two-page Prototype Design are optional shared material, not a replacement for this required report task. The previous ZIP has outdated scope notes and is not a complete current Member 3 submission.
-The clean project passed 140 front-end browser checks (62 feedback, 58 UI, 20 integration). These do not certify completion of coursework models. No Git commit or push has been made. The formal admin.html remains for its module owner. Official Leaflet 1.9.4 images were restored; hashes are in assets/vendor/leaflet/images/SOURCE.json.
+The clean project passed 140 front-end browser checks (62 feedback, 58 UI, 20 integration). These do not certify completion of coursework models. The branch has been committed and pushed; PR #5 is open for the group lead: https://github.com/gyxiii/penang-lrt-community-platform/pull/5 . The PR has not been merged into main. The formal admin.html remains for its module owner. Official Leaflet 1.9.4 images were restored; hashes are in assets/vendor/leaflet/images/SOURCE.json.
 
 Files:
 - index.html
