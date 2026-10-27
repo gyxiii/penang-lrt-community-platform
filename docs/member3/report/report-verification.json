@@ -1,0 +1,53 @@
+{
+  "verifiedAt": "2026-10-27T13:20:48.582226+00:00",
+  "document": "Member3_Prototype_Design.docx",
+  "sha256": "0731591eac1934011da166520c42b014794fee8442ddbc4db9e234c605b24115",
+  "pages": 2,
+  "renderer": "Microsoft Word 16 PDF export, Poppler page rendering at 150 DPI",
+  "canonicalRenderer": {
+    "attempted": true,
+    "available": false,
+    "reason": "LibreOffice soffice.exe not available; native Word export used instead"
+  },
+  "editableBody": true,
+  "figureCount": 4,
+  "wordCountIncludingCaptions": 381,
+  "visualReview": {
+    "allPagesInspected": true,
+    "clipping": false,
+    "overlap": false,
+    "figureCaptionsPresent": true
+  },
+  "checks": [
+    "DOCX and Markdown match the local content source",
+    "Four embedded image hashes match capture assets",
+    "Four capture source fingerprints verified",
+    "Staff design image and scope clearly identified",
+    "Two pages verified from native Word export",
+    "Final scope paragraph remains on page 2",
+    "All local handoff and image links resolve",
+    "No personal-name placeholders or AI disclosure text"
+  ],
+  "figures": [
+    {
+      "id": "PD1",
+      "asset": "PD1_home_navigation.png",
+      "caption": "Homepage entry points for F1 announcements, F2 impact information, F3 submission, F4 tracking and F5 administration. The staff entry awaits integration."
+    },
+    {
+      "id": "PD2",
+      "asset": "PD2_staff_design_excerpt.png",
+      "caption": "Staff dashboard design prototype showing the sample queue and response composer. Preview actions do not update saved feedback."
+    },
+    {
+      "id": "PD3",
+      "asset": "PD3_feedback_form_excerpt.png",
+      "caption": "Submission form excerpt showing the summary, concern category and affected area. The remaining form collects location, description and an optional image."
+    },
+    {
+      "id": "PD4",
+      "asset": "PD4_feedback_tracking.png",
+      "caption": "Implemented tracking view for fictional report MC-FB-DEMO-003, showing Responded status, a team response and the activity history."
+    }
+  ]
+}

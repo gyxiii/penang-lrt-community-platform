@@ -1,0 +1,357 @@
+[
+  {
+    "id": "M3A",
+    "file": "Sequence_Submission",
+    "title": "Submit feedback",
+    "width": 1280,
+    "font": 26,
+    "participants": [
+      [
+        "U",
+        "Public user",
+        null,
+        110
+      ],
+      [
+        "UI",
+        "Submission UI",
+        "feedback pages",
+        440
+      ],
+      [
+        "M",
+        "Feedback model",
+        "browser JavaScript",
+        790
+      ],
+      [
+        "S",
+        "Browser storage",
+        "localStorage",
+        1140
+      ]
+    ],
+    "events": [
+      {
+        "kind": "message",
+        "from": "U",
+        "to": "UI",
+        "text": "Submit feedback form",
+        "reply": false
+      },
+      {
+        "kind": "message",
+        "from": "UI",
+        "to": "UI",
+        "text": "Validate form and photo",
+        "reply": false
+      },
+      {
+        "kind": "fragment",
+        "operator": "break",
+        "guard": "invalid fields or photo",
+        "events": [
+          {
+            "kind": "message",
+            "from": "UI",
+            "to": "U",
+            "text": "Show errors; keep input",
+            "reply": true
+          }
+        ],
+        "otherwise": null,
+        "otherGuard": null,
+        "proposed": false
+      },
+      {
+        "kind": "message",
+        "from": "UI",
+        "to": "M",
+        "text": "submit(input)",
+        "reply": false
+      },
+      {
+        "kind": "message",
+        "from": "M",
+        "to": "S",
+        "text": "getItem(key)",
+        "reply": false
+      },
+      {
+        "kind": "message",
+        "from": "S",
+        "to": "M",
+        "text": "saved reports",
+        "reply": true
+      },
+      {
+        "kind": "message",
+        "from": "M",
+        "to": "M",
+        "text": "ID + Submitted history",
+        "reply": false
+      },
+      {
+        "kind": "message",
+        "from": "M",
+        "to": "S",
+        "text": "setItem(key, reports)",
+        "reply": false
+      },
+      {
+        "kind": "fragment",
+        "operator": "alt",
+        "guard": "storage write fails",
+        "events": [
+          {
+            "kind": "message",
+            "from": "S",
+            "to": "M",
+            "text": "storage error",
+            "reply": true
+          },
+          {
+            "kind": "message",
+            "from": "M",
+            "to": "UI",
+            "text": "save error",
+            "reply": true
+          },
+          {
+            "kind": "message",
+            "from": "UI",
+            "to": "U",
+            "text": "Show error; keep input",
+            "reply": true
+          }
+        ],
+        "otherwise": [
+          {
+            "kind": "message",
+            "from": "S",
+            "to": "M",
+            "text": "write completed",
+            "reply": true
+          },
+          {
+            "kind": "message",
+            "from": "M",
+            "to": "UI",
+            "text": "report with reference",
+            "reply": true
+          },
+          {
+            "kind": "message",
+            "from": "UI",
+            "to": "U",
+            "text": "Receipt and reference",
+            "reply": true
+          }
+        ],
+        "otherGuard": "write succeeds",
+        "proposed": false
+      }
+    ]
+  },
+  {
+    "id": "M3B",
+    "file": "Sequence_Review_Tracking",
+    "title": "Update progress and track feedback",
+    "width": 1600,
+    "font": 30,
+    "participants": [
+      [
+        "U",
+        "Public user",
+        null,
+        100
+      ],
+      [
+        "UI",
+        "Feedback UI",
+        "public or staff view",
+        450
+      ],
+      [
+        "M",
+        "Feedback model",
+        "browser JavaScript",
+        800
+      ],
+      [
+        "S",
+        "Browser storage",
+        "localStorage",
+        1150
+      ],
+      [
+        "A",
+        "Authorised staff",
+        null,
+        1486
+      ]
+    ],
+    "events": [
+      {
+        "kind": "fragment",
+        "operator": "opt",
+        "guard": "staff review occurs through the proposed dashboard",
+        "events": [
+          {
+            "kind": "fragment",
+            "operator": "loop",
+            "guard": "each valid update to an existing report",
+            "events": [
+              {
+                "kind": "message",
+                "from": "A",
+                "to": "UI",
+                "text": "Choose status and add a progress note or response",
+                "reply": false
+              },
+              {
+                "kind": "message",
+                "from": "UI",
+                "to": "M",
+                "text": "updateStatus(reference,\nstatus, note)",
+                "reply": false
+              },
+              {
+                "kind": "message",
+                "from": "M",
+                "to": "S",
+                "text": "getItem(key)",
+                "reply": false
+              },
+              {
+                "kind": "message",
+                "from": "S",
+                "to": "M",
+                "text": "saved reports",
+                "reply": true
+              },
+              {
+                "kind": "message",
+                "from": "M",
+                "to": "M",
+                "text": "Set status; add history",
+                "reply": false
+              },
+              {
+                "kind": "message",
+                "from": "M",
+                "to": "S",
+                "text": "setItem(key, reports)",
+                "reply": false
+              },
+              {
+                "kind": "message",
+                "from": "S",
+                "to": "M",
+                "text": "write completed",
+                "reply": true
+              },
+              {
+                "kind": "message",
+                "from": "M",
+                "to": "UI",
+                "text": "updated report",
+                "reply": true
+              },
+              {
+                "kind": "message",
+                "from": "UI",
+                "to": "A",
+                "text": "Display the saved status and history",
+                "reply": true
+              }
+            ],
+            "otherwise": null,
+            "otherGuard": null,
+            "proposed": true
+          }
+        ],
+        "otherwise": null,
+        "otherGuard": null,
+        "proposed": true
+      },
+      {
+        "kind": "message",
+        "from": "U",
+        "to": "UI",
+        "text": "Enter reference",
+        "reply": false
+      },
+      {
+        "kind": "fragment",
+        "operator": "break",
+        "guard": "empty or malformed reference",
+        "events": [
+          {
+            "kind": "message",
+            "from": "UI",
+            "to": "U",
+            "text": "Show reference error",
+            "reply": true
+          }
+        ],
+        "otherwise": null,
+        "otherGuard": null,
+        "proposed": false
+      },
+      {
+        "kind": "message",
+        "from": "UI",
+        "to": "M",
+        "text": "find(reference)",
+        "reply": false
+      },
+      {
+        "kind": "message",
+        "from": "M",
+        "to": "S",
+        "text": "getItem(key)",
+        "reply": false
+      },
+      {
+        "kind": "message",
+        "from": "S",
+        "to": "M",
+        "text": "saved reports",
+        "reply": true
+      },
+      {
+        "kind": "message",
+        "from": "M",
+        "to": "UI",
+        "text": "report or null",
+        "reply": true
+      },
+      {
+        "kind": "fragment",
+        "operator": "alt",
+        "guard": "matching report found",
+        "events": [
+          {
+            "kind": "message",
+            "from": "UI",
+            "to": "U",
+            "text": "Show report and reply",
+            "reply": true
+          }
+        ],
+        "otherwise": [
+          {
+            "kind": "message",
+            "from": "UI",
+            "to": "U",
+            "text": "Show no matching report",
+            "reply": true
+          }
+        ],
+        "otherGuard": "no matching report",
+        "proposed": false
+      }
+    ]
+  }
+]

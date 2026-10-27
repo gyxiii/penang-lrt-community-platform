@@ -1,0 +1,32 @@
+sequenceDiagram
+    actor U as Public user
+    participant UI as Feedback UI
+    participant M as Feedback model
+    participant S as Browser storage
+    actor A as Authorised staff
+    opt staff review occurs through the proposed dashboard
+        loop each valid update to an existing report
+            A->>UI: Choose status and add a progress note or response
+            UI->>M: updateStatus(reference,<br/>status, note)
+            M->>S: getItem(key)
+            S-->>M: saved reports
+            M->>M: Set status#59; add history
+            M->>S: setItem(key, reports)
+            S-->>M: write completed
+            M-->>UI: updated report
+            UI-->>A: Display the saved status and history
+        end
+    end
+    U->>UI: Enter reference
+    break empty or malformed reference
+        UI-->>U: Show reference error
+    end
+    UI->>M: find(reference)
+    M->>S: getItem(key)
+    S-->>M: saved reports
+    M-->>UI: report or null
+    alt matching report found
+        UI-->>U: Show report and reply
+    else no matching report
+        UI-->>U: Show no matching report
+    end

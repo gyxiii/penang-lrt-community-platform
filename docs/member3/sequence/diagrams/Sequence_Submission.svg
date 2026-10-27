@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1235" viewBox="0 0 1280 1235" role="img" aria-labelledby="title desc">
+<title id="title">Submit feedback</title>
+<desc id="desc">UML sequence diagram. Time flows downward. Dashed lifelines, solid calls, dashed replies and guarded interaction fragments. Browser storage is localStorage, not a remote database.</desc>
+<defs><marker id="call" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 0 0 L 12 6 L 0 12 Z" fill="#142B39"/></marker><marker id="return" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 0 0 L 12 6 L 0 12" fill="none" stroke="#142B39" stroke-width="1.6"/></marker></defs>
+<g font-family="Arial, sans-serif">
+<rect x="1" y="1" width="1278" height="1233" fill="white" stroke="#CAD4D9" stroke-width="1"/>
+<text x="20" y="32" font-size="30" fill="#142B39" text-anchor="start" font-weight="bold">sd  Submit feedback</text>
+<circle cx="110" cy="76" r="12" fill="white" stroke="#116B70" stroke-width="2"/>
+<polyline points="110,88 110,113" fill="none" stroke="#116B70" stroke-width="2"/>
+<polyline points="91,99 129,99" fill="none" stroke="#116B70" stroke-width="2"/>
+<polyline points="110,113 91,130" fill="none" stroke="#116B70" stroke-width="2"/>
+<polyline points="110,113 129,130" fill="none" stroke="#116B70" stroke-width="2"/>
+<text x="110" y="160" font-size="24" fill="#142B39" text-anchor="middle" font-weight="normal">Public user</text>
+<polyline points="110,169 110,1213" fill="none" stroke="#9BAAB1" stroke-width="1.4" stroke-dasharray="7 6"/>
+<rect x="301" y="65" width="278" height="91" fill="#F1F8F7" stroke="#116B70" stroke-width="1.6"/>
+<text x="440" y="100" font-size="25" fill="#142B39" text-anchor="middle" font-weight="bold">Submission UI</text>
+<text x="440" y="132" font-size="21" fill="#657782" text-anchor="middle" font-weight="normal">feedback pages</text>
+<polyline points="440,169 440,1213" fill="none" stroke="#9BAAB1" stroke-width="1.4" stroke-dasharray="7 6"/>
+<rect x="651" y="65" width="278" height="91" fill="#F1F8F7" stroke="#116B70" stroke-width="1.6"/>
+<text x="790" y="100" font-size="25" fill="#142B39" text-anchor="middle" font-weight="bold">Feedback model</text>
+<text x="790" y="132" font-size="21" fill="#657782" text-anchor="middle" font-weight="normal">browser JavaScript</text>
+<polyline points="790,169 790,1213" fill="none" stroke="#9BAAB1" stroke-width="1.4" stroke-dasharray="7 6"/>
+<rect x="1001" y="65" width="278" height="91" fill="#F1F8F7" stroke="#116B70" stroke-width="1.6"/>
+<text x="1140" y="100" font-size="25" fill="#142B39" text-anchor="middle" font-weight="bold">Browser storage</text>
+<text x="1140" y="132" font-size="21" fill="#657782" text-anchor="middle" font-weight="normal">localStorage</text>
+<polyline points="1140,169 1140,1213" fill="none" stroke="#9BAAB1" stroke-width="1.4" stroke-dasharray="7 6"/>
+<rect x="146.5" y="183" width="257.0" height="29" fill="white"/>
+<text x="275.0" y="208" font-size="26" fill="#142B39" text-anchor="middle" font-weight="normal">Submit feedback form</text>
+<polyline points="110,224 440,224" fill="none" stroke="#142B39" stroke-width="2" marker-end="url(#call)"/>
+<rect x="458" y="243" width="275.96875" height="28" fill="white"/>
+<text x="462" y="267" font-size="25" fill="#142B39" text-anchor="start" font-weight="normal">Validate form and photo</text>
+<polyline points="440,285 502,285 502,305 440,305" fill="none" stroke="#142B39" stroke-width="2" marker-end="url(#call)"/>
+<rect x="18" y="320" width="1244" height="107" fill="none" stroke="#657782" stroke-width="1.5"/>
+<rect x="18" y="320" width="93" height="37" fill="#EFF6F6" stroke="#657782" stroke-width="1.6"/>
+<text x="64" y="347" font-size="25" fill="#142B39" text-anchor="middle" font-weight="bold">break</text>
+<rect x="126" y="325" width="244.0" height="27" fill="white"/>
+<text x="130" y="348" font-size="24" fill="#657782" text-anchor="start" font-weight="normal">[invalid fields or photo]</text>
+<rect x="136.0" y="361" width="278.0" height="29" fill="white"/>
+<text x="275.0" y="386" font-size="26" fill="#142B39" text-anchor="middle" font-weight="normal">Show errors; keep input</text>
+<polyline points="440,402 110,402" fill="none" stroke="#142B39" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#return)"/>
+<rect x="536.5" y="436" width="157.0" height="29" fill="white"/>
+<text x="615.0" y="461" font-size="26" fill="#142B39" text-anchor="middle" font-weight="normal">submit(input)</text>
+<polyline points="440,477 790,477" fill="none" stroke="#142B39" stroke-width="2" marker-end="url(#call)"/>
+<rect x="889.5" y="495" width="151.0" height="29" fill="white"/>
+<text x="965.0" y="520" font-size="26" fill="#142B39" text-anchor="middle" font-weight="normal">getItem(key)</text>
+<polyline points="790,536 1140,536" fill="none" stroke="#142B39" stroke-width="2" marker-end="url(#call)"/>
+<rect x="883.5" y="554" width="163.0" height="29" fill="white"/>
+<text x="965.0" y="579" font-size="26" fill="#142B39" text-anchor="middle" font-weight="normal">saved reports</text>
+<polyline points="1140,595 790,595" fill="none" stroke="#142B39" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#return)"/>
+<rect x="808" y="614" width="258.0" height="28" fill="white"/>
+<text x="812" y="638" font-size="25" fill="#142B39" text-anchor="start" font-weight="normal">ID + Submitted history</text>
+<polyline points="790,656 852,656 852,676 790,676" fill="none" stroke="#142B39" stroke-width="2" marker-end="url(#call)"/>
+<rect x="843.015625" y="692" width="243.96875" height="29" fill="white"/>
+<text x="965.0" y="717" font-size="26" fill="#142B39" text-anchor="middle" font-weight="normal">setItem(key, reports)</text>
+<polyline points="790,733 1140,733" fill="none" stroke="#142B39" stroke-width="2" marker-end="url(#call)"/>
+<rect x="18" y="750" width="1244" height="442" fill="none" stroke="#657782" stroke-width="1.5"/>
+<rect x="18" y="750" width="93" height="37" fill="#EFF6F6" stroke="#657782" stroke-width="1.6"/>
+<text x="64" y="777" font-size="25" fill="#142B39" text-anchor="middle" font-weight="bold">alt</text>
+<rect x="126" y="755" width="207.0" height="27" fill="white"/>
+<text x="130" y="778" font-size="24" fill="#657782" text-anchor="start" font-weight="normal">[storage write fails]</text>
+<rect x="887.5" y="791" width="155.0" height="29" fill="white"/>
+<text x="965.0" y="816" font-size="26" fill="#142B39" text-anchor="middle" font-weight="normal">storage error</text>
+<polyline points="1140,832 790,832" fill="none" stroke="#142B39" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#return)"/>
+<rect x="553.0" y="850" width="124.0" height="29" fill="white"/>
+<text x="615.0" y="875" font-size="26" fill="#142B39" text-anchor="middle" font-weight="normal">save error</text>
+<polyline points="790,891 440,891" fill="none" stroke="#142B39" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#return)"/>
+<rect x="142.5" y="909" width="265.0" height="29" fill="white"/>
+<text x="275.0" y="934" font-size="26" fill="#142B39" text-anchor="middle" font-weight="normal">Show error; keep input</text>
+<polyline points="440,950 110,950" fill="none" stroke="#142B39" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#return)"/>
+<polyline points="18,967 1262,967" fill="none" stroke="#657782" stroke-width="1.4" stroke-dasharray="7 6"/>
+<rect x="126" y="975" width="179.0" height="27" fill="white"/>
+<text x="130" y="998" font-size="24" fill="#657782" text-anchor="start" font-weight="normal">[write succeeds]</text>
+<rect x="871.0" y="1008" width="188.0" height="29" fill="white"/>
+<text x="965.0" y="1033" font-size="26" fill="#142B39" text-anchor="middle" font-weight="normal">write completed</text>
+<polyline points="1140,1049 790,1049" fill="none" stroke="#142B39" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#return)"/>
+<rect x="493.5" y="1067" width="243.0" height="29" fill="white"/>
+<text x="615.0" y="1092" font-size="26" fill="#142B39" text-anchor="middle" font-weight="normal">report with reference</text>
+<polyline points="790,1108 440,1108" fill="none" stroke="#142B39" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#return)"/>
+<rect x="145.5" y="1126" width="259.0" height="29" fill="white"/>
+<text x="275.0" y="1151" font-size="26" fill="#142B39" text-anchor="middle" font-weight="normal">Receipt and reference</text>
+<polyline points="440,1167 110,1167" fill="none" stroke="#142B39" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#return)"/>
+</g></svg>

@@ -1,0 +1,62 @@
+{
+  "capturedAt": "2026-10-27T13:15:43.281Z",
+  "method": "Actual browser region captures; no screen text altered",
+  "captures": [
+    {
+      "name": "PD1_home_navigation.png",
+      "source": "/index.html",
+      "selector": ".feature-grid",
+      "clip": {
+        "x": 115.1875,
+        "y": 749.765625,
+        "width": 1209.625,
+        "height": 234.71875
+      },
+      "viewportWidth": 1440,
+      "designOnly": false,
+      "sha256": "2aab6841cedd200f32ba265bcd08df00e48c8986b9a909e9cbbe8a2e7f86cff9"
+    },
+    {
+      "name": "PD2_staff_design_excerpt.png",
+      "source": "/docs/member3/ui/admin-prototype.html",
+      "selector": ".ui-admin-workspace",
+      "clip": {
+        "x": 38,
+        "y": 412.390625,
+        "width": 1204,
+        "height": 635
+      },
+      "viewportWidth": 1280,
+      "designOnly": true,
+      "sha256": "190a81a56645044fef1e7395bf4cf44f18be9d6af1bdd806d57e0e2aab190d14"
+    },
+    {
+      "name": "PD3_feedback_form_excerpt.png",
+      "source": "/feedback.html",
+      "selector": ".mc-feedback-layout > .mc-feedback-panel",
+      "clip": {
+        "x": 18,
+        "y": 416.34375,
+        "width": 724,
+        "height": 325.484375
+      },
+      "viewportWidth": 760,
+      "designOnly": false,
+      "sha256": "05cea72818706c4e38c1ae412f9a623b789f13452c3485c382ab189e3465e1da"
+    },
+    {
+      "name": "PD4_feedback_tracking.png",
+      "source": "/tracking.html?reference=MC-FB-DEMO-003",
+      "selector": "#tracking-result",
+      "clip": {
+        "x": 146,
+        "y": 813.234375,
+        "width": 1148,
+        "height": 763.21875
+      },
+      "viewportWidth": 1440,
+      "designOnly": false,
+      "sha256": "d984a50578d2d401b7a07f50da5dcdb5c892e3716a11841aed646b81a73fe087"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "checkedAt": "2026-10-27T18:43:13.185Z",
+  "checks": [
+    {
+      "name": "Validation rejects bad input before any storage access",
+      "result": "PASS"
+    },
+    {
+      "name": "Submission reads local records and writes before returning success",
+      "result": "PASS"
+    },
+    {
+      "name": "The initial reference, status and history agree with M3A",
+      "result": "PASS"
+    },
+    {
+      "name": "The saved reference retrieves the same record",
+      "result": "PASS"
+    },
+    {
+      "name": "A blocked write throws instead of returning a successful report",
+      "result": "PASS"
+    },
+    {
+      "name": "Staff updates append a dated In Progress history entry",
+      "result": "PASS"
+    },
+    {
+      "name": "A response keeps the reference and earlier history",
+      "result": "PASS"
+    },
+    {
+      "name": "Public lookup returns the latest response stored by the model",
+      "result": "PASS"
+    },
+    {
+      "name": "Unknown references return null rather than another record",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid staff status or an empty note cannot change saved data",
+      "result": "PASS"
+    },
+    {
+      "name": "Built-in samples remain available through the shared lookup",
+      "result": "PASS"
+    },
+    {
+      "name": "The formal staff page remains an external integration dependency",
+      "result": "PASS"
+    }
+  ],
+  "source": "js/feedback-store.js",
+  "network": "No network or server used"
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "M3A",
+    "file": "Sequence_Submission",
+    "width": 1280,
+    "height": 1235,
+    "messages": 14,
+    "textItems": 27
+  },
+  {
+    "id": "M3B",
+    "file": "Sequence_Review_Tracking",
+    "width": 1600,
+    "height": 1536,
+    "messages": 17,
+    "textItems": 35
+  }
+]

@@ -1,0 +1,387 @@
+{
+  "checkedAt": "2026-10-27T13:06:33.337Z",
+  "browser": "Microsoft Edge / Playwright",
+  "base": "http://127.0.0.1:8335",
+  "checks": [
+    {
+      "label": "home: desktop screen has no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "announcements: desktop screen has no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "announcement-detail: desktop screen has no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "map: desktop screen has no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "feedback: desktop screen has no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "receipt: desktop screen has no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "tracking: desktop screen has no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "admin: desktop screen has no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "home: mobile screen has no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "announcements: mobile screen has no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "announcement-detail: mobile screen has no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "map: mobile screen has no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "feedback: mobile screen has no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "receipt: mobile screen has no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "tracking: mobile screen has no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "admin: mobile screen has no horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "The catalogue covers all eight main screens",
+      "result": "PASS"
+    },
+    {
+      "label": "Seven working screens and one design proposal are accurately distinguished",
+      "result": "PASS"
+    },
+    {
+      "label": "home: selection opens the corresponding preview and real target",
+      "result": "PASS"
+    },
+    {
+      "label": "announcements: selection opens the corresponding preview and real target",
+      "result": "PASS"
+    },
+    {
+      "label": "announcement-detail: selection opens the corresponding preview and real target",
+      "result": "PASS"
+    },
+    {
+      "label": "map: selection opens the corresponding preview and real target",
+      "result": "PASS"
+    },
+    {
+      "label": "feedback: selection opens the corresponding preview and real target",
+      "result": "PASS"
+    },
+    {
+      "label": "receipt: selection opens the corresponding preview and real target",
+      "result": "PASS"
+    },
+    {
+      "label": "tracking: selection opens the corresponding preview and real target",
+      "result": "PASS"
+    },
+    {
+      "label": "admin: selection opens the corresponding preview and real target",
+      "result": "PASS"
+    },
+    {
+      "label": "The staff preview is labelled as a design prototype at the point of use",
+      "result": "PASS"
+    },
+    {
+      "label": "The size toggle displays the actual 390px mobile capture",
+      "result": "PASS"
+    },
+    {
+      "label": "Screen and size selection survive reloading a shared catalogue URL",
+      "result": "PASS"
+    },
+    {
+      "label": "Returning to desktop restores the 1440px capture",
+      "result": "PASS"
+    },
+    {
+      "label": "Invalid catalogue parameters fall back to the first desktop screen",
+      "result": "PASS"
+    },
+    {
+      "label": "Keyboard selection reaches the matching preview with visible focus",
+      "result": "PASS"
+    },
+    {
+      "label": "The standalone SVG navigation map loads",
+      "result": "PASS"
+    },
+    {
+      "label": "The staff screen prominently identifies its isolated design scope",
+      "result": "PASS"
+    },
+    {
+      "label": "The initial staff queue contains all three samples",
+      "result": "PASS"
+    },
+    {
+      "label": "Staff status filtering shows the matching report and details",
+      "result": "PASS"
+    },
+    {
+      "label": "An empty staff search hides stale details and offers recovery",
+      "result": "PASS"
+    },
+    {
+      "label": "Reset restores all reports and keyboard focus",
+      "result": "PASS"
+    },
+    {
+      "label": "Staff search matches area names regardless of case and padding",
+      "result": "PASS"
+    },
+    {
+      "label": "A keyboard-selected report transfers focus to its details",
+      "result": "PASS"
+    },
+    {
+      "label": "An empty proposed response gives a correction without a false preview",
+      "result": "PASS"
+    },
+    {
+      "label": "The proposed response displays its chosen status and exact text safely",
+      "result": "PASS"
+    },
+    {
+      "label": "Previewing never changes the queue or current report status",
+      "result": "PASS"
+    },
+    {
+      "label": "The isolated staff design preserves the entire public store unchanged",
+      "result": "PASS"
+    },
+    {
+      "label": "A staff design preview is not persisted after a reload",
+      "result": "PASS"
+    },
+    {
+      "label": "A real local feedback record remains Submitted after design interactions",
+      "result": "PASS"
+    },
+    {
+      "label": "Catalogue fits 1024px without horizontal page overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "Staff design fits 1024px without horizontal page overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "Catalogue fits 768px without horizontal page overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "Staff design fits 768px without horizontal page overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "Catalogue fits 390px without horizontal page overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "Staff design fits 390px without horizontal page overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "Catalogue fits 320px without horizontal page overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "Staff design fits 320px without horizontal page overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "The catalogue also works when opened directly from local files",
+      "result": "PASS"
+    },
+    {
+      "label": "The staff design can be explored without a local server",
+      "result": "PASS"
+    },
+    {
+      "label": "The new UI surfaces produce no unhandled JavaScript errors",
+      "result": "PASS"
+    },
+    {
+      "label": "Every requested local screen and screenshot asset loads successfully",
+      "result": "PASS"
+    }
+  ],
+  "captures": [
+    {
+      "screen": "home",
+      "view": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "Implemented",
+      "source": "../../../index.html",
+      "file": "home-desktop.png"
+    },
+    {
+      "screen": "announcements",
+      "view": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "Implemented",
+      "source": "../../../announcements.html",
+      "file": "announcements-desktop.png"
+    },
+    {
+      "screen": "announcement-detail",
+      "view": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "Implemented",
+      "source": "../../../announcement-detail.html?id=MC-DEMO-002",
+      "file": "announcement-detail-desktop.png"
+    },
+    {
+      "screen": "map",
+      "view": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "Implemented",
+      "source": "../../../map.html?notice=MC-DEMO-002",
+      "file": "map-desktop.png"
+    },
+    {
+      "screen": "feedback",
+      "view": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "Implemented",
+      "source": "../../../feedback.html",
+      "file": "feedback-desktop.png"
+    },
+    {
+      "screen": "receipt",
+      "view": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "Implemented",
+      "source": "../../../feedback-success.html?reference=MC-FB-DEMO-001",
+      "file": "receipt-desktop.png"
+    },
+    {
+      "screen": "tracking",
+      "view": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "Implemented",
+      "source": "../../../tracking.html?reference=MC-FB-DEMO-003",
+      "file": "tracking-desktop.png"
+    },
+    {
+      "screen": "admin",
+      "view": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "Design prototype",
+      "source": "admin-prototype.html",
+      "file": "admin-desktop.png"
+    },
+    {
+      "screen": "home",
+      "view": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "Implemented",
+      "source": "../../../index.html",
+      "file": "home-mobile.png"
+    },
+    {
+      "screen": "announcements",
+      "view": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "Implemented",
+      "source": "../../../announcements.html",
+      "file": "announcements-mobile.png"
+    },
+    {
+      "screen": "announcement-detail",
+      "view": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "Implemented",
+      "source": "../../../announcement-detail.html?id=MC-DEMO-002",
+      "file": "announcement-detail-mobile.png"
+    },
+    {
+      "screen": "map",
+      "view": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "Implemented",
+      "source": "../../../map.html?notice=MC-DEMO-002",
+      "file": "map-mobile.png"
+    },
+    {
+      "screen": "feedback",
+      "view": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "Implemented",
+      "source": "../../../feedback.html",
+      "file": "feedback-mobile.png"
+    },
+    {
+      "screen": "receipt",
+      "view": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "Implemented",
+      "source": "../../../feedback-success.html?reference=MC-FB-DEMO-001",
+      "file": "receipt-mobile.png"
+    },
+    {
+      "screen": "tracking",
+      "view": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "Implemented",
+      "source": "../../../tracking.html?reference=MC-FB-DEMO-003",
+      "file": "tracking-mobile.png"
+    },
+    {
+      "screen": "admin",
+      "view": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "Design prototype",
+      "source": "admin-prototype.html",
+      "file": "admin-mobile.png"
+    }
+  ],
+  "errors": [],
+  "badLocal": []
+}
