@@ -37,12 +37,14 @@ const check = (label, condition) => { assert.ok(condition, label); checks.push({
     const id = await page.locator('#receipt-reference').inputValue();
     check('A feedback report submitted after browsing notices gets its own saved reference', /^MC-FB-[A-Z0-9]+$/.test(id) && await page.locator('#feedback-receipt').isVisible());
     await page.locator('#receipt-track').click();
+    await page.locator('#tracking-result').waitFor({ state: 'visible' });
     check('The receipt retrieves that exact report and its initial history', (await page.locator('#report-reference').innerText()) === id && (await page.locator('#report-status').innerText()) === 'Submitted' && await page.locator('#report-history li').count() === 1);
     await page.evaluate(reference => window.MutiaraConnectFeedback.updateStatus(reference, 'In Progress', 'Sample integration update: the access arrangement is being reviewed.'), id);
     check('The shared staff API updates the displayed status and appends history', (await page.locator('#report-status').innerText()) === 'In Progress' && await page.locator('#report-history li').count() === 2);
     await page.evaluate(reference => window.MutiaraConnectFeedback.updateStatus(reference, 'Responded', 'Sample integration response: proposed signs have been shared.'), id);
     check('A second staff API update displays the response without losing earlier history', (await page.locator('#report-status').innerText()) === 'Responded' && await page.locator('#report-history li').count() === 3 && (await page.locator('#report-response-text').innerText()).includes('proposed signs'));
     await page.reload();
+    await page.locator('#tracking-result').waitFor({ state: 'visible' });
     check('The integrated status and history survive a reload', (await page.locator('#report-reference').innerText()) === id && await page.locator('#report-history li').count() === 3);
     const snapshot = await page.evaluate(() => localStorage.getItem(window.MutiaraConnectFeedback.STORAGE_KEY));
     await page.goto(`${base}/docs/member3/ui/admin-prototype.html`);

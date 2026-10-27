@@ -1,0 +1,40 @@
+{
+  "testedAt": "2026-10-27T23:10:40.522Z",
+  "mode": "Real Google Maps API / local HTTP / isolated browser context",
+  "passed": 8,
+  "checks": [
+    {
+      "label": "Real Google API and initial tiles load",
+      "result": "PASS"
+    },
+    {
+      "label": "Click on real Google map returns both coordinates",
+      "result": "PASS"
+    },
+    {
+      "label": "Real map selection records its coordinate method",
+      "result": "PASS"
+    },
+    {
+      "label": "Real Google view receives the fourth marker",
+      "result": "PASS"
+    },
+    {
+      "label": "Editing moves the real Google marker",
+      "result": "PASS"
+    },
+    {
+      "label": "Saved location reappears on real Google after refresh",
+      "result": "PASS"
+    },
+    {
+      "label": "Real selected marker remains visible above the source panel",
+      "result": "PASS"
+    },
+    {
+      "label": "Real Google scenario has no unhandled script errors",
+      "result": "PASS"
+    }
+  ],
+  "errors": []
+}

@@ -8,12 +8,14 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
   <link rel="stylesheet" href="css/map.css">
+  <script src="js/location-store.js" defer></script>
   <script src="js/app.js" defer></script>
   <script src="assets/vendor/leaflet/leaflet.js" defer></script>
   <script src="js/map-data.js" defer></script>
   <script src="js/google-map-config.js" defer></script>
   <script src="js/google-map.js" defer></script>
   <script src="js/street-map-access.js" defer></script>
+  <script src="js/location-editor.js" defer></script>
   <script src="js/map.js" defer></script>
 </head>
 <body>
@@ -32,9 +34,11 @@
     <section class="page-heading mc-map-heading">
       <p class="eyebrow">PUBLIC INFORMATION · CONSTRUCTION LOCATIONS</p>
       <h1>Construction impact map</h1>
-      <p>Find a sample work area, explore its potential impact, and read the related construction announcement.</p>
-      <div class="demo-banner"><span aria-hidden="true">ⓘ</span><div><strong>Demonstration content</strong><p>Locations and notices are fictional examples. Points are illustrative, and the schematic is not an official LRT route map.</p></div></div>
+      <p>Find a work area, explore its potential impact, and read the related construction announcement.</p>
+      <div class="demo-banner"><span aria-hidden="true">ⓘ</span><div><strong>Coursework prototype</strong><p>The three built-in locations and four notices are fictional examples. Added records are user-entered and unverified. All points are approximate; the schematic is not an official LRT route map.</p></div></div>
+      <div class="location-toolbar"><button type="button" class="button button-primary" id="location-open">+ Add / manage locations</button><span>Saved in this browser · Export / import to move between computers</span></div>
     </section>
+    <div class="location-pick-banner" id="location-pick-banner" role="status" hidden><div><strong>Select a point on the map</strong><p>Click the map or an existing marker. Schematic positions are approximate. You can also cancel and type coordinates.</p></div><button type="button" class="button button-secondary" id="location-pick-cancel">Cancel selection</button></div>
     <section class="mc-map-workspace" aria-label="Construction impact explorer">
       <aside class="mc-map-sidebar" aria-label="Location search and results">
         <div class="mc-map-filter-panel">
@@ -65,6 +69,39 @@
     <noscript><p class="demo-banner">Enable JavaScript to use the interactive map. You can still return to the homepage using the navigation.</p></noscript>
   </main>
   <footer class="site-footer"><a class="footer-brand" href="index.html">MutiaraConnect</a><span>Part A front-end simulation · Sample data for academic demonstration</span></footer>
+  <dialog class="location-dialog" id="location-editor" aria-labelledby="location-editor-title">
+    <div class="location-dialog-heading"><div><p class="eyebrow">BROWSER-LOCAL PROTOTYPE</p><h2 id="location-editor-title">Manage construction locations</h2></div><button type="button" class="mc-map-dialog-close" id="location-close" aria-label="Close location editor">×</button></div>
+    <p>Save a work area and one linked notice. These entries stay in this browser; they are not published to other users. The three built-in samples cannot be edited here.</p>
+    <p id="location-message" class="location-message" role="status" aria-live="polite" tabindex="-1"></p>
+    <form id="location-form">
+      <h3 id="location-form-title">Add a work area</h3>
+      <p>All fields are required except source details marked optional.</p>
+      <div class="location-fields">
+        <label class="field"><span>Location name</span><input name="name" maxlength="100" required placeholder="e.g. Demonstration work area A"></label>
+        <label class="field"><span>Area</span><input name="areaLabel" maxlength="80" required placeholder="e.g. Gelugor" list="location-areas"><datalist id="location-areas"><option value="George Town"><option value="Gelugor"><option value="Bayan Lepas"></datalist></label>
+        <label class="field"><span>Latitude</span><input name="latitude" type="number" step="any" min="5.255" max="5.46" required placeholder="5.356000"></label>
+        <label class="field"><span>Longitude</span><input name="longitude" type="number" step="any" min="100.19" max="100.435" required placeholder="100.303000"></label>
+      </div>
+      <input type="hidden" name="coordinateMethod" value="manual">
+      <div class="location-pick-actions"><button type="button" class="button button-secondary" id="location-pick">Pick coordinates on map</button><span id="location-coordinate-method">Coordinates: manually entered</span></div>
+      <p class="location-hint">Coverage: Penang project area (latitude 5.255–5.460, longitude 100.190–100.435). Points indicate an approximate location, not a construction boundary.</p>
+      <label class="field"><span>Notice title</span><input name="title" maxlength="140" required></label>
+      <div class="location-fields">
+        <label class="field"><span>Notice type</span><select name="type" required><option>Road access</option><option>Pedestrian access</option><option>Construction schedule</option><option>General update</option></select></label>
+        <label class="field"><span>Information source</span><select name="sourceKind" required><option value="example">Coursework example (fictional)</option><option value="notice-reference">Reference to a published notice (unverified)</option></select></label>
+        <label class="field"><span>Start date</span><input name="startDate" type="date" required></label>
+        <label class="field"><span>End date</span><input name="endDate" type="date" required></label>
+      </div>
+      <label class="field"><span>Community impact</span><textarea name="impact" maxlength="1000" rows="3" required></textarea></label>
+      <label class="field"><span>Access information</span><textarea name="access" maxlength="800" rows="3" required></textarea></label>
+      <p id="location-source-hint" class="location-hint"></p>
+      <label class="field"><span>Published notice / source title (optional for examples)</span><input name="sourceTitle" maxlength="160"></label>
+      <label class="field"><span>Public source URL (optional for examples)</span><input name="sourceUrl" type="url" maxlength="2048" placeholder="https://..."></label>
+      <label class="field"><span>Source publication date (optional)</span><input name="sourceDate" type="date"></label>
+      <div class="location-form-actions"><button type="submit" class="button button-primary" id="location-save">Save location</button><button type="button" class="button button-secondary" id="location-new">Clear / add another</button><button type="button" class="button button-quiet" id="location-cancel">Close</button></div>
+    </form>
+    <section class="location-saved" aria-labelledby="location-saved-title"><h3 id="location-saved-title">Your saved locations</h3><ul id="location-list"></ul><div class="location-form-actions"><button type="button" class="button button-secondary" id="location-export">Export backup</button><label class="field location-import"><span>Import location backup (.json)</span><input type="file" id="location-import" accept=".json,application/json"></label></div><p class="location-hint">Import merges new references and keeps existing entries. Backups contain location and source details only; the Google Maps key and feedback records are not included.</p></section>
+  </dialog>
   <dialog class="mc-map-dialog" id="map-help" aria-labelledby="map-help-title"><button type="button" class="mc-map-dialog-close" id="map-help-close" aria-label="Close map help">×</button><p class="eyebrow">MAP GUIDE</p><h2 id="map-help-title">Explore a sample work area</h2><ol><li>Search by place name, notice reference or keyword.</li><li>Choose an area or notice type to narrow the results.</li><li>Select a card or marker to view its impact and access information.</li><li>Follow Read full announcement to open the matching notice.</li><li>Use + / − to zoom, drag to pan, and Show all locations to restore the matching locations.</li></ol><p>Google Maps and Street map need an internet connection. If an online map is unavailable, use the offline schematic. All construction points and notices remain illustrative examples.</p><button type="button" class="button button-primary" id="map-help-done">Got it</button></dialog>
 </body>
 </html>

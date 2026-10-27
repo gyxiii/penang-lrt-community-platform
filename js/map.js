@@ -11,7 +11,13 @@
   }
   const types = { 'Road access':'#b66a1c', 'Pedestrian access':'#116b70', 'Construction schedule':'#7460a5', 'General update':'#7460a5' };
   const safe = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
-  const sites = registry.map(site => ({...site, notices:sharedNotices.filter(notice => site.announcementIds.includes(notice.id))})).filter(site => site.notices.length);
+  let sites=[];
+  function rebuildSites(){
+    const result=window.MutiaraConnectData.refresh();
+    sites=[...registry,...result.records.map(window.MutiaraConnectLocations.toSite)].map(site=>({...site,notices:sharedNotices.filter(notice=>site.announcementIds.includes(notice.id))})).filter(site=>site.notices.length);
+    if(result.error){$('map-message').hidden=false;$('map-message').textContent=result.error;}
+  }
+  rebuildSites();
   const state = { keyword:'', area:'', type:'', siteId:null, noticeId:null, street:false, google:false };
   const streetControl=window.MutiaraConnectStreetMapAccess.configure($('map-street'));
   let googleView;
@@ -24,6 +30,18 @@
   const schematic = L.imageOverlay('assets/map/penang-schematic.svg',allBounds,{attribution:'Self-authored schematic · not to scale'}).addTo(map);
   const streetLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'});
   const markerLayer = L.layerGroup().addTo(map);
+  const editor=window.MutiaraConnectLocationEditor.create({
+    onChange(recordId){
+      rebuildSites();populateFilters();
+      state.keyword='';state.area='';state.type='';state.siteId=null;state.noticeId=null;
+      $('map-search').value='';$('map-area').value='';$('map-type').value='';
+      if(recordId){state.siteId='CS-'+recordId;state.noticeId='MC-'+recordId;}
+      renderAll();state.siteId?focusSelected():fitVisible();
+    },
+    onPickStart(){document.body.classList.add('location-picking');},
+    onPickEnd(){document.body.classList.remove('location-picking');}
+  });
+  map.on('click',event=>editor.pick(event.latlng.lat,event.latlng.lng,state.street?'street-map':'schematic'));
   let streetTimeout;
   let tileErrors=0;
   let tileSuccesses=0;
@@ -70,7 +88,7 @@
       L.circle([site.latitude,site.longitude],{radius:350,color,fillColor:color,fillOpacity:.12,weight:1.5,dashArray:'4 5',interactive:false}).addTo(markerLayer);
       const marker=L.marker([site.latitude,site.longitude],{icon:markerIcon(site),keyboard:true,title:`${site.name} (illustrative point)`,alt:site.name}).addTo(markerLayer);
       marker.on('click',()=>selectSite(site.siteId));
-      marker.bindTooltip(safe(`${site.name} · sample location`),{direction:'top',offset:[0,-33]});
+      marker.bindTooltip(safe(`${site.name} · ${site.local?'user-entered point':'sample location'}`),{direction:'top',offset:[0,-33]});
       marker.getElement().setAttribute('aria-label',`View ${site.name} construction details`);
       marker.getElement().addEventListener('keydown',event=>{
         if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();selectSite(site.siteId);}
@@ -80,7 +98,7 @@
   }
   function renderResults(){
     const visible=visibleSites();const noticeCount=visible.reduce((total,site)=>total+site.notices.length,0);
-    $('map-result-count').textContent=`${visible.length} sample location${visible.length===1?'':'s'} · ${noticeCount} linked notice${noticeCount===1?'':'s'}`;
+    $('map-result-count').textContent=`${visible.length} ${sites.some(site=>site.local)?'':'sample '}location${visible.length===1?'':'s'} · ${noticeCount} linked notice${noticeCount===1?'':'s'}`;
     $('map-results').innerHTML=visible.length?visible.map(site=>{
       const notice=site.notices.find(item=>item.id===state.noticeId)||site.notices[0];
       return `<button type="button" class="mc-map-card" data-site="${site.siteId}" aria-pressed="${state.siteId===site.siteId}" aria-label="View ${safe(site.name)} construction details"><span class="mc-map-card-top"><span>${safe(site.siteId)}</span><span class="mc-map-card-count">${site.notices.length} notice${site.notices.length===1?'':'s'}</span></span><span class="mc-map-card-title">${safe(site.name)} <span aria-hidden="true">↗</span></span><span class="mc-map-card-type"><i class="mc-map-dot" style="background:${types[notice.type]||'#116b70'}"></i>${safe(notice.type)}</span><span class="mc-map-card-date">${safe(notice.period)}</span></button>`;
@@ -88,10 +106,14 @@
   }
   function renderDetail(){
     const {site,notice}=current();$('map-detail').hidden=!notice;
+    $('map-detail').dataset.local=String(Boolean(site?.local));
     if(!notice){$('map-detail').innerHTML='';return;}
     state.noticeId=notice.id;
     const related=site.notices.length>1?`<div class="mc-map-notice-picker"><span>Linked notices:</span>${site.notices.map(item=>`<button type="button" data-map-notice="${item.id}" aria-pressed="${item.id===notice.id}">${safe(item.id)}</button>`).join('')}</div>`:'';
-    $('map-detail').innerHTML=`<div class="mc-map-detail-top"><span class="tag ${notice.typeClass||''}">${safe(notice.type)} · ${safe(notice.id)}</span><button type="button" id="map-close-detail" class="mc-map-detail-close" aria-label="Close location details">×</button></div><h2>${safe(notice.title)}</h2><p class="mc-map-detail-summary">${safe(notice.location)} · illustrative point</p>${related}<dl class="mc-map-info"><div><dt>Example date</dt><dd>${safe(notice.dateLabel)}</dd></div><div><dt>Illustrative period</dt><dd>${safe(notice.period)}</dd></div></dl><p class="mc-map-impact-text"><strong>Potential impact:</strong> ${safe(notice.impact)}</p><p class="mc-map-impact-text"><strong>Access information:</strong> ${safe(notice.access)}</p><div class="mc-map-detail-actions"><a class="button button-primary" id="map-read-notice" href="announcement-detail.html?id=${encodeURIComponent(notice.id)}">Read full announcement →</a><a class="text-link" href="announcements.html">All announcements</a></div>`;
+    $('map-detail').innerHTML=`<div class="mc-map-detail-top"><span class="tag ${notice.typeClass||''}">${safe(notice.type)} · ${safe(notice.id)}</span><button type="button" id="map-close-detail" class="mc-map-detail-close" aria-label="Close location details">×</button></div><h2>${safe(notice.title)}</h2><p class="mc-map-detail-summary">${safe(notice.location)} · ${site.local?'user-entered approximate point':'illustrative point'}</p>${related}<dl class="mc-map-info"><div><dt>${site.local?'Start date':'Example date'}</dt><dd>${safe(notice.dateLabel)}</dd></div><div><dt>${site.local?'Period':'Illustrative period'}</dt><dd>${safe(notice.period)}</dd></div></dl><p class="mc-map-impact-text"><strong>Potential impact:</strong> ${safe(notice.impact)}</p><p class="mc-map-impact-text"><strong>Access information:</strong> ${safe(notice.access)}</p>${window.MutiaraConnectData.sourceInfo(notice)}<div class="mc-map-detail-actions"><a class="button button-primary" id="map-read-notice" href="${safe(window.MutiaraConnectData.href('announcement-detail.html?id='+encodeURIComponent(notice.id),notice))}">Read full announcement →</a><a class="text-link" href="announcements.html">All announcements</a></div>${site.local?'<button type="button" class="button button-quiet location-edit-action" id="location-edit-selected">Edit this saved location</button>':''}`;
+    $('location-edit-selected')?.addEventListener('click',()=>editor.edit(site.recordId));
+    if($('map-detail').dataset.notice!==notice.id)$('map-detail').scrollTop=0;
+    $('map-detail').dataset.notice=notice.id;
     $('map-close-detail').addEventListener('click',()=>{const previous=state.siteId;state.siteId=null;state.noticeId=null;renderAll();fitVisible();document.querySelector(`[data-site="${previous}"]`)?.focus({preventScroll:true});});
   }
   function syncGoogleMarkers(){
@@ -105,6 +127,7 @@
   function selectSite(siteId,noticeId){
     const active=document.activeElement;const fromMarker=active?.classList.contains('mc-map-pin');const fromGoogle=state.google&&active?.tagName==='GMP-ADVANCED-MARKER';const fromCard=active?.matches('[data-site]');const fromNotice=active?.hasAttribute('data-map-notice');
     const site=visibleSites().find(item=>item.siteId===siteId);if(!site)return;
+    if(editor.isPicking()){editor.pick(site.latitude,site.longitude,state.google?'google-map':state.street?'street-map':'schematic');return;}
     state.siteId=siteId;state.noticeId=noticeId||site.notices[0].id;
     renderAll();focusSelected();
     if(fromMarker)siteMarkers.get(siteId)?.getElement().focus({preventScroll:true});
@@ -118,8 +141,14 @@
     renderAll();fitVisible();
   }
   function resetFilters(){state.keyword='';state.area='';state.type='';$('map-search').value='';$('map-area').value='';$('map-type').value='';applyFilters();}
-  sites.forEach(site=>$('map-area').insertAdjacentHTML('beforeend',`<option value="${safe(site.area)}">${safe(site.name)} (sample)</option>`));
-  [...new Set(sites.flatMap(site=>site.notices.map(notice=>notice.type)))].forEach(type=>$('map-type').insertAdjacentHTML('beforeend',`<option value="${safe(type)}">${safe(type)}</option>`));
+  function populateFilters(){
+    $('map-area').innerHTML='<option value="">All areas</option>';
+    const areas=new Map();sites.forEach(site=>{if(!areas.has(site.area))areas.set(site.area,site.areaLabel||site.name+' (sample)');});
+    for(const [value,label] of areas)$('map-area').add(new Option(label,value));
+    $('map-type').innerHTML='<option value="">All types</option>';
+    [...new Set(sites.flatMap(site=>site.notices.map(notice=>notice.type)))].forEach(type=>$('map-type').add(new Option(type,type)));
+  }
+  populateFilters();
   $('map-search').addEventListener('input',event=>{state.keyword=event.target.value.trim().toLowerCase();applyFilters();});
   $('map-area').addEventListener('change',event=>{state.area=event.target.value;applyFilters();});
   $('map-type').addEventListener('change',event=>{state.type=event.target.value;applyFilters();});
@@ -153,7 +182,7 @@
     $('map-status').textContent='Loading Google Maps · schematic available';
     try{
       if(!googleView){
-        const view=await window.MutiaraConnectGoogleMaps.create({element:$('google-construction-map'),config,onSelect:selectSite,onUnavailable:()=>{
+        const view=await window.MutiaraConnectGoogleMaps.create({element:$('google-construction-map'),config,onSelect:selectSite,onPick:(lat,lng)=>editor.pick(lat,lng,'google-map'),onUnavailable:()=>{
           const wasGoogle=state.google;
           googleView?.destroy();googleView=null;
           if(wasGoogle)useSchematic('Google Maps unavailable · offline schematic restored');

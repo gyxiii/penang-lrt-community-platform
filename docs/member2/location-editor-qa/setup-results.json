@@ -1,0 +1,12 @@
+{
+  "checks": [
+    {
+      "label": "First run prepares a blank local configuration",
+      "result": "PASS"
+    },
+    {
+      "label": "Later runs preserve an existing configured file exactly",
+      "result": "PASS"
+    }
+  ]
+}
