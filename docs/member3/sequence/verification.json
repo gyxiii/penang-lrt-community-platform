@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-27T19:08:11.122971+00:00",
+  "checkedAt": "2026-10-27T19:19:49.856555+00:00",
   "report": {
     "file": "Member3_Sequence_Diagrams.docx",
     "pages": 2,
@@ -167,8 +167,8 @@
     },
     {
       "path": "README_ZH.md",
-      "bytes": 5808,
-      "sha256": "132385b3affca542a095a91ea950a360ac385eb2f54ab4b01cc65844f6529319"
+      "bytes": 5868,
+      "sha256": "6d30a9f1a17b238e2809154ded77e397a140e4c39cc1225a26c7cbc5ab7bc9bc"
     },
     {
       "path": "source/build-report.py",
@@ -224,11 +224,6 @@
       "path": "source/verify-svg.cjs",
       "bytes": 1916,
       "sha256": "b9d78200fd8ac84bbb8c4232f1d7b4b67d91c84f90c923825f07231653292bf7"
-    },
-    {
-      "path": "~$mber3_Sequence_Diagrams.docx",
-      "bytes": 162,
-      "sha256": "7335a07836ebc2f155bd8d2b6d4f6e2d7a5c2cb5bc3762661148d017e24f83e1"
     }
   ]
 }

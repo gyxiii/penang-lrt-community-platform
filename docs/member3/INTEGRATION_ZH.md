@@ -94,4 +94,4 @@ feedback.updateStatus(report.id, 'Responded', 'Sample response: the access conce
 
 ## 技术验收与当前交接状态（2026-10-28）
 
-本模块及额外原型素材曾通过反馈62项、UI58项、集成及图标20项检查，共140项，另补齐既有Leaflet库缺失图标；技术证据见[final-verification.json](final-verification.json)。时序图及英文解释已在[sequence目录](sequence/README_ZH.md)完成，当前按[交接说明](DELIVERY_ZH.md)整合报告、录制和交接。正式后台仍由其负责人接入；共享API的验证不代表工作人员页面已实现。分支已推送并建立[PR #5](https://github.com/gyxiii/penang-lrt-community-platform/pull/5)，等待负责人审阅／合并；旧ZIP只作历史快照。
+本模块及额外原型素材曾通过反馈62项、UI58项、集成及图标20项检查，共140项，另补齐既有Leaflet库缺失图标；技术证据见[final-verification.json](final-verification.json)。时序图及英文解释已在[sequence目录](sequence/README_ZH.md)完成，当前按[交接说明](DELIVERY_ZH.md)整合报告、录制和交接。正式后台仍由其负责人接入；共享API的验证不代表工作人员页面已实现。分支已推送并建立[PR #5](https://github.com/gyxiii/penang-lrt-community-platform/pull/5)，已合并默认main，供组员正常clone获取；旧ZIP只作历史快照。

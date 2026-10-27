@@ -42,7 +42,7 @@ M3B衔接已有编号，使用opt表示工作人员处理可以不发生，loop�
 - 将两页内容放入Sequence Diagram及Explanation对应章节。M3A／M3B是局部图号，合稿时统一图号和引用。
 - 两页是当前材料版式，不是教师规定的M3页数。文档当前为Letter、Arial 10.5pt，合稿采用全组统一设置，并重新检查最多10页的限制。无需额外封面或目录。
 - 反馈模块截图已有，可按组内原型章节安排选择；此前两页Prototype Design是额外原型素材，不与本文件混为时序图报告。
-- 图及解释已制作完成，现已连同代码提交并推送，建立[PR #5](https://github.com/gyxiii/penang-lrt-community-platform/pull/5)。全组合稿、本人录制、正式后台接入和最终提交仍分别推进。
+- 图及解释已制作完成，现已连同代码提交并推送，通过[PR #5](https://github.com/gyxiii/penang-lrt-community-platform/pull/5)合并默认main。组员普通clone即可取得这些材料；全组合稿、本人录制、正式后台接入和最终提交仍分别推进。
 - 原历史ZIP没有这些新文件，仍是旧快照；从当前目录取用材料。
 
 ## 验证与来源

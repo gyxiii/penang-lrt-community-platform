@@ -1,25 +1,33 @@
-# Member 3 GitHub交接
+# Member 3 默认main交付
 
-更新日期：2026-10-28（马来西亚时间）。代码与报告已提交并推送至member3-feedback-ui，负责人可从以下入口审阅及合并。
+更新日期：2026-10-28（马来西亚时间）。用户明确代码和报告文件应直接更新到默认分支，下一位组员普通clone就能拿到最新项目；负责人只负责把各人的报告内容合为最终Word文档。
 
-- 合并请求：[PR #5](https://github.com/gyxiii/penang-lrt-community-platform/pull/5)
-- 分支：[member3-feedback-ui](https://github.com/gyxiii/penang-lrt-community-platform/tree/member3-feedback-ui)
-- 内容提交：671291ef3910f1620f952817d9435a1d831e34a3；后续文档状态提交继续位于同一PR。
-- 推送账号：ZeLei-web；提交采用本机既有Li Linze身份。已核对仓库写入权限。
+- 当前交付分支：[main](https://github.com/gyxiii/penang-lrt-community-platform/tree/main)。
+- [PR #5](https://github.com/gyxiii/penang-lrt-community-platform/pull/5)已合并；合并提交701ae8273ddf80b1d910321c6a73163d4a4df8ce，后续状态说明提交接续main。
+- Member 3主要内容提交671291ef3910f1620f952817d9435a1d831e34a3；制作分支member3-feedback-ui保留为历史，不是组员获取最新公共项目的必要步骤。
+- 推送账号ZeLei-web；提交使用本机既有Li Linze身份。
 
-## 负责人先取哪些材料
+## 获取最新项目
 
-- [两页时序图英文报告](sequence/Member3_Sequence_Diagrams.docx)：本次M3报告主责，含两张正式图及完整解释。
-- [图件及可编辑源文件说明](sequence/README_ZH.md)：PNG、SVG、双页draw.io与Mermaid源文件。
-- [反馈接口与集成说明](INTEGRATION_ZH.md)：公众提交、回执、查询及工作人员接入约定。
-- [当前任务范围](TASK_SCOPE_ZH.md)：全平台原型稿是额外素材，不替代时序图报告。
+新目录运行：
 
-本次交接包含已核对的反馈模块、两页报告、截图、源文件、演示稿及验证记录。私人地图配置和Word临时锁文件未进入提交。
+```text
+git clone https://github.com/gyxiii/penang-lrt-community-platform.git
+```
 
-## 合并与剩余事项
+已有仓库先保留本地未提交内容，再切换main并执行`git pull --ff-only origin main`。无需checkout成员分支或等待负责人合并本次代码。
 
-PR尚未合并main，由负责人审阅处理。Git合并将代码和材料文件合入主分支，不会自动把Word内容排入全组最终报告；负责人仍需统一正文、名称、图号、样式和最多10页限制。
+Windows双击根目录`打开网站.cmd`，从Submit Feedback进入提交→回执→查询。首页沿用公共设计，新增功能主要在feedback.html、feedback-success.html、tracking.html。地图私人配置和Word临时锁文件未入库，首次启动会准备空白地图配置，离线示意图可用。
 
-正式admin.html仍待后台负责人接入；图中的工作人员界面明确是拟接入流程，共享updateStatus接口已存在。合并后台后再联调公众提交→工作人员更新→公众查询，并按实际实现更新说明。本人演示视频和最终课程提交尚待完成。
+## 报告取材入口
 
-旧ZIP保持历史快照，不含新时序图；本次负责人应从PR或当前分支取最新材料。早期验证JSON中的committed/pushed字段记录当时状态，不能当作当前尚未推送。
+- [两页时序图英文报告](sequence/Member3_Sequence_Diagrams.docx)：本次M3报告主责，含两张图及完整解释。
+- [图件与可编辑源文件说明](sequence/README_ZH.md)：PNG、SVG、双页draw.io、Mermaid。
+- [反馈接口与集成说明](INTEGRATION_ZH.md)。
+- [当前任务范围](TASK_SCOPE_ZH.md)：全平台原型材料是额外素材，不替代时序图报告。
+
+Git合并已将这些材料放入main，不会自动把Word正文合并排版。负责人仍需统一图号、名称、格式和最多10页限制。本人视频及最终课程提交尚待完成。
+
+正式admin.html仍由后台负责人接入；工作人员界面在图中明确为拟接入流程，共享状态更新API已存在。后台完成后继续联调公众提交→工作人员更新→公众查询，并按实际情况更新报告。
+
+旧ZIP未重打包，仍为历史快照；请以main源码和当前报告材料为准。早期验证JSON的committed／pushed字段是当时快照，不代表当前尚未交付。

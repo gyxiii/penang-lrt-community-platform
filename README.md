@@ -6,7 +6,7 @@ The user clarified that the separate drawing-reallocation file does not apply to
 
 Start with the [Chinese handoff guide](docs/member3/DELIVERY_ZH.md), the revised [English demonstration script](docs/member3/DEMO_EN.md), or the [Chinese rehearsal steps](docs/member3/DEMO_ZH.md). A clean project copy passed 140 browser checks: 62 feedback, 58 UI and 20 integration checks. The [verification record](docs/member3/final-verification.json) covers those front-end checks; it does not establish completion of coursework diagrams. The previous ZIP is a historical snapshot containing outdated scope notes and does not include the new sequence material.
 
-The formal `admin.html` remains for the administrator module owner to implement and connect. The separate staff UI proposal is available for handoff. The branch has been committed and pushed for review in [PR #5](https://github.com/gyxiii/penang-lrt-community-platform/pull/5); it has not been merged into main. The missing Leaflet 1.9.4 distribution images were restored from the [official source](assets/vendor/leaflet/images/SOURCE.json); existing map logic and shared styles were preserved.
+The formal `admin.html` remains for the administrator module owner to implement and connect. The separate staff UI proposal is available for handoff. The changes from [PR #5](https://github.com/gyxiii/penang-lrt-community-platform/pull/5) have been merged into the default [main branch](https://github.com/gyxiii/penang-lrt-community-platform/tree/main). A normal clone now includes the feedback module, sequence report and editable diagram sources. The missing Leaflet 1.9.4 distribution images were restored from the [official source](assets/vendor/leaflet/images/SOURCE.json); existing map logic and shared styles were preserved.
 
 ## Additional prototype material for the group report
 
@@ -32,4 +32,6 @@ The Impact Map is implemented. It reuses three illustrative locations and four s
 
 The report, two-page editable models, diagram images and editable sources, and three-minute demonstration script are in [docs/member2](docs/member2/INTEGRATION_ZH.md). Feedback and tracking are available from Member 3; the administrator page is still awaiting its owner's implementation.
 
-Sequence diagrams and editable sources: [Chinese handoff guide](docs/member3/sequence/README_ZH.md). Both rendered Word pages were reviewed; the staff dashboard interaction is explicitly proposed, while the shared update API exists. GitHub handoff is complete in [PR #5](https://github.com/gyxiii/penang-lrt-community-platform/pull/5). Group report assembly and personal recording remain pending.
+Sequence diagrams and editable sources: [Chinese handoff guide](docs/member3/sequence/README_ZH.md). Both rendered Word pages were reviewed; the staff dashboard interaction is explicitly proposed, while the shared update API exists. Code and report files are delivered through main after merging [PR #5](https://github.com/gyxiii/penang-lrt-community-platform/pull/5). The group lead still needs to assemble the final Word report; personal recording remains pending.
+
+For a fresh copy, use `git clone https://github.com/gyxiii/penang-lrt-community-platform.git`. Existing checkouts can switch to main and pull after preserving local changes. The homepage retains the shared design; use Submit Feedback and Track Feedback to open the added module.

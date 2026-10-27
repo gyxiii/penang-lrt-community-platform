@@ -57,7 +57,7 @@
 
 ## GitHub 状态
 
-分支member3-feedback-ui已提交并推送，建立[PR #5](https://github.com/gyxiii/penang-lrt-community-platform/pull/5)，等待负责人审阅／合并。已核对GitHub账号ZeLei-web的仓库写入权限，提交使用本机既有Li Linze身份；未修改main。
+分支member3-feedback-ui已提交并推送，建立[PR #5](https://github.com/gyxiii/penang-lrt-community-platform/pull/5)，现已合并默认main，普通clone即可取得最新项目。已核对GitHub账号ZeLei-web的仓库写入权限，提交使用本机既有Li Linze身份；本轮按用户明确要求将PR #5合入main，负责人只需报告内容合稿。
 
 现有代码可先从当前工作区交接；旧审阅包仅供取材，其中旧分工说明不能继续使用。GitHub密码、验证码或私人Token不需要发到聊天中。
 

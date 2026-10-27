@@ -46,4 +46,4 @@ Word 采用 A4，Arial 10.5 pt 正文、20 pt 标题、13 pt 小标题和 9 pt �
 
 文件内容、四幅嵌入图片、图号引用和 Word 实际两页版式已检查，记录见 [report-verification.json](report-verification.json)。报告没有把阶段 1、2 的测试次数当作应用正式性能、用户研究或无障碍认证结果。
 
-此前两页DOCX的Word分页检查和前端集成测试继续作为素材质量证据，不作为当前M3完整交付验收。当前从已完成的时序图及解释推进本模块截图合稿、本人录制与代码交接；见[更正后的交接入口](../DELIVERY_ZH.md)。正式后台仍待其负责人接入，代码及新时序图报告已推送，并建立[PR #5](https://github.com/gyxiii/penang-lrt-community-platform/pull/5)供负责人审阅／合并。旧ZIP内部的分工说明已过时，未在本轮重打包。
+此前两页DOCX的Word分页检查和前端集成测试继续作为素材质量证据，不作为当前M3完整交付验收。当前从已完成的时序图及解释推进本模块截图合稿、本人录制与代码交接；见[更正后的交接入口](../DELIVERY_ZH.md)。正式后台仍待其负责人接入，代码及新时序图报告已推送，并建立[PR #5](https://github.com/gyxiii/penang-lrt-community-platform/pull/5)且已合并main，负责人可直接从默认分支取Word材料合稿。旧ZIP内部的分工说明已过时，未在本轮重打包。
