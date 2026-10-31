@@ -1,0 +1,157 @@
+{
+  "testedAt": "2026-10-27T23:11:30.801Z",
+  "browser": "Microsoft Edge / Playwright",
+  "remoteMaps": "Google click/update API simulated; no live OSM requests",
+  "passed": 37,
+  "checks": [
+    {
+      "label": "Default three sites and four notices are unchanged",
+      "result": "PASS"
+    },
+    {
+      "label": "Accessible location editor opens",
+      "result": "PASS"
+    },
+    {
+      "label": "Manual entry saves and immediately adds a marker and card",
+      "result": "PASS"
+    },
+    {
+      "label": "Existing area names do not duplicate filter options",
+      "result": "PASS"
+    },
+    {
+      "label": "Saved point persists after reload",
+      "result": "PASS"
+    },
+    {
+      "label": "Saved marker detail exposes its source and coordinates",
+      "result": "PASS"
+    },
+    {
+      "label": "Added marker is visible above its expanded source panel",
+      "result": "PASS"
+    },
+    {
+      "label": "Local notice opens the correct full announcement",
+      "result": "PASS"
+    },
+    {
+      "label": "Notice-to-map round trip selects the same local record",
+      "result": "PASS"
+    },
+    {
+      "label": "Added notice participates in existing public filters",
+      "result": "PASS"
+    },
+    {
+      "label": "Invalid date order does not create a point",
+      "result": "PASS"
+    },
+    {
+      "label": "Out-of-region coordinates are rejected by the form",
+      "result": "PASS"
+    },
+    {
+      "label": "Published notice needs both source fields",
+      "result": "PASS"
+    },
+    {
+      "label": "Executable source URLs cannot be saved",
+      "result": "PASS"
+    },
+    {
+      "label": "Reference records save with source metadata",
+      "result": "PASS"
+    },
+    {
+      "label": "Source markup is escaped and links are explicit",
+      "result": "PASS"
+    },
+    {
+      "label": "New areas are available in the map filters",
+      "result": "PASS"
+    },
+    {
+      "label": "Editing replaces its record without duplicating the marker",
+      "result": "PASS"
+    },
+    {
+      "label": "Export contains both local entries and no API configuration",
+      "result": "PASS"
+    },
+    {
+      "label": "Import skips existing references",
+      "result": "PASS"
+    },
+    {
+      "label": "Broken backup leaves the map unchanged",
+      "result": "PASS"
+    },
+    {
+      "label": "Pick mode closes the dialog and shows cancel",
+      "result": "PASS"
+    },
+    {
+      "label": "Schematic click supplies coordinates with an approximate label",
+      "result": "PASS"
+    },
+    {
+      "label": "Cancelling a pick preserves form content and does not save",
+      "result": "PASS"
+    },
+    {
+      "label": "Existing marker can supply coordinates",
+      "result": "PASS"
+    },
+    {
+      "label": "Storage failure displays a clear error and no new marker",
+      "result": "PASS"
+    },
+    {
+      "label": "Editor fits 320px viewport without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "Editor fits 390px viewport without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "Editor fits 768px viewport without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "label": "Delete removes its local notice and marker only",
+      "result": "PASS"
+    },
+    {
+      "label": "Deleted local notice never silently falls back to a sample",
+      "result": "PASS"
+    },
+    {
+      "label": "Backup restores the entries into another browser context",
+      "result": "PASS"
+    },
+    {
+      "label": "Teammate feedback submission and tracking still work",
+      "result": "PASS"
+    },
+    {
+      "label": "Google map click supplies latitude and longitude (simulated API)",
+      "result": "PASS"
+    },
+    {
+      "label": "Google receives the new local marker (simulated API)",
+      "result": "PASS"
+    },
+    {
+      "label": "Edited coordinates update the Google marker (simulated API)",
+      "result": "PASS"
+    },
+    {
+      "label": "No unhandled browser exceptions",
+      "result": "PASS"
+    }
+  ],
+  "errors": []
+}

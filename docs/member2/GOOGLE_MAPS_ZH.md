@@ -2,6 +2,8 @@
 
 网站已接入 Google 官方 Maps JavaScript API，使用 AdvancedMarkerElement 显示三个示例地点。左右两部分共用原有四条公告、筛选条件、选中地点和公告跳转，未复制第二套公告数据。
 
+直接打开本地 HTML 时，Google Maps 和 Schematic 仍在页面内显示；Street map 则以新标签页打开 OpenStreetMap 官方网站，并跟随所选地点。原因是 OSM 瓦片要求有效 HTTP Referer，本地文件无法正常提供。通过 HTTP/HTTPS 网页访问时保留内嵌街道图，但仍受服务可用性和[官方瓦片使用规则](https://operations.osmfoundation.org/policies/tiles/)约束。不要用伪造来源或代理绕过服务拦截。
+
 ## 启用真实地图
 
 1. 用个人 Google 账号打开 https://developers.google.com/maps/documentation/javascript/demo-key ，选择 Get a Demo Key，按 Google 页面完成申请和条款确认。

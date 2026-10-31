@@ -22,7 +22,7 @@
     });
     return apiPromise;
   }
-  async function create({element,config,onSelect,onUnavailable}){
+  async function create({element,config,onSelect,onPick,onUnavailable}){
     if(!config?.apiKey?.trim())throw new Error('Google Maps is not configured');
     await loadApi(config.apiKey.trim());
     const [{Map:GoogleMap}, {AdvancedMarkerElement,PinElement}]=await Promise.all([
@@ -55,6 +55,9 @@
     authFailure=()=>{if(!dead)onUnavailable();};
     const failWhenOffline=()=>{if(!dead)onUnavailable();};
     window.addEventListener('offline',failWhenOffline);
+    const clickListener=map.addListener?.('click',event=>{
+      if(!dead&&event.latLng)onPick?.(event.latLng.lat(),event.latLng.lng());
+    });
     function render(sites,selectedId){
       const ids=new Set(sites.map(site=>site.siteId));
       for(const [id,item] of markers){if(!ids.has(id)){item.marker.map=null;item.circle.setMap(null);markers.delete(id);}}
@@ -67,6 +70,9 @@
           item={marker,circle};markers.set(site.siteId,item);
         }
         const pin=new PinElement({background:site.color,borderColor:'#ffffff',glyphColor:'#ffffff',glyphText:String(site.number),scale:selectedId===site.siteId?1.2:1});
+        item.marker.position={lat:site.latitude,lng:site.longitude};
+        item.marker.title=`View ${site.name} construction details`;
+        item.circle.setOptions({center:{lat:site.latitude,lng:site.longitude}});
         item.marker.replaceChildren(pin);
         item.marker.dataset.site=site.siteId;
         item.marker.dataset.selected=String(selectedId===site.siteId);
@@ -87,7 +93,9 @@
       move({x:(left+right)/2+(padding.right-padding.left)/(2*scale),y:(top+bottom)/2+(padding.bottom-padding.top)/(2*scale)},zoom);
     }
     function focus(site,targetY){
-      const zoom=Math.max(12,map.getZoom()||12);
+      // At zoom 12 the full-height viewport exceeds the restricted Penang area,
+      // so Google can clamp the camera and leave the pin behind the detail pane.
+      const zoom=Math.max(13,map.getZoom()||13);
       const point=worldPoint(site);point.y+=(element.clientHeight/2-targetY)/(2**zoom);
       move(point,zoom);
     }
@@ -97,7 +105,7 @@
       hide(){element.style.visibility='hidden';},
       focusMarker(id){markers.get(id)?.marker.focus({preventScroll:true});},
       zoom(delta){map.setZoom(Math.max(10,Math.min(18,(map.getZoom()||12)+delta)));},
-      destroy(){dead=true;window.removeEventListener('offline',failWhenOffline);for(const item of markers.values()){item.marker.map=null;item.circle.setMap(null);}markers.clear();element.hidden=true;}
+      destroy(){dead=true;clickListener?.remove();window.removeEventListener('offline',failWhenOffline);for(const item of markers.values()){item.marker.map=null;item.circle.setMap(null);}markers.clear();element.hidden=true;}
     };
   }
   window.MutiaraConnectGoogleMaps=Object.freeze({create});

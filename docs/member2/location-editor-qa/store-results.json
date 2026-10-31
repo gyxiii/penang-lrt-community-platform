@@ -1,0 +1,101 @@
+{
+  "passed": 24,
+  "checks": [
+    {
+      "name": "Create a local record with stable references",
+      "result": "PASS"
+    },
+    {
+      "name": "Edits preserve identity and creation date",
+      "result": "PASS"
+    },
+    {
+      "name": "Saved records survive a new store instance",
+      "result": "PASS"
+    },
+    {
+      "name": "Reject empty coordinates atomically",
+      "result": "PASS"
+    },
+    {
+      "name": "Reject invalid coordinates atomically",
+      "result": "PASS"
+    },
+    {
+      "name": "Reject out of coverage atomically",
+      "result": "PASS"
+    },
+    {
+      "name": "Reject end before start atomically",
+      "result": "PASS"
+    },
+    {
+      "name": "Reject nonexistent date atomically",
+      "result": "PASS"
+    },
+    {
+      "name": "Reject empty title atomically",
+      "result": "PASS"
+    },
+    {
+      "name": "Reject missing source citation atomically",
+      "result": "PASS"
+    },
+    {
+      "name": "Reject script source URL atomically",
+      "result": "PASS"
+    },
+    {
+      "name": "Reject credential source URL atomically",
+      "result": "PASS"
+    },
+    {
+      "name": "Reject key in source URL atomically",
+      "result": "PASS"
+    },
+    {
+      "name": "Source metadata and Chinese text are preserved",
+      "result": "PASS"
+    },
+    {
+      "name": "Export excludes other storage namespaces and map credentials",
+      "result": "PASS"
+    },
+    {
+      "name": "Import restores entries and skips existing IDs",
+      "result": "PASS"
+    },
+    {
+      "name": "Malformed imports do not overwrite valid entries",
+      "result": "PASS"
+    },
+    {
+      "name": "Duplicate references in import are rejected",
+      "result": "PASS"
+    },
+    {
+      "name": "Storage quota failure is explicit and atomic",
+      "result": "PASS"
+    },
+    {
+      "name": "Blocked and corrupted storage cannot silently erase records",
+      "result": "PASS"
+    },
+    {
+      "name": "HTTP navigation uses ordinary links",
+      "result": "PASS"
+    },
+    {
+      "name": "Local-file navigation carries only the selected record",
+      "result": "PASS"
+    },
+    {
+      "name": "Unsafe linked records are rejected",
+      "result": "PASS"
+    },
+    {
+      "name": "Delete removes only the chosen local record",
+      "result": "PASS"
+    }
+  ]
+}
