@@ -1,0 +1,153 @@
+{
+  "member": 4,
+  "module": "Administrative dashboard",
+  "page": "admin.html",
+  "date": "2026-10-31T14:35:26.939Z",
+  "base": "http://127.0.0.1:8341",
+  "browser": "Microsoft Edge via Playwright",
+  "passed": 35,
+  "checks": [
+    {
+      "label": "The dashboard loads the three shared sample reports",
+      "result": "PASS"
+    },
+    {
+      "label": "Summary counters reflect the sample statuses",
+      "result": "PASS"
+    },
+    {
+      "label": "Shared navigation marks Admin as the current page",
+      "result": "PASS"
+    },
+    {
+      "label": "A first report is selected automatically with its detail visible",
+      "result": "PASS"
+    },
+    {
+      "label": "Every element id and tab reference is unique and valid",
+      "result": "PASS"
+    },
+    {
+      "label": "The status filter narrows the queue and reports the match count",
+      "result": "PASS"
+    },
+    {
+      "label": "Combined filters can produce an empty result without hiding the form controls",
+      "result": "PASS"
+    },
+    {
+      "label": "Reset restores every report and selects one again",
+      "result": "PASS"
+    },
+    {
+      "label": "Selecting a row shows its reference, details and activity timeline",
+      "result": "PASS"
+    },
+    {
+      "label": "The public tracking link targets the selected reference",
+      "result": "PASS"
+    },
+    {
+      "label": "An empty response is rejected and the note field receives focus",
+      "result": "PASS"
+    },
+    {
+      "label": "Saving an update confirms the new status in a live message",
+      "result": "PASS"
+    },
+    {
+      "label": "The queue row and summary counters reflect the saved status",
+      "result": "PASS"
+    },
+    {
+      "label": "The shared model stores one appended history entry with the exact text",
+      "result": "PASS"
+    },
+    {
+      "label": "Typed HTML is shown as plain text and never executed",
+      "result": "PASS"
+    },
+    {
+      "label": "The public tracking page shows the saved status and response",
+      "result": "PASS"
+    },
+    {
+      "label": "An open public tracking tab refreshes after a staff update",
+      "result": "PASS"
+    },
+    {
+      "label": "The announcements tab lists the four shared notices",
+      "result": "PASS"
+    },
+    {
+      "label": "Every announcement links to the shared detail page",
+      "result": "PASS"
+    },
+    {
+      "label": "The notice-type filter narrows the list",
+      "result": "PASS"
+    },
+    {
+      "label": "Announcement filters produce an empty state",
+      "result": "PASS"
+    },
+    {
+      "label": "Announcement reset restores all notices",
+      "result": "PASS"
+    },
+    {
+      "label": "Arrow keys move between dashboard tabs",
+      "result": "PASS"
+    },
+    {
+      "label": "No horizontal overflow at 1024px",
+      "result": "PASS"
+    },
+    {
+      "label": "No horizontal overflow at 768px",
+      "result": "PASS"
+    },
+    {
+      "label": "No horizontal overflow at 390px",
+      "result": "PASS"
+    },
+    {
+      "label": "No horizontal overflow at 320px",
+      "result": "PASS"
+    },
+    {
+      "label": "Navigation target index.html responds successfully",
+      "result": "PASS"
+    },
+    {
+      "label": "Navigation target announcements.html responds successfully",
+      "result": "PASS"
+    },
+    {
+      "label": "Navigation target map.html responds successfully",
+      "result": "PASS"
+    },
+    {
+      "label": "Navigation target feedback.html responds successfully",
+      "result": "PASS"
+    },
+    {
+      "label": "Navigation target tracking.html responds successfully",
+      "result": "PASS"
+    },
+    {
+      "label": "Navigation target admin.html responds successfully",
+      "result": "PASS"
+    },
+    {
+      "label": "No uncaught script errors occurred",
+      "result": "PASS"
+    },
+    {
+      "label": "No local resource request failed",
+      "result": "PASS"
+    }
+  ],
+  "errors": [],
+  "failedRequests": []
+}

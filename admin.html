@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Administrator dashboard for reviewing community feedback, filtering the queue and recording sample status updates in the MutiaraConnect prototype.">
+  <title>Administrative Dashboard | MutiaraConnect</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/feedback.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="js/app.js" defer></script>
+  <script src="js/feedback-store.js" defer></script>
+  <script src="js/admin.js" defer></script>
+</head>
+<body>
+  <a class="mc-skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="MutiaraConnect home"><span class="brand-mark">MC</span><span><strong>MutiaraConnect</strong><small>LRT Construction Information &amp; Community Feedback Portal</small></span></a>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">☰</button>
+    <nav class="nav-links" id="main-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="announcements.html">Announcements</a><a href="map.html">Impact Map</a><a href="feedback.html">Submit Feedback</a><a href="tracking.html">Track Feedback</a><a class="active" aria-current="page" href="admin.html">Admin</a></nav>
+  </header>
+  <main class="page-main mc-feedback-main ad-main" id="main-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Administrative dashboard</span></div>
+    <section class="page-heading">
+      <p class="eyebrow">ADMINISTRATOR WORKSPACE</p>
+      <h1>Keep the conversation moving.</h1>
+      <p>Review the community feedback saved in this browser, filter the queue, and record a sample status update that the public tracking page can immediately see.</p>
+    </section>
+    <div class="demo-banner ad-banner"><span aria-hidden="true">ⓘ</span><div><strong>Part A front-end simulation</strong><p>No account, server or database is used. Reports and status updates stay in this browser only, and every response you record is fictional demonstration content.</p></div></div>
+
+    <section class="ad-stats" aria-label="Feedback summary">
+      <article class="ad-stat"><span class="ad-stat-label">All reports</span><strong id="ad-count-all">0</strong><small>Saved in this browser</small></article>
+      <article class="ad-stat"><span class="ad-stat-label">Submitted</span><strong id="ad-count-submitted">0</strong><small>Waiting for review</small></article>
+      <article class="ad-stat"><span class="ad-stat-label">In Progress</span><strong id="ad-count-progress">0</strong><small>Being handled</small></article>
+      <article class="ad-stat"><span class="ad-stat-label">Responded</span><strong id="ad-count-responded">0</strong><small>Response shared</small></article>
+    </section>
+
+    <div class="ad-tabs" role="tablist" aria-label="Dashboard sections">
+      <button class="ad-tab" id="ad-tab-feedback" type="button" role="tab" aria-selected="true" aria-controls="ad-panel-feedback" tabindex="0">Feedback queue</button>
+      <button class="ad-tab" id="ad-tab-announcements" type="button" role="tab" aria-selected="false" aria-controls="ad-panel-announcements" tabindex="-1">Published announcements</button>
+    </div>
+
+    <section id="ad-panel-feedback" role="tabpanel" aria-labelledby="ad-tab-feedback">
+      <div class="ad-workspace">
+        <section class="mc-feedback-panel ad-queue" aria-labelledby="ad-queue-title">
+          <div class="mc-panel-heading"><div><p class="eyebrow">INBOX</p><h2 id="ad-queue-title">Feedback queue</h2></div><span class="tag" id="ad-queue-count">0 reports</span></div>
+          <noscript><p class="mc-message mc-message-error">Enable JavaScript to review and update sample reports.</p></noscript>
+          <p class="mc-message mc-message-error" id="ad-error" role="alert" hidden></p>
+          <div class="ad-filters">
+            <div class="field ad-search"><label for="ad-search">Search feedback</label><input id="ad-search" type="search" maxlength="80" spellcheck="false" placeholder="e.g. MC-FB-DEMO-002 or walkway"><span class="mc-field-hint">Reference, concern, location or area.</span></div>
+            <div class="field"><label for="ad-status">Status</label><select id="ad-status"><option value="">All statuses</option></select></div>
+            <div class="field"><label for="ad-area">Area</label><select id="ad-area"><option value="">All areas</option></select></div>
+            <div class="field"><label for="ad-category">Category</label><select id="ad-category"><option value="">All categories</option></select></div>
+            <button class="button button-secondary ad-reset" id="ad-reset" type="button">Reset filters</button>
+          </div>
+          <p class="results-count" id="ad-results" role="status"></p>
+          <div class="ad-list" id="ad-list"></div>
+          <div class="empty-state ad-empty" id="ad-empty" hidden><span aria-hidden="true">⌕</span><h2>No matching feedback</h2><p>Adjust the filters or reset them to see the full queue.</p><button class="button button-secondary" id="ad-empty-reset" type="button">Reset filters</button></div>
+          <p class="mc-local-note"><span aria-hidden="true">ⓘ</span> Reports submitted on another browser or device do not appear here. Browser storage is not a shared database.</p>
+        </section>
+
+        <section class="mc-feedback-panel ad-detail" id="ad-detail" aria-labelledby="ad-detail-title" tabindex="-1">
+          <div class="ad-detail-empty" id="ad-detail-empty"><span aria-hidden="true">▤</span><h2>Select a report</h2><p>Choose a feedback record from the queue to review its details, timeline and status update options.</p></div>
+          <div id="ad-detail-body" hidden>
+            <div class="ad-detail-heading"><div><p class="eyebrow" id="ad-reference"></p><h2 id="ad-detail-title"></h2></div><span class="mc-status" id="ad-current-status"></span></div>
+            <p class="ad-detail-meta" id="ad-detail-meta"></p>
+            <p class="ad-detail-description" id="ad-description"></p>
+            <figure class="mc-report-photo" id="ad-photo" hidden><img id="ad-photo-image" alt="Supporting photo attached to this feedback report"><figcaption id="ad-photo-name"></figcaption></figure>
+            <div class="ad-detail-actions"><a class="text-link" id="ad-public-link" href="tracking.html">Open the public tracking view ↗</a></div>
+            <h3 class="ad-subtitle">Activity timeline</h3>
+            <ol class="mc-timeline" id="ad-history"></ol>
+            <form id="ad-update-form" class="ad-update" novalidate>
+              <h3 class="ad-subtitle">Record a status update</h3>
+              <p class="mc-field-hint">Saving appends a dated history entry and changes the status that the public tracking page shows for this reference in this browser.</p>
+              <div class="field"><label for="ad-next-status">New status</label><select id="ad-next-status"></select></div>
+              <div class="field"><div class="mc-label-row"><label for="ad-note">Response to the community</label><span class="mc-field-hint" id="ad-note-count">0 / 1,500</span></div><textarea id="ad-note" rows="5" maxlength="1500" placeholder="e.g. The sample site team has reviewed the temporary walkway signs and will share an update." aria-describedby="ad-note-hint ad-update-error"></textarea><span class="mc-field-hint" id="ad-note-hint">Required, up to 1,500 characters. HTML typed here is displayed as plain text.</span></div>
+              <p class="mc-field-error" id="ad-update-error" role="alert" hidden></p>
+              <div class="ad-update-actions"><button class="button button-primary" id="ad-save" type="submit">Save status update →</button><span class="mc-field-hint">Saved only in this browser.</span></div>
+              <p class="ad-update-success" id="ad-update-success" role="status" hidden></p>
+            </form>
+          </div>
+        </section>
+      </div>
+    </section>
+    <section id="ad-panel-announcements" role="tabpanel" aria-labelledby="ad-tab-announcements" hidden>
+      <section class="mc-feedback-panel">
+        <div class="mc-panel-heading"><div><p class="eyebrow">PUBLISHED CONTENT</p><h2>Construction announcements</h2></div><span class="tag" id="ad-announcement-count">0 notices</span></div>
+        <p class="mc-field-hint">Read-only in Part A. These notices come from the same shared public data that visitors see, so staff can confirm the published wording and open each detail page.</p>
+        <div class="ad-filters">
+          <div class="field ad-search"><label for="ad-announcement-search">Search announcements</label><input id="ad-announcement-search" type="search" maxlength="80" spellcheck="false" placeholder="Title, location or reference"><span class="mc-field-hint">Includes browser-local notices added on the impact map.</span></div>
+          <div class="field"><label for="ad-announcement-area">Area</label><select id="ad-announcement-area"><option value="">All areas</option></select></div>
+          <div class="field"><label for="ad-announcement-type">Notice type</label><select id="ad-announcement-type"><option value="">All types</option></select></div>
+          <button class="button button-secondary ad-reset" id="ad-announcement-reset" type="button">Reset filters</button>
+        </div>
+        <p class="results-count" id="ad-announcement-results" role="status"></p>
+        <div class="ad-notices" id="ad-announcements"></div>
+        <div class="empty-state ad-empty" id="ad-announcement-empty" hidden><span aria-hidden="true">⌕</span><h2>No matching announcements</h2><p>Reset the filters to see every published notice.</p></div>
+        <p class="mc-local-note"><span aria-hidden="true">ⓘ</span> Announcement publishing is outside the Part A scope of this module; this view only confirms what the community currently sees.</p>
+      </section>
+    </section>
+
+    <div class="back-row"><a class="text-link" href="index.html">Back to home →</a></div>
+  </main>
+  <footer class="site-footer"><a class="footer-brand" href="index.html">MutiaraConnect</a><span>Part A front-end simulation · Sample data for academic demonstration</span></footer>
+</body>
+</html>
+
+
