@@ -1,6 +1,6 @@
-# MutiaraConnect System Models
+# MutiaraChat System Models
 
-The use case and class diagrams describe the five agreed MutiaraConnect functions: announcements, the construction impact map, feedback submission, feedback tracking and administration. They distinguish the proposed system design from the Part A front end simulation.
+The use case and class diagrams describe the five agreed MutiaraChat functions: announcements, the construction impact map, feedback submission, feedback tracking and administration. They distinguish the proposed system design from the Part A front end simulation.
 
 ## Use Case Diagram
 

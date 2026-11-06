@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="670" viewBox="0 0 1200 670" role="img" aria-labelledby="title desc">
-  <title id="title">MutiaraConnect navigation and interface coverage</title>
+  <title id="title">MutiaraChat navigation and interface coverage</title>
   <desc id="desc">Five core functions and eight screens. Public notice and feedback journeys are implemented. The separate staff dashboard is a design proposal; its response connection to public tracking is planned.</desc>
   <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto-start-reverse"><path d="M0 0L0 6L8 3Z" fill="#116b70"/></marker><marker id="planned" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L0 6L8 3Z" fill="#9b6428"/></marker></defs>
   <rect width="1200" height="670" rx="14" fill="#fff"/>

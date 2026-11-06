@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   function create({onChange,onPickStart,onPickEnd}) {
-    const $=id=>document.getElementById(id), store=window.MutiaraConnectLocationStore;
+    const $=id=>document.getElementById(id), store=window.MutiaraChatLocationStore;
     const dialog=$('location-editor'),form=$('location-form'),fields=form.elements;
     const safe=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
     let editingId=null,picking=false,returnFocus;
@@ -96,7 +96,7 @@
     $('location-export').addEventListener('click',()=>{
       try {
         const url=URL.createObjectURL(new Blob([store.exportData()],{type:'application/json'}));
-        const link=document.createElement('a');link.href=url;link.download='mutiaraconnect-locations.json';link.click();
+        const link=document.createElement('a');link.href=url;link.download='mutiarachat-locations.json';link.click();
         setTimeout(()=>URL.revokeObjectURL(url),1000);message('Location backup downloaded. Import this file in another browser to restore the entries.');
       }catch(e){message(e.message,true);}
     });
@@ -109,8 +109,8 @@
       }catch(e){message(e.message,true);}
       finally{event.target.value='';}
     });
-    window.addEventListener('storage',event=>{if(event.key===window.MutiaraConnectLocations.KEY){onChange();if(dialog.open)list();}});
+    window.addEventListener('storage',event=>{if(event.key===window.MutiaraChatLocations.KEY){onChange();if(dialog.open)list();}});
     return Object.freeze({pick,isPicking:()=>picking,edit:open});
   }
-  window.MutiaraConnectLocationEditor=Object.freeze({create});
+  window.MutiaraChatLocationEditor=Object.freeze({create});
 })();

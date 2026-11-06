@@ -17,7 +17,7 @@ for(const [label,patch] of [
  ['credential source URL',{sourceUrl:'https://secret:password@example.org/'}],['key in source URL',{sourceUrl:'https://example.org/?apiKey=secret'}]
 ])check('Reject '+label+' atomically',()=>{const before=store.exportData();assert.throws(()=>store.save({...input,...patch}));assert.equal(store.exportData(),before);});
 check('Source metadata and Chinese text are preserved',()=>{const r=store.save({...input,name:'施工区域',sourceKind:'notice-reference',sourceTitle:'Published notice',sourceUrl:'https://example.org/notice',sourceDate:'2026-10-28'});assert.equal(r.sourceUrl,'https://example.org/notice');assert.equal(api.toNotice(r).sourceKind,'notice-reference');});
-check('Export excludes other storage namespaces and map credentials',()=>{storage.setItem('mutiaraconnect.feedback.v1','private feedback');storage.setItem('apiKey','private key');assert.ok(!store.exportData().includes('private'));});
+check('Export excludes other storage namespaces and map credentials',()=>{storage.setItem('mutiarachat.feedback.v1','private feedback');storage.setItem('apiKey','private key');assert.ok(!store.exportData().includes('private'));});
 const second=api.createStore(memory());
 check('Import restores entries and skips existing IDs',()=>{assert.equal(second.importData(store.exportData()).added,2);assert.equal(second.importData(store.exportData()).skipped,2);assert.equal(second.read().length,2);});
 check('Malformed imports do not overwrite valid entries',()=>{const before=second.exportData();for(const bad of ['broken','null','{"version":2,"records":[]}',JSON.stringify({version:1,records:[...second.read(),{bad:true}]})])assert.throws(()=>second.importData(bad));assert.equal(second.exportData(),before);});

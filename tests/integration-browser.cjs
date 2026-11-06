@@ -11,7 +11,7 @@ const check = (label, condition) => { assert.ok(condition, label); checks.push({
   const browser = await chromium.launch({ headless: true, channel: 'msedge' });
   try {
     const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'reduce' });
-    await context.route('**/js/google-map-config.js', route => route.fulfill({ contentType: 'application/javascript', body: "window.MutiaraConnectGoogleMapConfig={apiKey:'',preferGoogle:false};" }));
+    await context.route('**/js/google-map-config.js', route => route.fulfill({ contentType: 'application/javascript', body: "window.MutiaraChatGoogleMapConfig={apiKey:'',preferGoogle:false};" }));
     await context.route(/^https?:\/\/(?!127\.0\.0\.1)/, route => route.abort('internetdisconnected'));
     const page = await context.newPage();
     page.on('pageerror', error => errors.push(error.message));
@@ -39,18 +39,18 @@ const check = (label, condition) => { assert.ok(condition, label); checks.push({
     await page.locator('#receipt-track').click();
     await page.locator('#tracking-result').waitFor({ state: 'visible' });
     check('The receipt retrieves that exact report and its initial history', (await page.locator('#report-reference').innerText()) === id && (await page.locator('#report-status').innerText()) === 'Submitted' && await page.locator('#report-history li').count() === 1);
-    await page.evaluate(reference => window.MutiaraConnectFeedback.updateStatus(reference, 'In Progress', 'Sample integration update: the access arrangement is being reviewed.'), id);
+    await page.evaluate(reference => window.MutiaraChatFeedback.updateStatus(reference, 'In Progress', 'Sample integration update: the access arrangement is being reviewed.'), id);
     check('The shared staff API updates the displayed status and appends history', (await page.locator('#report-status').innerText()) === 'In Progress' && await page.locator('#report-history li').count() === 2);
-    await page.evaluate(reference => window.MutiaraConnectFeedback.updateStatus(reference, 'Responded', 'Sample integration response: proposed signs have been shared.'), id);
+    await page.evaluate(reference => window.MutiaraChatFeedback.updateStatus(reference, 'Responded', 'Sample integration response: proposed signs have been shared.'), id);
     check('A second staff API update displays the response without losing earlier history', (await page.locator('#report-status').innerText()) === 'Responded' && await page.locator('#report-history li').count() === 3 && (await page.locator('#report-response-text').innerText()).includes('proposed signs'));
     await page.reload();
     await page.locator('#tracking-result').waitFor({ state: 'visible' });
     check('The integrated status and history survive a reload', (await page.locator('#report-reference').innerText()) === id && await page.locator('#report-history li').count() === 3);
-    const snapshot = await page.evaluate(() => localStorage.getItem(window.MutiaraConnectFeedback.STORAGE_KEY));
+    const snapshot = await page.evaluate(() => localStorage.getItem(window.MutiaraChatFeedback.STORAGE_KEY));
     await page.goto(`${base}/docs/member3/ui/admin-prototype.html`);
     await page.locator('#staff-response').fill('This design-only response must not alter actual saved reports.');
     await page.locator('#staff-preview-form button').click();
-    check('The design-only staff page cannot overwrite an integrated public report', await page.evaluate(() => localStorage.getItem('mutiaraconnect.feedback.v1')) === snapshot);
+    check('The design-only staff page cannot overwrite an integrated public report', await page.evaluate(() => localStorage.getItem('mutiarachat.feedback.v1')) === snapshot);
     await page.goto(`${base}/docs/member3/ui/index.html?screen=admin`);
     check('The UI catalogue routes administration to the isolated proposal', await page.locator('#preview-open').getAttribute('href') === 'admin-prototype.html' && (await page.locator('#preview-state').innerText()) === 'Design prototype');
     const headerLinks = ['index.html', 'announcements.html', 'map.html', 'feedback.html', 'tracking.html'];

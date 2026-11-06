@@ -14,7 +14,7 @@ try{
  const example=fs.readFileSync(path.join(root,'js/google-map-config.example.js'));
  fs.writeFileSync(path.join(temporary,'js/google-map-config.example.js'),example);
  run();assert.deepEqual(fs.readFileSync(path.join(temporary,'js/google-map-config.js')),example);
- const existing=Buffer.from("window.MutiaraConnectGoogleMapConfig={apiKey:'preserve-this-local-value',preferGoogle:true};\n");
+ const existing=Buffer.from("window.MutiaraChatGoogleMapConfig={apiKey:'preserve-this-local-value',preferGoogle:true};\n");
  fs.writeFileSync(path.join(temporary,'js/google-map-config.js'),existing);
  run();assert.deepEqual(fs.readFileSync(path.join(temporary,'js/google-map-config.js')),existing);
  console.log(JSON.stringify({checks:[{label:'First run prepares a blank local configuration',result:'PASS'},{label:'Later runs preserve an existing configured file exactly',result:'PASS'}]}));

@@ -8,7 +8,7 @@
 
 - 查看反馈队列、按状态／区域／类别／关键词筛选、重置筛选与空结果提示。
 - 查看单条反馈的完整内容、可选照片与完整活动时间线。
-- 选择新状态并填写回应，保存后通过 `MutiaraConnectFeedback.updateStatus()` 追加带时间的历史记录；公众端 `tracking.html` 在同一个浏览器内立即显示新状态与回应。
+- 选择新状态并填写回应，保存后通过 `MutiaraChatFeedback.updateStatus()` 追加带时间的历史记录；公众端 `tracking.html` 在同一个浏览器内立即显示新状态与回应。
 - “Published announcements” 只读页签：列出 Member 1 的示例公告，以及 Member 2 在影响地图中新增的浏览器本地公告；可按区域、类型和关键词筛选，并打开真实详情页。
 - 视觉与导航沿用 `css/style.css` 与 `css/feedback.css`；状态颜色、时间线、按钮、跳过导航与页脚与现有页面一致。
 
@@ -28,13 +28,13 @@
 ## 数据对接方式
 
 ```js
-const feedback = window.MutiaraConnectFeedback;      // js/feedback-store.js
+const feedback = window.MutiaraChatFeedback;      // js/feedback-store.js
 const reports = feedback.list();                     // 本机记录 + 三个内置示例
 feedback.updateStatus('MC-FB-DEMO-002', 'In Progress', 'Sample follow-up note.');
 ```
 
 - 只使用 `list()` 与 `updateStatus(reference, status, note)`，没有另建一套反馈数据，也没有直接改 `localStorage` 结构。
-- 保存会触发 `mutiaraconnect:feedback-changed`，并写入 `mutiaraconnect.feedback.v1`；公众查询页通过 `storage` 事件刷新。
+- 保存会触发 `mutiarachat:feedback-changed`，并写入 `mutiarachat.feedback.v1`；公众查询页通过 `storage` 事件刷新。
 - 新提交不会自动变成“已处理”，必须由后台显式保存状态更新，避免伪造工作人员回应。
 - 公告视图读取 `js/app.js` 的共享 `announcements` 数组；本地公告通过 `announcements.html`／`announcement-detail.html` 的既有 `noticeHref()` 生成兼容 `file://` 的链接。
 - 用户输入的标题、描述与回应一律用 `textContent` 或转义后输出，不会被当作 HTML 执行。
@@ -71,7 +71,7 @@ node tests/admin-browser.cjs
 
 - 报告第 7 页 Architecture Diagram（`Architecture_diagram_M4.docx`）已把 Presentation Layer 描述为 “public interface + administrator dashboard (view reports, filter, simulate status updates)”。本页面正是该架构图 Presentation Layer 中管理端的落地实现，Client-Side Logic Layer 对应 `js/admin.js`，Mock Data Layer 对应浏览器存储中的反馈记录。
 - 报告 7.2 节目前写的是 “The main staff page and its connection to saved feedback remain for the administrator module to implement.”。合稿时请改为已完成，并加入后台截图（`docs/member4/screenshots/admin-desktop.png` 与 `admin-mobile.png`），说明管理端与公众查询端共享同一状态模型。
-- 品牌差异：`report1.docx` 正文使用 “MutiaraChat”，站点界面与仓库其余部分使用 “MutiaraConnect”。后台页面沿用站点品牌；合稿时请小组统一名称，本模块不擅自改动报告或他人页面。
+- 品牌差异：`report1.docx` 正文使用 “MutiaraChat”，站点界面与仓库其余部分使用 “MutiaraChat”。后台页面沿用站点品牌；合稿时请小组统一名称，本模块不擅自改动报告或他人页面。
 
 ## 已知限制
 

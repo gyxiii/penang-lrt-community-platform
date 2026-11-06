@@ -35,7 +35,7 @@ async function close(page){await page.locator('#location-close').click();}
  async function session(google=false){
   const context=await browser.newContext({viewport:{width:1440,height:1150},reducedMotion:'reduce'});
   await context.route(/^https?:\/\/(?!127\.0\.0\.1)/,route=>route.abort());
-  await context.route('**/js/google-map-config.js',route=>route.fulfill({contentType:'application/javascript',body:`window.MutiaraConnectGoogleMapConfig={apiKey:'${google?'contract-test-key':''}',preferGoogle:${google}};`}));
+  await context.route('**/js/google-map-config.js',route=>route.fulfill({contentType:'application/javascript',body:`window.MutiaraChatGoogleMapConfig={apiKey:'${google?'contract-test-key':''}',preferGoogle:${google}};`}));
   if(google)await context.route('https://maps.googleapis.com/maps/api/js?**',route=>route.fulfill({contentType:'application/javascript',body:googleStub}));
   const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await page.goto(base+'/map.html');await page.locator('.mc-map-pin').first().waitFor({state:'attached'});return {context,page};
  }
@@ -46,7 +46,7 @@ async function close(page){await page.locator('#location-close').click();}
   check('Accessible location editor opens',await p.getByRole('dialog',{name:'Manage construction locations'}).isVisible());
   await fill(p);await save(p);
   check('Manual entry saves and immediately adds a marker and card',await p.locator('.mc-map-pin').count()===4&&await p.locator('.mc-map-card').count()===4&&(await p.locator('#location-message').innerText()).startsWith('Saved'));
-  const record=await p.evaluate(()=>window.MutiaraConnectLocationStore.read()[0]);
+  const record=await p.evaluate(()=>window.MutiaraChatLocationStore.read()[0]);
   check('Existing area names do not duplicate filter options',await p.locator('#map-area option[value="gelugor"]').count()===1);
   await close(p);await p.reload();await p.locator('.mc-map-pin').first().waitFor();
   check('Saved point persists after reload',await p.locator('.mc-map-pin').count()===4);
@@ -130,7 +130,7 @@ async function close(page){await page.locator('#location-close').click();}
   await gp.locator('#location-open').click();await fill(gp,{name:'Google picked example'});await gp.locator('#location-pick').click();
   await gp.locator('#google-construction-map').click({position:{x:400,y:200}});
   check('Google map click supplies latitude and longitude (simulated API)',await gp.locator('[name="latitude"]').inputValue()==='5.365432'&&await gp.locator('[name="longitude"]').inputValue()==='100.312345');
-  await save(gp);await close(gp);const googleRecord=await gp.evaluate(()=>window.MutiaraConnectLocationStore.read()[0]);
+  await save(gp);await close(gp);const googleRecord=await gp.evaluate(()=>window.MutiaraChatLocationStore.read()[0]);
   check('Google receives the new local marker (simulated API)',await gp.locator('gmp-advanced-marker').count()===4);
   await gp.locator('#location-edit-selected').click();await gp.locator('[name="latitude"]').fill('5.38');await save(gp);await close(gp);
   const marker=gp.locator(`gmp-advanced-marker[data-site="CS-${googleRecord.id}"]`);

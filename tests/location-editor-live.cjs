@@ -4,7 +4,7 @@ const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),
 const root=path.resolve(__dirname,'..'),out=path.join(root,'docs/member2/location-editor-qa');
 const box={window:{}};
 vm.runInNewContext(fs.readFileSync(process.env.GOOGLE_CONFIG_PATH||path.join(root,'js/google-map-config.js'),'utf8'),box);
-const config=box.window.MutiaraConnectGoogleMapConfig;
+const config=box.window.MutiaraChatGoogleMapConfig;
 if(!config?.apiKey?.trim()){console.log(JSON.stringify({configured:false}));process.exit(2);}
 const sanitize=s=>String(s).split(config.apiKey).join('[REDACTED]').replace(/https?:\/\/\S+/g,'[URL]');
 const checks=[],errors=[];
@@ -17,7 +17,7 @@ const server=http.createServer((req,res)=>{const target=path.resolve(root,'.'+ne
  try{
   const context=await browser.newContext({viewport:{width:1440,height:1150}});
   await context.route('https://tile.openstreetmap.org/**',route=>route.abort());
-  await context.route('**/js/google-map-config.js',route=>route.fulfill({contentType:'application/javascript',body:'window.MutiaraConnectGoogleMapConfig='+JSON.stringify({...config,preferGoogle:true})+';'}));
+  await context.route('**/js/google-map-config.js',route=>route.fulfill({contentType:'application/javascript',body:'window.MutiaraChatGoogleMapConfig='+JSON.stringify({...config,preferGoogle:true})+';'}));
   const p=await context.newPage();p.on('pageerror',e=>errors.push(sanitize(e.message)));
   await p.goto(`http://127.0.0.1:${server.address().port}/map.html`);
   await p.waitForFunction(()=>document.querySelector('#map-status').textContent.startsWith('Google Maps ·'),null,{timeout:35000});
@@ -31,7 +31,7 @@ const server=http.createServer((req,res)=>{const target=path.resolve(root,'.'+ne
   check('Real map selection records its coordinate method',await p.locator('[name="coordinateMethod"]').inputValue()==='google-map');
   await p.locator('#location-save').click();await p.locator('#location-close').click();
   check('Real Google view receives the fourth marker',await p.locator('gmp-advanced-marker').count()===4);
-  const id=await p.evaluate(()=>window.MutiaraConnectLocationStore.read()[0].id);
+  const id=await p.evaluate(()=>window.MutiaraChatLocationStore.read()[0].id);
   await p.locator('#location-edit-selected').click();await p.locator('[name="latitude"]').fill('5.36');await p.locator('[name="longitude"]').fill('100.31');await p.locator('#location-save').click();await p.locator('#location-close').click();
   const point=await p.locator(`gmp-advanced-marker[data-site="CS-${id}"]`).evaluate(m=>({lat:typeof m.position.lat==='function'?m.position.lat():m.position.lat,lng:typeof m.position.lng==='function'?m.position.lng():m.position.lng}));
   check('Editing moves the real Google marker',point.lat===5.36&&point.lng===100.31);

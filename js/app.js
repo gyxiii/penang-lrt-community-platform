@@ -66,15 +66,15 @@ const sampleAnnouncements = announcements.slice();
 let localLocations = [];
 function refreshAnnouncements() {
   let error = '';
-  try { localLocations = window.MutiaraConnectLocationStore?.read() || []; }
+  try { localLocations = window.MutiaraChatLocationStore?.read() || []; }
   catch (e) { localLocations = []; error = e.message; }
   announcements.splice(0, announcements.length, ...sampleAnnouncements,
-    ...localLocations.map(record => window.MutiaraConnectLocations.toNotice(record)));
+    ...localLocations.map(record => window.MutiaraChatLocations.toNotice(record)));
   return {records:localLocations, error};
 }
 function noticeHref(target, item) {
   const record = localLocations.find(record => record.id === item?.recordId);
-  return window.MutiaraConnectLocationStore?.href(target, record) || target;
+  return window.MutiaraChatLocationStore?.href(target, record) || target;
 }
 function sourceInfo(item) {
   if (!item.local) return '';
@@ -82,7 +82,7 @@ function sourceInfo(item) {
   return `<div class="info-box"><strong>${item.sourceKind === 'example' ? 'User-created example' : 'User-entered notice reference · not verified'}</strong><p>${item.sourceTitle ? escapeHTML(item.sourceTitle) : 'Fictional coursework example.'}${item.sourceDate ? ' · Published ' + escapeHTML(item.sourceDate) : ''}</p>${item.sourceUrl ? `<p><a class="text-link" href="${escapeHTML(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">Open supplied source ↗</a></p>` : ''}<p>Coordinates: ${item.latitude.toFixed(6)}, ${item.longitude.toFixed(6)} · ${escapeHTML(method[item.coordinateMethod])}. Approximate point; not a verified construction boundary.</p></div>`;
 }
 refreshAnnouncements();
-window.MutiaraConnectData = Object.freeze({ announcements, refresh:refreshAnnouncements, href:noticeHref, sourceInfo });
+window.MutiaraChatData = Object.freeze({ announcements, refresh:refreshAnnouncements, href:noticeHref, sourceInfo });
 
 function escapeHTML(value) {
   return String(value).replace(/[&<>"']/g, char => ({

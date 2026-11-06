@@ -34,7 +34,7 @@ function check(label,ok){assert.ok(ok,label);checks.push({label,result:'PASS'});
  const errors=[];
  async function session({key='contract-test-key',prefer=true,sdk='stub',width=1440}={}){
   const context=await browser.newContext({viewport:{width,height:1100}});
-  await context.route('**/js/google-map-config.js',route=>route.fulfill({contentType:'application/javascript',body:`window.MutiaraConnectGoogleMapConfig={apiKey:${JSON.stringify(key)},mapId:'DEMO_MAP_ID',preferGoogle:${prefer}};`}));
+  await context.route('**/js/google-map-config.js',route=>route.fulfill({contentType:'application/javascript',body:`window.MutiaraChatGoogleMapConfig={apiKey:${JSON.stringify(key)},mapId:'DEMO_MAP_ID',preferGoogle:${prefer}};`}));
   await context.route('https://maps.googleapis.com/maps/api/js?**',async route=>{
     if(sdk==='fail'){await route.abort();return;}
     if(sdk==='slow')await new Promise(resolve=>setTimeout(resolve,500));

@@ -11,7 +11,7 @@ function session(protocol){
  const control={id:'map-street',textContent:'Street map ↗',replaceWith(link){replacement=link;}};
  const context={window:{},location:{protocol},URL,document:{createElement(tag){return {tagName:tag.toUpperCase(),attributes:{},setAttribute(name,value){this.attributes[name]=value;}};}}};
  vm.runInNewContext(source,context,{filename:'street-map-access.js'});
- const adapter=context.window.MutiaraConnectStreetMapAccess.configure(control);
+ const adapter=context.window.MutiaraChatStreetMapAccess.configure(control);
  return {adapter,get replacement(){return replacement;}};
 }
 for(const protocol of ['http:','https:']){

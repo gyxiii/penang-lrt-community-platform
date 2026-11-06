@@ -1,6 +1,6 @@
 {
-  "title": "MutiaraConnect Prototype Design",
-  "intro": "The MutiaraConnect interface connects construction information with a structured feedback process. Shared navigation provides access to announcements, the impact map, feedback submission and tracking. Teal actions, consistent cards and clear headings make these functions recognisable across desktop and mobile layouts. The public pages are interactive front-end screens; the staff dashboard is a separate design prototype.",
+  "title": "MutiaraChat Prototype Design",
+  "intro": "The MutiaraChat interface connects construction information with a structured feedback process. Shared navigation provides access to announcements, the impact map, feedback submission and tracking. Teal actions, consistent cards and clear headings make these functions recognisable across desktop and mobile layouts. The public pages are interactive front-end screens; the staff dashboard is a separate design prototype.",
   "informationHeading": "Public information and staff review",
   "information": "The announcement list supports keyword, area and notice-type filters. Each notice explains its period, potential impact and access information. The impact map and notice detail preserve the selected notice when users move between them. Homepage feature cards provide direct entry to the five planned functions (Figure PD1).",
   "staff": "The proposed staff dashboard groups feedback by status and provides a searchable queue, report details and a response composer (Figure PD2). Staff can preview a proposed status and response in this isolated design. The main staff page and its connection to saved feedback remain for the administrator module to implement.",

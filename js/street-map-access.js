@@ -24,5 +24,5 @@
     update();
     return {embedded:false,update};
   }
-  window.MutiaraConnectStreetMapAccess=Object.freeze({configure});
+  window.MutiaraChatStreetMapAccess=Object.freeze({configure});
 })();

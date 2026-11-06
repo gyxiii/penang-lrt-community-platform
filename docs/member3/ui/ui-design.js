@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const screens = window.MutiaraConnectScreens;
+  const screens = window.MutiaraChatScreens;
   const $ = id => document.getElementById(id);
   let selected = screens[0];
   let view = 'desktop';

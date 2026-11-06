@@ -87,8 +87,8 @@ paragraph(content['scope'])
 
 doc.core_properties.title = content['title']
 doc.core_properties.subject = 'Prototype Design section for the CMT322 Part A group report'
-doc.core_properties.author = 'MutiaraConnect Project Group'
-doc.core_properties.last_modified_by = 'MutiaraConnect Project Group'
+doc.core_properties.author = 'MutiaraChat Project Group'
+doc.core_properties.last_modified_by = 'MutiaraChat Project Group'
 doc.core_properties.created = datetime.now(timezone.utc)
 doc.core_properties.modified = datetime.now(timezone.utc)
 doc.core_properties.keywords = 'CMT322, Part A, prototype design, feedback, user interface'

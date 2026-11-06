@@ -38,7 +38,7 @@ async function settle(page){await page.waitForTimeout(250);await page.locator('.
   const errors=[];
   try{
     const page=await browser.newPage({viewport:{width:1545,height:1000},deviceScaleFactor:1.25});
-    await page.route('**/js/google-map-config.js',route=>route.fulfill({contentType:'application/javascript',body:"window.MutiaraConnectGoogleMapConfig={apiKey:'',preferGoogle:false};"}));
+    await page.route('**/js/google-map-config.js',route=>route.fulfill({contentType:'application/javascript',body:"window.MutiaraChatGoogleMapConfig={apiKey:'',preferGoogle:false};"}));
     page.on('pageerror',e=>errors.push(e.message));
     await page.goto(base+'/map.html');await settle(page);
     let g=await geometry(page);check('Initial screenshot-sized viewport contains every construction marker',allVisible(g),g);

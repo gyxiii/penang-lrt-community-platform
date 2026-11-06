@@ -3,8 +3,8 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const mapElement = $('construction-map');
-  const sharedNotices = window.MutiaraConnectData?.announcements;
-  const registry = window.MutiaraConnectMapSites;
+  const sharedNotices = window.MutiaraChatData?.announcements;
+  const registry = window.MutiaraChatMapSites;
   if (!mapElement || !window.L || !Array.isArray(sharedNotices) || !Array.isArray(registry)) {
     if (mapElement) mapElement.textContent = 'Map information is unavailable. Please reload the page.';
     return;
@@ -13,13 +13,13 @@
   const safe = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
   let sites=[];
   function rebuildSites(){
-    const result=window.MutiaraConnectData.refresh();
-    sites=[...registry,...result.records.map(window.MutiaraConnectLocations.toSite)].map(site=>({...site,notices:sharedNotices.filter(notice=>site.announcementIds.includes(notice.id))})).filter(site=>site.notices.length);
+    const result=window.MutiaraChatData.refresh();
+    sites=[...registry,...result.records.map(window.MutiaraChatLocations.toSite)].map(site=>({...site,notices:sharedNotices.filter(notice=>site.announcementIds.includes(notice.id))})).filter(site=>site.notices.length);
     if(result.error){$('map-message').hidden=false;$('map-message').textContent=result.error;}
   }
   rebuildSites();
   const state = { keyword:'', area:'', type:'', siteId:null, noticeId:null, street:false, google:false };
-  const streetControl=window.MutiaraConnectStreetMapAccess.configure($('map-street'));
+  const streetControl=window.MutiaraChatStreetMapAccess.configure($('map-street'));
   let googleView;
   let googleRequest=0;
   const siteMarkers = new Map();
@@ -30,7 +30,7 @@
   const schematic = L.imageOverlay('assets/map/penang-schematic.svg',allBounds,{attribution:'Self-authored schematic · not to scale'}).addTo(map);
   const streetLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'});
   const markerLayer = L.layerGroup().addTo(map);
-  const editor=window.MutiaraConnectLocationEditor.create({
+  const editor=window.MutiaraChatLocationEditor.create({
     onChange(recordId){
       rebuildSites();populateFilters();
       state.keyword='';state.area='';state.type='';state.siteId=null;state.noticeId=null;
@@ -110,7 +110,7 @@
     if(!notice){$('map-detail').innerHTML='';return;}
     state.noticeId=notice.id;
     const related=site.notices.length>1?`<div class="mc-map-notice-picker"><span>Linked notices:</span>${site.notices.map(item=>`<button type="button" data-map-notice="${item.id}" aria-pressed="${item.id===notice.id}">${safe(item.id)}</button>`).join('')}</div>`:'';
-    $('map-detail').innerHTML=`<div class="mc-map-detail-top"><span class="tag ${notice.typeClass||''}">${safe(notice.type)} · ${safe(notice.id)}</span><button type="button" id="map-close-detail" class="mc-map-detail-close" aria-label="Close location details">×</button></div><h2>${safe(notice.title)}</h2><p class="mc-map-detail-summary">${safe(notice.location)} · ${site.local?'user-entered approximate point':'illustrative point'}</p>${related}<dl class="mc-map-info"><div><dt>${site.local?'Start date':'Example date'}</dt><dd>${safe(notice.dateLabel)}</dd></div><div><dt>${site.local?'Period':'Illustrative period'}</dt><dd>${safe(notice.period)}</dd></div></dl><p class="mc-map-impact-text"><strong>Potential impact:</strong> ${safe(notice.impact)}</p><p class="mc-map-impact-text"><strong>Access information:</strong> ${safe(notice.access)}</p>${window.MutiaraConnectData.sourceInfo(notice)}<div class="mc-map-detail-actions"><a class="button button-primary" id="map-read-notice" href="${safe(window.MutiaraConnectData.href('announcement-detail.html?id='+encodeURIComponent(notice.id),notice))}">Read full announcement →</a><a class="text-link" href="announcements.html">All announcements</a></div>${site.local?'<button type="button" class="button button-quiet location-edit-action" id="location-edit-selected">Edit this saved location</button>':''}`;
+    $('map-detail').innerHTML=`<div class="mc-map-detail-top"><span class="tag ${notice.typeClass||''}">${safe(notice.type)} · ${safe(notice.id)}</span><button type="button" id="map-close-detail" class="mc-map-detail-close" aria-label="Close location details">×</button></div><h2>${safe(notice.title)}</h2><p class="mc-map-detail-summary">${safe(notice.location)} · ${site.local?'user-entered approximate point':'illustrative point'}</p>${related}<dl class="mc-map-info"><div><dt>${site.local?'Start date':'Example date'}</dt><dd>${safe(notice.dateLabel)}</dd></div><div><dt>${site.local?'Period':'Illustrative period'}</dt><dd>${safe(notice.period)}</dd></div></dl><p class="mc-map-impact-text"><strong>Potential impact:</strong> ${safe(notice.impact)}</p><p class="mc-map-impact-text"><strong>Access information:</strong> ${safe(notice.access)}</p>${window.MutiaraChatData.sourceInfo(notice)}<div class="mc-map-detail-actions"><a class="button button-primary" id="map-read-notice" href="${safe(window.MutiaraChatData.href('announcement-detail.html?id='+encodeURIComponent(notice.id),notice))}">Read full announcement →</a><a class="text-link" href="announcements.html">All announcements</a></div>${site.local?'<button type="button" class="button button-quiet location-edit-action" id="location-edit-selected">Edit this saved location</button>':''}`;
     $('location-edit-selected')?.addEventListener('click',()=>editor.edit(site.recordId));
     if($('map-detail').dataset.notice!==notice.id)$('map-detail').scrollTop=0;
     $('map-detail').dataset.notice=notice.id;
@@ -170,7 +170,7 @@
       return;
     }
     if(state.google)return;
-    const config=window.MutiaraConnectGoogleMapConfig;
+    const config=window.MutiaraChatGoogleMapConfig;
     if(!config?.apiKey?.trim()){
       useSchematic('Google Maps is not configured · using the offline schematic');
       return;
@@ -182,7 +182,7 @@
     $('map-status').textContent='Loading Google Maps · schematic available';
     try{
       if(!googleView){
-        const view=await window.MutiaraConnectGoogleMaps.create({element:$('google-construction-map'),config,onSelect:selectSite,onPick:(lat,lng)=>editor.pick(lat,lng,'google-map'),onUnavailable:()=>{
+        const view=await window.MutiaraChatGoogleMaps.create({element:$('google-construction-map'),config,onSelect:selectSite,onPick:(lat,lng)=>editor.pick(lat,lng,'google-map'),onUnavailable:()=>{
           const wasGoogle=state.google;
           googleView?.destroy();googleView=null;
           if(wasGoogle)useSchematic('Google Maps unavailable · offline schematic restored');
@@ -242,5 +242,5 @@
   }
   renderAll();refreshViewport();
   new ResizeObserver(refreshViewport).observe(mapElement);
-  if(window.MutiaraConnectGoogleMapConfig?.apiKey?.trim()&&window.MutiaraConnectGoogleMapConfig.preferGoogle!==false)useGoogle();
+  if(window.MutiaraChatGoogleMapConfig?.apiKey?.trim()&&window.MutiaraChatGoogleMapConfig.preferGoogle!==false)useGoogle();
 })();

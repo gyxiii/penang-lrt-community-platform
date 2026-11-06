@@ -13,7 +13,7 @@ const base = (process.env.BASE_URL || 'http://127.0.0.1:8335').replace(/\/$/, ''
 const catalogue = `${base}/docs/member3/ui/index.html`;
 const sandbox = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(ui, 'screens.js'), 'utf8'), sandbox);
-const screens = sandbox.window.MutiaraConnectScreens;
+const screens = sandbox.window.MutiaraChatScreens;
 const checks = [], errors = [], badLocal = [], captures = [];
 function check(label, condition) { assert.ok(condition, label); checks.push({ label, result: 'PASS' }); }
 async function capture(page, filename, locator) {
@@ -43,7 +43,7 @@ async function ready(page, id) {
   const browser = await chromium.launch({ headless: true, ...(process.env.BROWSER_PATH ? { executablePath: process.env.BROWSER_PATH } : { channel: 'msedge' }) });
   try {
     const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'reduce' });
-    await context.route('**/js/google-map-config.js', route => route.fulfill({ contentType: 'application/javascript', body: "window.MutiaraConnectGoogleMapConfig={apiKey:'',preferGoogle:false};" }));
+    await context.route('**/js/google-map-config.js', route => route.fulfill({ contentType: 'application/javascript', body: "window.MutiaraChatGoogleMapConfig={apiKey:'',preferGoogle:false};" }));
     // Keep screenshots reproducible and exclude optional remote map services.
     await context.route(/^https?:\/\/(?!127\.0\.0\.1)/, route => route.abort('internetdisconnected'));
     context.on('page', page => {
@@ -97,10 +97,10 @@ async function ready(page, id) {
     await capture(page, path.join(output, 'ui-navigation-preview.png'), '.ui-flow');
     // Preserve an actual feedback store value to prove that the design cannot change it.
     await page.goto(`${base}/feedback.html`);
-    const reference = await page.evaluate(() => window.MutiaraConnectFeedback.submit({ title: 'UI isolation test record', category: 'Noise', area: 'gelugor', location: 'Sample location for design QA', description: 'This sample verifies that the staff design preview does not modify the public feedback record.' }).id);
-    const storedBefore = await page.evaluate(() => localStorage.getItem(window.MutiaraConnectFeedback.STORAGE_KEY));
+    const reference = await page.evaluate(() => window.MutiaraChatFeedback.submit({ title: 'UI isolation test record', category: 'Noise', area: 'gelugor', location: 'Sample location for design QA', description: 'This sample verifies that the staff design preview does not modify the public feedback record.' }).id);
+    const storedBefore = await page.evaluate(() => localStorage.getItem(window.MutiaraChatFeedback.STORAGE_KEY));
     await page.goto(`${base}/docs/member3/ui/admin-prototype.html`);
-    check('The staff screen prominently identifies its isolated design scope', (await page.locator('.ui-prototype-banner').innerText()).includes('DESIGN PROTOTYPE') && await page.evaluate(() => !window.MutiaraConnectFeedback));
+    check('The staff screen prominently identifies its isolated design scope', (await page.locator('.ui-prototype-banner').innerText()).includes('DESIGN PROTOTYPE') && await page.evaluate(() => !window.MutiaraChatFeedback));
     check('The initial staff queue contains all three samples', await page.locator('.ui-admin-row').count() === 3);
     await page.locator('#staff-status').selectOption('Submitted');
     check('Staff status filtering shows the matching report and details', await page.locator('.ui-admin-row').count() === 1 && (await page.locator('#staff-reference').innerText()) === 'MC-FB-DEMO-001');
@@ -121,7 +121,7 @@ async function ready(page, id) {
     await page.locator('#staff-preview-form button').click();
     check('The proposed response displays its chosen status and exact text safely', (await page.locator('#staff-preview-status').innerText()) === 'Responded' && (await page.locator('#staff-preview-text').innerText()) === sampleResponse && await page.locator('#staff-preview-text img').count() === 0 && await page.evaluate(() => !window.injected));
     check('Previewing never changes the queue or current report status', (await page.locator('#staff-current-status').innerText()) === 'In Progress' && (await page.locator('.ui-admin-row .ui-status').innerText()) === 'In Progress');
-    check('The isolated staff design preserves the entire public store unchanged', await page.evaluate(() => localStorage.getItem('mutiaraconnect.feedback.v1')) === storedBefore);
+    check('The isolated staff design preserves the entire public store unchanged', await page.evaluate(() => localStorage.getItem('mutiarachat.feedback.v1')) === storedBefore);
     await page.reload();
     check('A staff design preview is not persisted after a reload', await page.locator('#staff-preview').isHidden() && await page.locator('#staff-response').inputValue() === '');
     await page.goto(`${base}/tracking.html?reference=${reference}`);

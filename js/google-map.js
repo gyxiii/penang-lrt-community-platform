@@ -8,7 +8,7 @@
     if(apiPromise)return apiPromise;
     apiPromise=new Promise((resolve,reject)=>{
       const script=document.createElement('script');
-      const callback='mutiaraConnectGoogleMapsReady';
+      const callback='mutiaraChatGoogleMapsReady';
       let timer;
       const fail=()=>{clearTimeout(timer);script.remove();delete window[callback];apiPromise=null;reject(new Error('Google Maps could not be loaded'));};
       window[callback]=()=>{clearTimeout(timer);delete window[callback];resolve();};
@@ -108,5 +108,5 @@
       destroy(){dead=true;clickListener?.remove();window.removeEventListener('offline',failWhenOffline);for(const item of markers.values()){item.marker.map=null;item.circle.setMap(null);}markers.clear();element.hidden=true;}
     };
   }
-  window.MutiaraConnectGoogleMaps=Object.freeze({create});
+  window.MutiaraChatGoogleMaps=Object.freeze({create});
 })();

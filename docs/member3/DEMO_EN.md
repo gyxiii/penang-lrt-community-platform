@@ -20,7 +20,7 @@ An attachment is optional. It can be omitted to keep the recording concise. Neve
 
 On screen: homepage, then select Submit Feedback.
 
-“My front-end module covers feedback submission and feedback tracking. These features give residents and local businesses a structured way to record construction-related concerns and follow their progress in MutiaraConnect.”
+“My front-end module covers feedback submission and feedback tracking. These features give residents and local businesses a structured way to record construction-related concerns and follow their progress in MutiaraChat.”
 
 ## 0:20 to 1:30 Submit feedback
 

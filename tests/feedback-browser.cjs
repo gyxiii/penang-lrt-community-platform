@@ -74,7 +74,7 @@ async function screenshot(page, name) {
     const reference = await page.locator('#receipt-reference').inputValue();
     check('A valid submission creates a unique reference and a real saved receipt', /^MC-FB-[A-Z0-9]+$/.test(reference) && await page.locator('#feedback-receipt').isVisible() && (await page.locator('#receipt-status').innerText()) === 'Submitted');
     check('The receipt retains the submitted concern title', (await page.locator('#receipt-title').innerText()) === 'Unclear temporary walkway signs');
-    check('Only one record is saved for one submission', await page.evaluate(() => JSON.parse(localStorage.getItem(window.MutiaraConnectFeedback.STORAGE_KEY)).reports.length === 1));
+    check('Only one record is saved for one submission', await page.evaluate(() => JSON.parse(localStorage.getItem(window.MutiaraChatFeedback.STORAGE_KEY)).reports.length === 1));
     await page.evaluate(() => Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async () => { throw new Error('Clipboard unavailable'); } } }));
     await page.locator('#copy-reference').click();
     check('Unavailable clipboard access falls back to selecting the reference', (await page.locator('#copy-status').innerText()).includes('selected') && await page.locator('#receipt-reference').evaluate(input => input.selectionEnd - input.selectionStart === input.value.length));
@@ -92,11 +92,11 @@ async function screenshot(page, name) {
     const otherTab = await context.newPage();
     await otherTab.goto(`${base}/tracking.html?reference=${reference}`);
     check('Saved feedback is available to another tab on the same site', (await otherTab.locator('#report-reference').innerText()) === reference);
-    await otherTab.evaluate(id => window.MutiaraConnectFeedback.updateStatus(id, 'Responded', 'Sample staff response: the access concern has been reviewed.'), reference);
+    await otherTab.evaluate(id => window.MutiaraChatFeedback.updateStatus(id, 'Responded', 'Sample staff response: the access concern has been reviewed.'), reference);
     await page.waitForFunction(() => document.querySelector('#report-status').textContent === 'Responded');
     check('A staff API update refreshes an already open tracking tab', (await page.locator('#report-response-text').innerText()).includes('access concern has been reviewed') && await page.locator('#report-history li').count() === 2);
     await otherTab.close();
-    const maliciousRef = await page.evaluate(title => window.MutiaraConnectFeedback.submit({ title, category: 'Noise', area: 'gelugor', location: 'Sample test location', description: 'This sample contains <script>window.injected=true</script> and must appear as plain text, without executing any markup.' }).id, malicious);
+    const maliciousRef = await page.evaluate(title => window.MutiaraChatFeedback.submit({ title, category: 'Noise', area: 'gelugor', location: 'Sample test location', description: 'This sample contains <script>window.injected=true</script> and must appear as plain text, without executing any markup.' }).id, malicious);
     await page.goto(`${base}/feedback-success.html?reference=${maliciousRef}`);
     check('User-entered HTML is shown as plain text on a receipt', (await page.locator('#receipt-title').innerText()) === malicious && await page.locator('#receipt-title img').count() === 0 && await page.evaluate(() => !window.injected));
     await page.locator('#receipt-track').click();
@@ -158,10 +158,10 @@ async function screenshot(page, name) {
     const damagedContext = await browser.newContext();
     const damaged = await damagedContext.newPage();
     await damaged.goto(`${base}/feedback.html`);
-    await damaged.evaluate(() => localStorage.setItem(window.MutiaraConnectFeedback.STORAGE_KEY, '{broken json'));
+    await damaged.evaluate(() => localStorage.setItem(window.MutiaraChatFeedback.STORAGE_KEY, '{broken json'));
     await fill(damaged);
     await damaged.locator('#submit-feedback').click();
-    check('Unreadable saved data is not silently overwritten', await damaged.evaluate(() => localStorage.getItem(window.MutiaraConnectFeedback.STORAGE_KEY) === '{broken json') && await damaged.locator('#feedback-errors').isVisible());
+    check('Unreadable saved data is not silently overwritten', await damaged.evaluate(() => localStorage.getItem(window.MutiaraChatFeedback.STORAGE_KEY) === '{broken json') && await damaged.locator('#feedback-errors').isVisible());
     await damagedContext.close();
     const fileContext = await browser.newContext();
     const filePage = await fileContext.newPage();

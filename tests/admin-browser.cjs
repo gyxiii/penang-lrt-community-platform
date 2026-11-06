@@ -77,7 +77,7 @@ async function screenshot(page, name) {
       && await page.locator('#ad-count-responded').innerText() === '2'
       && await page.locator('#ad-count-progress').innerText() === '0');
     check('The shared model stores one appended history entry with the exact text', await page.evaluate(() => {
-      const data = JSON.parse(localStorage.getItem(window.MutiaraConnectFeedback.STORAGE_KEY));
+      const data = JSON.parse(localStorage.getItem(window.MutiaraChatFeedback.STORAGE_KEY));
       const record = data.reports.find(item => item.id === 'MC-FB-DEMO-002');
       return record.status === 'Responded' && record.history.length === 3 && record.history.at(-1).note.includes('<img src=x');
     }));

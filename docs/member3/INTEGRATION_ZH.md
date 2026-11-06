@@ -31,10 +31,10 @@ Chrome／Edge 同源页面使用同一存储。本轮还在 Microsoft Edge 验�
 
 ## 后台接入约定
 
-后台页按顺序引入 `js/feedback-store.js`，通过 `window.MutiaraConnectFeedback` 读写；不要直接维护另一套反馈数据。仅同一浏览器、同一来源内共享数据，不要求后台同学采用某个框架。
+后台页按顺序引入 `js/feedback-store.js`，通过 `window.MutiaraChatFeedback` 读写；不要直接维护另一套反馈数据。仅同一浏览器、同一来源内共享数据，不要求后台同学采用某个框架。
 
 ```js
-const feedback = window.MutiaraConnectFeedback;
+const feedback = window.MutiaraChatFeedback;
 const reports = feedback.list();
 const report = feedback.find('MC-FB-DEMO-002');
 feedback.updateStatus(report.id, 'Responded', 'Sample response: the access concern has been reviewed.');
@@ -65,11 +65,11 @@ feedback.updateStatus(report.id, 'Responded', 'Sample response: the access conce
   status: 'Submitted',
   createdAt: 'ISO 8601 timestamp',
   photo: null, // Or { name, dataUrl } for a validated image.
-  history: [{ status: 'Submitted', at: 'ISO 8601 timestamp', note: '...', actor: 'MutiaraConnect' }]
+  history: [{ status: 'Submitted', at: 'ISO 8601 timestamp', note: '...', actor: 'MutiaraChat' }]
 }
 ```
 
-存储键是 `mutiaraconnect.feedback.v1`，内容为 `{ version: 1, reports: [...] }`。时间存储为 ISO 字符串，界面统一按 Asia/Kuala_Lumpur 显示并标 MYT。保存会触发当前页面的 `mutiaraconnect:feedback-changed` 事件；其他标签页通过浏览器 storage 事件刷新已显示的查询结果。
+存储键是 `mutiarachat.feedback.v1`，内容为 `{ version: 1, reports: [...] }`。时间存储为 ISO 字符串，界面统一按 Asia/Kuala_Lumpur 显示并标 MYT。保存会触发当前页面的 `mutiarachat:feedback-changed` 事件；其他标签页通过浏览器 storage 事件刷新已显示的查询结果。
 
 不要把此存储当作安全数据库，或在演示中输入真实个人信息。清除网站存储会删除本机新建的反馈；三个内置示例来自代码，仍可用于演示。图片占用浏览器存储，空间不足时会阻止提交、保留表单内容并给出重试提示，不会跳转到成功回执。无法读取的旧数据不会被静默覆盖。
 

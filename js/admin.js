@@ -4,7 +4,7 @@
 (() => {
   'use strict';
 
-  const store = window.MutiaraConnectFeedback;
+  const store = window.MutiaraChatFeedback;
   const $ = id => document.getElementById(id);
   const safe = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
   const dateLabel = value => new Intl.DateTimeFormat('en-MY', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Asia/Kuala_Lumpur' }).format(new Date(value)) + ' MYT';
@@ -342,7 +342,7 @@
     window.addEventListener('storage', event => {
       if (event.key === store.STORAGE_KEY) { refresh(false); renderAnnouncements(); }
     });
-    window.addEventListener('mutiaraconnect:feedback-changed', () => {
+    window.addEventListener('mutiarachat:feedback-changed', () => {
       if (!state.saving) refresh(false);
     });
   }

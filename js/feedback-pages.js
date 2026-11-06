@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const store = window.MutiaraConnectFeedback;
+  const store = window.MutiaraChatFeedback;
   const $ = id => document.getElementById(id);
   const text = (id, value) => { $(id).textContent = value; };
   const safe = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
@@ -189,7 +189,7 @@
     const requested = new URLSearchParams(location.search).get('reference');
     if (requested) { input.value = requested; search(false); }
     window.addEventListener('storage', event => { if (event.key === store.STORAGE_KEY && !$('tracking-result').hidden) search(false); });
-    window.addEventListener('mutiaraconnect:feedback-changed', () => { if (!$('tracking-result').hidden) search(false); });
+    window.addEventListener('mutiarachat:feedback-changed', () => { if (!$('tracking-result').hidden) search(false); });
   }
   document.addEventListener('DOMContentLoaded', () => { setupForm(); setupReceipt(); setupTracking(); });
 })();

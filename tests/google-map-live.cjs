@@ -8,7 +8,7 @@ const output=path.join(root,'docs/member2');
 const suffix=process.env.GOOGLE_LIVE_LABEL==='file'?'-file':'';
 const box={window:{}};
 vm.runInNewContext(fs.readFileSync(path.join(root,'js/google-map-config.js'),'utf8'),box);
-const key=box.window.MutiaraConnectGoogleMapConfig?.apiKey?.trim();
+const key=box.window.MutiaraChatGoogleMapConfig?.apiKey?.trim();
 if(!key){console.log(JSON.stringify({configured:false}));process.exit(2);}
 const sanitize=text=>String(text).split(key).join('[REDACTED]');
 const checks=[];

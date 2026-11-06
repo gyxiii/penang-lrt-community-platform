@@ -3,13 +3,13 @@
   const api=factory();
   if(typeof module==='object'&&module.exports)module.exports=api;
   else{
-    root.MutiaraConnectLocations=api;
+    root.MutiaraChatLocations=api;
     let storage;try{storage=root.localStorage;}catch{}
-    root.MutiaraConnectLocationStore=api.createStore(storage,root.location);
+    root.MutiaraChatLocationStore=api.createStore(storage,root.location);
   }
 })(typeof window==='undefined'?globalThis:window,()=>{
   'use strict';
-  const KEY='mutiaraconnect.locations.v1';
+  const KEY='mutiarachat.locations.v1';
   const TYPES=Object.freeze(['Road access','Pedestrian access','Construction schedule','General update']);
   const BOUNDS=Object.freeze({south:5.255,north:5.46,west:100.19,east:100.435});
   const MAX=100;

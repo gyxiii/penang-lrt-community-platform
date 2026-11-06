@@ -6,7 +6,7 @@ Target duration: about three minutes, including pauses for clicks. Start at the 
 
 **Action:** Open index.html and choose Impact Map.
 
-My part covers the Construction Impact Map and the use case and class diagrams. The map extends our existing MutiaraConnect website and reuses the same announcements and navigation. With my local configuration and an internet connection, Google Maps opens inside the page.
+My part covers the Construction Impact Map and the use case and class diagrams. The map extends our existing MutiaraChat website and reuses the same announcements and navigation. With my local configuration and an internet connection, Google Maps opens inside the page.
 
 ## 0:20 to 0:55  Show the locations and map views
 

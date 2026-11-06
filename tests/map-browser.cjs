@@ -12,7 +12,7 @@ const base=(process.env.BASE_URL||'http://127.0.0.1:8332').replace(/\/$/,'');
 const checks=[];
 function check(label,condition){assert.ok(condition,label);checks.push({label,result:'PASS'});}
 async function schematicOnly(context){
- await context.route('**/js/google-map-config.js',route=>route.fulfill({contentType:'application/javascript',body:"window.MutiaraConnectGoogleMapConfig={apiKey:'',preferGoogle:false};"}));
+ await context.route('**/js/google-map-config.js',route=>route.fulfill({contentType:'application/javascript',body:"window.MutiaraChatGoogleMapConfig={apiKey:'',preferGoogle:false};"}));
 }
 const selectedMarkerUncovered=page=>page.evaluate(()=>{
  const marker=document.querySelector('.mc-map-pin.selected');const detail=document.querySelector('#map-detail');
@@ -33,7 +33,7 @@ const selectedMarkerUncovered=page=>page.evaluate(()=>{
   await page.waitForSelector('#home-announcements .notice-card');
   check('Existing home page still renders its three announcement cards',await page.locator('#home-announcements .notice-card').count()===3);
   await page.locator('.feature-card[href="map.html"]').click();await page.waitForURL('**/map.html');await page.waitForSelector('.mc-map-pin');
-  check('Existing homepage feature opens the integrated MutiaraConnect map',(await page.title()).includes('MutiaraConnect')&&await page.locator('.brand strong').innerText()==='MutiaraConnect');
+  check('Existing homepage feature opens the integrated MutiaraChat map',(await page.title()).includes('MutiaraChat')&&await page.locator('.brand strong').innerText()==='MutiaraChat');
   check('Four shared notices map to three distinct sample locations',await page.locator('.mc-map-card').count()===3&&await page.locator('.mc-map-pin').count()===3&&(await page.locator('#map-result-count').innerText())==='3 sample locations · 4 linked notices');
   await page.locator('.leaflet-image-layer').evaluate(i=>i.decode());
   check('Local schematic image loads without remote assets',await page.locator('.leaflet-image-layer').evaluate(i=>i.naturalWidth===1400));
@@ -71,7 +71,7 @@ const selectedMarkerUncovered=page=>page.evaluate(()=>{
   await page.keyboard.press('Escape');check('Help closes with Escape',!await page.locator('#map-help').isVisible());
   for(const id of ['MC-DEMO-001','MC-DEMO-002','MC-DEMO-003','MC-DEMO-004']){
    await page.goto(`${base}/announcement-detail.html?id=${id}`);await page.waitForSelector('#announcement-detail h1');
-   const notice=await page.evaluate(id=>window.MutiaraConnectData.announcements.find(n=>n.id===id),id);
+   const notice=await page.evaluate(id=>window.MutiaraChatData.announcements.find(n=>n.id===id),id);
    check(`${id}: original detail page now links to its map selection`,await page.locator('#view-impact-map').getAttribute('href')===`map.html?notice=${id}`);
    await page.locator('#view-impact-map').click();await page.waitForURL(`**/map.html?notice=${id}`);await page.waitForSelector('#map-read-notice');
    const detail=await page.locator('#map-detail').innerText();

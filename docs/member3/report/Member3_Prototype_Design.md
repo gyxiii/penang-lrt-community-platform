@@ -1,6 +1,6 @@
-# MutiaraConnect Prototype Design
+# MutiaraChat Prototype Design
 
-The MutiaraConnect interface connects construction information with a structured feedback process. Shared navigation provides access to announcements, the impact map, feedback submission and tracking. Teal actions, consistent cards and clear headings make these functions recognisable across desktop and mobile layouts. The public pages are interactive front-end screens; the staff dashboard is a separate design prototype.
+The MutiaraChat interface connects construction information with a structured feedback process. Shared navigation provides access to announcements, the impact map, feedback submission and tracking. Teal actions, consistent cards and clear headings make these functions recognisable across desktop and mobile layouts. The public pages are interactive front-end screens; the staff dashboard is a separate design prototype.
 
 ![Figure PD1](assets/PD1_home_navigation.png)
 
